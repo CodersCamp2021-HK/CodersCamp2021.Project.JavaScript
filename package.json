@@ -1,0 +1,28 @@
+{
+  "name": "coderscamp2021.project.javascript",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodersCamp2021-HK/CodersCamp2021.Project.JavaScript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodersCamp2021-HK/CodersCamp2021.Project.JavaScript/issues"
+  },
+  "homepage": "https://github.com/CodersCamp2021-HK/CodersCamp2021.Project.JavaScript#readme",
+  "engines": {
+    "yarn": "3.1.1",
+    "node": "16.x"
+  },
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.6.14"
+  }
+}
