@@ -16,5 +16,18 @@
     "no-restricted-syntax": "off",
     "no-param-reassign": [2, { "props": false }]
   },
-  "overrides": []
+  "overrides": [
+    {
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-formatting/recommended",
+        "plugin:testing-library/dom"
+      ],
+      "rules": {
+        "testing-library/prefer-screen-queries": 0
+      }
+    }
+  ]
 }
