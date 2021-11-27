@@ -1752,6 +1752,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.177":
+  version: 4.14.177
+  resolution: "@types/lodash@npm:4.14.177"
+  checksum: 00f9eb300ed5219cfbabb3448d4a71744895edad60dcfda9f028c0808a50eb6ad1ca9f673b56a85f85668a4ea54b9870643625468a747039c435643e52253a75
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 16.11.10
   resolution: "@types/node@npm:16.11.10"
@@ -2488,6 +2495,7 @@ __metadata:
     "@testing-library/dom": ^8.11.1
     "@testing-library/jest-dom": ^5.15.1
     "@testing-library/user-event": ^13.5.0
+    "@types/lodash": ^4.14.177
     babel-jest: ^27.3.1
     babel-loader: ^8.2.3
     eslint: ^8.3.0
@@ -2501,6 +2509,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     jest: ^27.3.1
     jest-transform-stub: ^2.0.0
+    lodash: ^4.17.21
     prettier: ^2.5.0
     vite: ^2.6.14
   languageName: unknown
@@ -4973,7 +4982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
