@@ -1,9 +1,7 @@
 import './public/style.css';
-import { html } from './shared';
+import { pages } from './pages';
+import { PageRouter } from './shared';
 
 const root = document.querySelector('#app');
-const element = html`
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
-root.appendChild(element);
+const pageRouter = new PageRouter(pages, root);
+pageRouter.goto({ page: 'home' });
