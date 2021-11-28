@@ -1,0 +1,69 @@
+name: Code Check
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**/*.md"
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: "Build and test application"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Run tests with coverage
+        run: yarn test --coverage --colors
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v2
+        with:
+          directory: coverage
+          verbose: true
+
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-dist
+          path: ./dist
+
+  deploy-on-github-pages:
+    name: "Deploy app to GitHub Pages from main branch source code"
+    if: github.ref == 'refs/heads/main'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: app-dist
+          path: ./dist
+
+      - name: Deploy app to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.7.0-6
+        if: ${{ github.event_name != 'pull_request' && always() }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: "./dist"
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          force_orphan: true
+          keep_files: false

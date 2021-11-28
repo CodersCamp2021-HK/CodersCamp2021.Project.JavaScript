@@ -22,7 +22,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "jest",
-    "test:dev": "jest --watch --runInBand"
+    "test:dev": "jest --watch --runInBand",
+    "lint": "yarn eslint ./src/**/*.js"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
