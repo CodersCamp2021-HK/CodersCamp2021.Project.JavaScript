@@ -48,7 +48,7 @@ jobs:
   deploy-on-github-pages:
     name: "Deploy app to GitHub Pages from main branch source code"
     if: github.ref == 'refs/heads/main'
-    needs: build
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifact
