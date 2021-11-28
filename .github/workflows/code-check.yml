@@ -25,7 +25,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build
-        run: yarn build
+        run: yarn build --base=/CodersCamp2021.Project.JavaScript/
 
       - name: Lint
         run: yarn lint
