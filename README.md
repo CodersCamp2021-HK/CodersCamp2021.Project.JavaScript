@@ -2,3 +2,4 @@
 Hubert Kawałek
 Tomasz Chojnacki
 Marta Mejer
+Kamil Dudek
