@@ -1,6 +1,7 @@
 # CodersCamp2021.Project.JavaScript
 
-Justyna Skrajna
 Hubert Kawałek
 Tomasz Chojnacki
+Marta Mejer
 Kamil Dudek
+Justyna Skrajna
