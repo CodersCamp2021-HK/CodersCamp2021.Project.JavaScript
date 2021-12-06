@@ -54,18 +54,27 @@ const fetchResourceList = async (endpoint, pageCount) => {
 
   const pages = await Promise.all(urls.map((url) => fetch(url).then((resp) => resp.json())));
 
-  return pages.flatMap((page) => page.results);
+  return pages.flatMap((page) => {
+    if (page.error) {
+      return [];
+    }
+    return page.results;
+  });
 };
 
 /**
  * @param {ApiEndpoint} endpoint
  * @param {number} id
- * @returns {Promise<any>}
+ * @returns {Promise<any?>}
  */
 const fetchResourceWithId = async (endpoint, id) => {
   const url = `${API_BASE_URL + endpoint}/${id}`;
 
   const data = await fetch(url).then((resp) => resp.json());
+
+  if (data.error) {
+    return null;
+  }
 
   return data;
 };
@@ -90,18 +99,18 @@ export const fetchEpisodes = (pageCount = 1) => fetchResourceList('/episode', pa
 
 /**
  * @param {number} id
- * @returns {Promise<ApiCharacter>}
+ * @returns {Promise<ApiCharacter?>}
  */
 export const fetchCharacterWithId = (id) => fetchResourceWithId('/character', id);
 
 /**
  * @param {number} id
- * @returns {Promise<ApiLocation>}
+ * @returns {Promise<ApiLocation?>}
  */
 export const fetchLocationWithId = (id) => fetchResourceWithId('/location', id);
 
 /**
  * @param {number} id
- * @returns {Promise<ApiEpisode>}
+ * @returns {Promise<ApiEpisode?>}
  */
 export const fetchEpisodeWithId = (id) => fetchResourceWithId('/episode', id);
