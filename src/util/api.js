@@ -45,6 +45,12 @@ const API_BASE_URL = 'https://rickandmortyapi.com/api';
  */
 
 /**
+ * @param {string} url
+ * @returns {Promise<any>}
+ */
+const cachedJSONFetch = (url) => fetch(url, { cache: 'force-cache' }).then((resp) => resp.json());
+
+/**
  * @param {ApiEndpoint} endpoint
  * @param {number} pageCount
  * @returns {Promise<any[]>}
@@ -52,7 +58,7 @@ const API_BASE_URL = 'https://rickandmortyapi.com/api';
 const fetchResourceList = async (endpoint, pageCount) => {
   const urls = _.range(1, 1 + pageCount).map((i) => `${API_BASE_URL + endpoint}?page=${i}`);
 
-  const pages = await Promise.all(urls.map((url) => fetch(url).then((resp) => resp.json())));
+  const pages = await Promise.all(urls.map(cachedJSONFetch));
 
   return pages.flatMap((page) => {
     if (page.error) {
@@ -70,7 +76,7 @@ const fetchResourceList = async (endpoint, pageCount) => {
 const fetchResourceWithId = async (endpoint, id) => {
   const url = `${API_BASE_URL + endpoint}/${id}`;
 
-  const data = await fetch(url).then((resp) => resp.json());
+  const data = await cachedJSONFetch(url);
 
   if (data.error) {
     return null;
