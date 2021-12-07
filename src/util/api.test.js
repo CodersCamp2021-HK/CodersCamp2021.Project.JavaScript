@@ -249,10 +249,10 @@ describe('API fetching tests', () => {
     const id = 20;
 
     // When
-    const locationData = await API.fetchCharacterWithId(id);
+    const characterData = await API.fetchCharacterWithId(id);
 
     // Then
-    expect(locationData.name).toBe('Ants in my Eyes Johnson');
+    expect(characterData.name).toBe('Ants in my Eyes Johnson');
   });
 
   it('fetches a location given an id', async () => {
