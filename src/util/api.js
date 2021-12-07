@@ -89,19 +89,19 @@ const fetchResourceWithId = async (endpoint, id) => {
  * @param {number} pageCount
  * @returns {Promise<ApiCharacter[]>}
  */
-export const fetchCharacters = (pageCount = 1) => fetchResourceList('/character', pageCount);
+export const fetchCharacters = (pageCount) => fetchResourceList('/character', pageCount);
 
 /**
  * @param {number} pageCount
  * @returns {Promise<ApiLocation[]>}
  */
-export const fetchLocations = (pageCount = 1) => fetchResourceList('/location', pageCount);
+export const fetchLocations = (pageCount) => fetchResourceList('/location', pageCount);
 
 /**
  * @param {number} pageCount
  * @returns {Promise<ApiEpisode[]>}
  */
-export const fetchEpisodes = (pageCount = 1) => fetchResourceList('/episode', pageCount);
+export const fetchEpisodes = (pageCount) => fetchResourceList('/episode', pageCount);
 
 /**
  * @param {number} id
