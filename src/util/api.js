@@ -57,7 +57,6 @@ const cachedJSONFetch = (url) => fetch(url, { cache: 'force-cache' }).then((resp
  */
 const fetchResourceList = async (endpoint, pageCount) => {
   const urls = _.range(1, 1 + pageCount).map((i) => `${API_BASE_URL + endpoint}?page=${i}`);
-
   const pages = await Promise.all(urls.map(cachedJSONFetch));
 
   return pages.flatMap((page) => {
@@ -75,13 +74,11 @@ const fetchResourceList = async (endpoint, pageCount) => {
  */
 const fetchResourceWithId = async (endpoint, id) => {
   const url = `${API_BASE_URL + endpoint}/${id}`;
-
   const data = await cachedJSONFetch(url);
 
   if (data.error) {
     return null;
   }
-
   return data;
 };
 
