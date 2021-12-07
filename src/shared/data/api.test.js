@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import * as API from './api';
 
 /**
@@ -109,12 +113,6 @@ const fetchMock = async (url) => {
 describe('API fetching tests', () => {
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(fetchMock);
-  });
-
-  afterEach(() => {
-    // @ts-ignore
-    global.fetch.mockClear();
-    delete global.fetch;
   });
 
   it('fetches all characters', async () => {

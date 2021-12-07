@@ -11,6 +11,7 @@ const config = {
     '^.+\\.(png|jpg|jpeg|gif|webp|mp4|mp3|svg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  resetMocks: true,
 };
 
 module.exports = config;
