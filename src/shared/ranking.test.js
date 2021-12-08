@@ -28,15 +28,19 @@ test('add user to localStorage, category hard', () => {
 });
 
 test('get users from localStorage, category easy', () => {
-  expect(getRankingByCategory('easy')).toBe('{"category":"easy","userData":[{"username":"Tom","points":21}]}');
+  expect(getRankingByCategory('easy')).toStrictEqual({ category: 'easy', userData: [{ username: 'Tom', points: 21 }] });
 });
 
 test('get users from localStorage, category hard', () => {
-  expect(getRankingByCategory('hard')).toBe(
-    '{"category":"hard","userData":[{"username":"Steve","points":14},{"username":"John","points":28}]}',
-  );
+  expect(getRankingByCategory('hard')).toStrictEqual({
+    category: 'hard',
+    userData: [
+      { points: 14, username: 'Steve' },
+      { points: 28, username: 'John' },
+    ],
+  });
 });
 
 test("ask for category when it doesn't exist", () => {
-  expect(getRankingByCategory('empty')).toBeFalsy();
+  expect(getRankingByCategory('empty')).toStrictEqual({ category: 'empty', userData: [] });
 });
