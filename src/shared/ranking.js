@@ -1,14 +1,14 @@
 /**
  * This function get data from localStorage by category name.
  * @param {string} category
- * Function return [{username: string, points: number}]
+ * @return {object} {"category","userData":[{"username","points"}]}
  */
 export function getRankingByCategory(category) {
   const rankingStorage = window.localStorage.getItem(category);
   if (rankingStorage == null) {
     return false;
   }
-  return rankingStorage;
+  return JSON.parse(JSON.stringify(rankingStorage));
 }
 /**
  * This function add user to ranking in localStorage. Function doesn't support user unique name checker.
