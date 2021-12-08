@@ -4,12 +4,11 @@
  * Function return [{username: string, points: number}]
  */
 export function getRankingByCategory(category) {
-  try {
-    const rankingStorage = window.localStorage.getItem(category);
-    return rankingStorage;
-  } catch (error) {
+  const rankingStorage = window.localStorage.getItem(category);
+  if (rankingStorage == null) {
     return false;
   }
+  return rankingStorage;
 }
 /**
  * This function add user to ranking in localStorage. Function doesn't support user unique name checker.
