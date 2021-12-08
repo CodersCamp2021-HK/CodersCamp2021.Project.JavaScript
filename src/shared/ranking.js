@@ -25,9 +25,10 @@ export function addUserToRanking(username, points, category) {
       userData: [{ username, points }],
     };
     window.localStorage.setItem(category, JSON.stringify(createRankingCategory));
-  } else {
-    const getRankingData = JSON.parse(rankingStorage);
-    getRankingData.userData.push({ username, points });
-    window.localStorage.setItem(category, JSON.stringify(getRankingData));
+    return createRankingCategory;
   }
+  const getRankingData = JSON.parse(rankingStorage);
+  getRankingData.userData.push({ username, points });
+  window.localStorage.setItem(category, JSON.stringify(getRankingData));
+  return getRankingData;
 }
