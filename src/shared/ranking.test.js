@@ -1,5 +1,9 @@
 import { addUserToRanking, getRankingByCategory } from './ranking';
 
+afterAll(() => {
+  localStorage.clear();
+});
+
 test('add first user to localStorage, new category', () => {
   expect(addUserToRanking('Tom', 21, 'character')).toStrictEqual({
     category: 'character',
