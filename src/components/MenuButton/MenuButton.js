@@ -2,25 +2,25 @@ import { html } from '../../shared';
 import styles from './MenuButton.module.css';
 
 /**
- * @param {{onClick: (e: MouseEvent) => void, text: string, variant?: 'normal' | 'outlined', disabled?: boolean }} props
+ * @param {{ text: string, onClick: (e: MouseEvent) => void, variant?: 'normal' | 'outlined', disabled?: boolean }} props
  * @returns {HTMLButtonElement}
  */
-function MenuButton({ onClick, text, variant, disabled }) {
-  const classNamesForStyle = {
-    normal: styles.btnNormal,
-    outlined: styles.btnOutlined,
+function MenuButton({ text, onClick, variant, disabled }) {
+  const classNamesForVariant = {
+    normal: styles.menuButtonNormal,
+    outlined: styles.menuButtonOutlined,
   };
 
-  const btn = html`<button
-    class="${classNamesForStyle[variant ?? 'normal']}"
+  const menuButton = html`<button
+    class="${classNamesForVariant[variant ?? 'normal']}"
     type="button"
     ${disabled ?? false ? ' disabled aria-disabled="true"' : ''}
   >
     ${text}
   </button>`;
-  btn.addEventListener('click', onClick);
+  menuButton.addEventListener('click', onClick);
   // @ts-ignore
-  return btn;
+  return menuButton;
 }
 
 export { MenuButton };
