@@ -1,7 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
 @import './preflight.css';
 
 :root {
+  /* Color styles */
+  --primary-light: rgba(231, 255, 140, 1);
+  --primary-main: rgba(126, 203, 32, 1);
+  --primary-light: rgba(178, 255, 89, 1);
+  --primary-contrast: rgba(0, 0, 0, 1);
+  --secondary-main: rgba(0, 176, 200, 1);
+  --secondary-light: rgba(95, 226, 251, 1);
+  --secondary-dark: rgba(0, 128, 151, 1);
+  --secondary-contrast: rgba(0, 0, 0, 1);
+  --action-active: rgba(0, 0, 0, 0.5400000214576721);
+  --action-hover: rgba(0, 0, 0, 0.03999999910593033);
+  --action-selected: rgba(0, 0, 0, 0.07999999821186066);
+  --action-disabled: rgba(0, 0, 0, 0.25999999046325684);
+  --action-disabled--background: rgba(0, 0, 0, 0.11999999731779099);
+  --action-focus: rgba(0, 0, 0, 0.11999999731779099);
+  --common-dark: rgba(0, 0, 0, 1);
+  --common-white: rgba(255, 255, 255, 1);
+  --text-primary: rgba(0, 0, 0, 0.8700000047683716);
+  --text-secondary: rgba(0, 0, 0, 0.6000000238418579);
+  --text-disabled: rgba(0, 0, 0, 0.3799999952316284);
+
+  /* Text-size styles */
+  /* base size: button-text (32px) */
+  --button-text: 1rem;
+  --header-3: 1.12rem;
+  --text-1: 1rem;
+
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body,
