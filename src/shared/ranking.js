@@ -5,10 +5,7 @@
  */
 export function getRankingByCategory(category) {
   const rankingStorage = JSON.parse(localStorage.getItem(category));
-  if (rankingStorage == null) {
-    return { category, userData: [] };
-  }
-  return rankingStorage;
+  return rankingStorage ?? { category, userData: [] };
 }
 /**
  * This function add user to ranking in localStorage. Function doesn't support user unique name checker.
