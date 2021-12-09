@@ -11,11 +11,7 @@ function MenuButton({ text, onClick, variant = 'normal', disabled = false }) {
     outlined: styles.menuButtonOutlined,
   };
 
-  const menuButton = html`<button
-    class="${classNamesForVariant[variant]}"
-    type="button"
-    ${disabled ? ' disabled aria-disabled="true"' : ''}
-  >
+  const menuButton = html`<button class="${classNamesForVariant[variant]}" type="button" ${disabled ? ' disabled' : ''}>
     ${text}
   </button>`;
   menuButton.addEventListener('click', onClick);
