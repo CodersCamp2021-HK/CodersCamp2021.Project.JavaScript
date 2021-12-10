@@ -1,0 +1,27 @@
+.heading {
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: var(--common-white);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 39rem;
+  margin: 0 -0.9rem;
+}
+
+.wrapper {
+  padding: 0 0.9rem;
+}
+
+.wrapperFullWidth {
+  width: 100%;
+}
+
+.wrapperHalfWidth {
+  width: 50%;
+}
