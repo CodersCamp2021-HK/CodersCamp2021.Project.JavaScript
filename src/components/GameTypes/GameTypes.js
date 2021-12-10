@@ -17,14 +17,14 @@ function GameTypes({ heading, categories, role, layout = 'default' }) {
     const containerButtons = container.querySelectorAll('button');
 
     if (e.target.matches('button')) {
-      [...containerButtons].map((button) => {
+      [...containerButtons].forEach((button) => {
         button.classList.remove('selected');
       });
       e.target.classList.add('selected');
     }
   };
 
-  const createTypesList = (categories) =>
+  const createTypesList = () =>
     categories.map(
       (category) => html`<div class="${styles.wrapper} ${typeStyles[layout]}">
         ${GameTypeButton({
@@ -38,7 +38,7 @@ function GameTypes({ heading, categories, role, layout = 'default' }) {
 
   return html`<div class="${styles.container}" role="${role}">
     <h3 class="${styles.heading}">${heading}</h3>
-    ${createTypesList(categories)}
+    ${createTypesList()}
   </div>`;
 }
 
