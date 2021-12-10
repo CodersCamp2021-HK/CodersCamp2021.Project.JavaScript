@@ -1,0 +1,30 @@
+.menuButton {
+  font-size: var(--button-text);
+  height: 3.25rem;
+  padding: 0.625rem 1.6rem;
+  border-radius: 3.125rem;
+  color: var(--common-white);
+  transition-duration: 0.2s;
+}
+
+.menuButtonNormal {
+  composes: menuButton;
+  background-color: var(--secondary-main);
+}
+
+.menuButtonOutlined {
+  composes: menuButton;
+  border: 0.1875rem solid var(--secondary-main);
+}
+
+.menuButton:hover {
+  background-color: var(--secondary-dark);
+  border-color: transparent;
+}
+
+.menuButton:disabled {
+  color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+  cursor: initial;
+}
