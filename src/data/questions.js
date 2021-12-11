@@ -28,7 +28,11 @@ import _ from 'lodash';
  */
 function generateCharacterQuestion(answersNumber, allCharacters) {
   const character = _.sample(allCharacters);
-  const question = { category: 'character', image: character.image, answers: [{ name: character.name, correct: true }] };
+  const question = {
+    category: 'character',
+    image: character.image,
+    answers: [{ name: character.name, correct: true }],
+  };
   const incorrect = _.sampleSize(
     allCharacters.filter((item) => item.id !== character.id),
     answersNumber - 1,
