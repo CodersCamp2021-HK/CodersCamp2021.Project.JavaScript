@@ -89,7 +89,7 @@ function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allReco
  * @param {number} answersNumber
  * @param {ApiCharacter[]} allCharacters
  * @param {ApiLocation[]|ApiEpisode[]} allRecords
- * @yelds {CharacterQuestion|EpisodeOrLocationQuestion}
+ * @yields {CharacterQuestion|EpisodeOrLocationQuestion}
  */
 export function* generateQuestions(answersNumber, allCharacters, allRecords = null) {
   while (1) {
