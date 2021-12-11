@@ -6,3 +6,5 @@ declare module '*.css' {
     const classNames: ClassNames;
     export default classNames;
 }
+
+declare module '*.png';

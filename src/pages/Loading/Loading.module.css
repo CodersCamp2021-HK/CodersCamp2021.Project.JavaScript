@@ -2,4 +2,52 @@
   min-height: 100vh;
   background: #336f7a url('/src/public/img/tinted-background.jpg');
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  color: var(--common-white);
+}
+
+.header {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.outlinedInfo {
+  min-width: 65%;
+  font-size: var(--button-text);
+  padding: 0.625rem 1.5rem;
+  border: 0.1875rem solid var(--primary-light);
+  border-radius: 3.125rem;
+}
+
+.portalWrapper {
+  width: 50%;
+}
+
+.portal {
+  width: 100%;
+  height: auto;
+  margin: 0.75rem 0;
+  animation: portalSpin 4s linear infinite;
+}
+
+@keyframes portalSpin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .portal {
+    animation: none;
+  }
 }
