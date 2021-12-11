@@ -49,11 +49,9 @@ function generateCharacterQuestion(answersNumber, allCharacters) {
  * @returns {EpisodeOrLocationQuestion} question
  */
 function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords) {
-  const record = _.sample(allRecords);
+  const record = /** @type {ApiLocation|ApiEpisode} */ (_.sample(allRecords));
   // `characters` for Episode, `residents` for Location data
-  // @ts-ignore
-  const characters = record.characters ?? record.residents;
-  // @ts-ignore
+  const characters = 'characters' in record ? record.characters : record.residents;
   const question = { name: record.name, answers: [] };
 
   // Ensuring that there will be no more correct answers than characters in the episode/location
