@@ -50,9 +50,16 @@ function generateCharacterQuestion(answersNumber, allCharacters) {
  */
 function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords) {
   const record = /** @type {ApiLocation|ApiEpisode} */ (_.sample(allRecords));
-  // `characters` for Episode, `residents` for Location data
-  const characters = 'characters' in record ? record.characters : record.residents;
-  const question = { name: record.name, answers: [] };
+  let characters;
+  let category;
+  if ('characters' in record) {
+    characters = record.characters;
+    category = 'episode';
+  } else {
+    characters = record.residents;
+    category = 'location';
+  }
+  const question = { category, name: record.name, answers: [] };
 
   // Ensuring that there will be no more correct answers than characters in the episode/location
   // and at least one correct answer as long as the character list is not empty
@@ -84,17 +91,41 @@ function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allReco
 }
 
 /**
+ * Generates a question from random category
+ * @param {number} answersNumber
+ * @param {ApiCharacter[]} allCharacters
+ * @param {ApiEpisode[]} allEpisodes
+ * @param {ApiLocation[]} allLocations
+ * @returns {CharacterQuestion|EpisodeOrLocationQuestion}
+ */
+function generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLocations) {
+  const category = _.sample(['character', 'episode', 'location']);
+  if (category === 'character') return generateCharacterQuestion(answersNumber, allCharacters);
+  if (category === 'episode') return generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allEpisodes);
+  return generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allLocations);
+}
+
+/**
  * Generates questions from one of the three categories (Character, Episode or Location) depending on the arguments passed.
  * When allRecords argument is not passed, it generates question from Characters category.
  * @param {number} answersNumber
  * @param {ApiCharacter[]} allCharacters
- * @param {ApiLocation[]|ApiEpisode[]} allRecords
+ * @param {ApiEpisode[]} allEpisodes
+ * @param {ApiLocation[]} allLocations
  * @yields {CharacterQuestion|EpisodeOrLocationQuestion}
  */
-export function* generateQuestions(answersNumber, allCharacters, allRecords = null) {
+export function* generateQuestions(answersNumber, allCharacters, allEpisodes = null, allLocations = null) {
   while (1) {
-    yield allRecords
-      ? generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords)
-      : generateCharacterQuestion(answersNumber, allCharacters);
+    if (allEpisodes) {
+      if (allLocations) {
+        yield generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLocations);
+      } else {
+        yield generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allEpisodes);
+      }
+    } else if (allLocations) {
+      yield generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allLocations);
+    } else {
+      yield generateCharacterQuestion(answersNumber, allCharacters);
+    }
   }
 }
