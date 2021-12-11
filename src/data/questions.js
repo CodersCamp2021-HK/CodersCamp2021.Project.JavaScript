@@ -9,41 +9,15 @@ import _ from 'lodash';
  */
 
 /**
- * @typedef {{
- *  id: number,
- *  name: string,
- *  url: string,
- *  created: string,
- * }} ApiEntry
+ * @typedef {import('./api').ApiCharacter} ApiCharacter
  */
 
 /**
- * @typedef {ApiEntry & {
- *   status: 'Alive' | 'Dead' | 'unknown',
- *   species: string,
- *   type: string,
- *   gender: 'Female' | 'Male' | 'Genderless' | 'unknown',
- *   origin: { name: string, url: string },
- *   location: { name: string, url: string },
- *   image: string,
- *   episode: string[],
- * }} ApiCharacter
+ * @typedef {import('./api').ApiLocation} ApiLocation
  */
 
 /**
- * @typedef {ApiEntry & {
- *  type: string,
- *  dimension: string,
- *  residents: string[],
- * }} ApiLocation
- */
-
-/**
- * @typedef {ApiEntry & {
- *  air_date: string,
- *  episode: string,
- *  characters: string[],
- * }} ApiEpisode
+ * @typedef {import('./api').ApiEpisode} ApiEpisode
  */
 
 /**
