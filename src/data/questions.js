@@ -59,8 +59,8 @@ function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allReco
   let correctAnswersNumber;
   if (characters.length === 0) correctAnswersNumber = 0;
   else {
-    const maxCorrectAnswersNumber = characters.length < answersNumber ? characters.length : answersNumber;
-    correctAnswersNumber = Math.floor(Math.random() * maxCorrectAnswersNumber) + 1;
+    const maxCorrectAnswersNumber = Math.min(characters.length, answersNumber);
+    correctAnswersNumber = _.random(1, maxCorrectAnswersNumber);
   }
 
   const correct = _.sampleSize(characters, correctAnswersNumber);
