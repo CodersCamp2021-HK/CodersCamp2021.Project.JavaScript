@@ -3,17 +3,17 @@ import { GameTypeButton } from '../GameTypeButton';
 import styles from './GameTypes.module.css';
 
 /**
- * @param {{heading: string, categories: string[], role: string, layout?: 'default' | 'halfWidth' }} props
+ * @param {{heading: string, categories: string[], type: string, layout?: 'default' | 'halfWidth' }} props
  */
 
-function GameTypes({ heading, categories, role, layout = 'default' }) {
+function GameTypes({ heading, categories, type, layout = 'default' }) {
   const typeStyles = {
     default: styles.wrapperFullWidth,
     halfWidth: styles.wrapperHalfWidth,
   };
 
   const selectedTypes = (e) => {
-    const container = e.target.closest('[role]');
+    const container = e.target.closest('[data-quiz-type]');
     const containerButtons = container.querySelectorAll('button');
 
     if (e.target.matches('button')) {
@@ -36,7 +36,7 @@ function GameTypes({ heading, categories, role, layout = 'default' }) {
       </div>`,
     );
 
-  return html`<div class="${styles.container}" role="${role}">
+  return html`<div class="${styles.container}" data-quiz-type="${type}">
     <h3 class="${styles.heading}">${heading}</h3>
     ${createTypesList()}
   </div>`;
