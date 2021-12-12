@@ -4,6 +4,7 @@ import styles from './RulesTextBox.module.css';
 /**
  * @param {string} header
  * @param {string} text
+ * @returns {HTMLElement}
  */
 function RulesBox(header, text) {
   const box = html`<div class="${styles.box}">
