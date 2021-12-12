@@ -1,49 +1,23 @@
 import _ from 'lodash';
 
 /**
- * @typedef {{image: string, answers: {name: string, correct: boolean}[]}} CharacterQuestion
+ * @typedef {{category: string, image: string, answers: {name: string, correct: boolean}[]}} CharacterQuestion
  */
 
 /**
- * @typedef {{name: string, answers: {name: string, image: string, correct: boolean}[]}} EpisodeOrLocationQuestion
+ * @typedef {{category: string, name: string, answers: {name: string, image: string, correct: boolean}[]}} EpisodeOrLocationQuestion
  */
 
 /**
- * @typedef {{
- *  id: number,
- *  name: string,
- *  url: string,
- *  created: string,
- * }} ApiEntry
+ * @typedef {import('./api').ApiCharacter} ApiCharacter
  */
 
 /**
- * @typedef {ApiEntry & {
- *   status: 'Alive' | 'Dead' | 'unknown',
- *   species: string,
- *   type: string,
- *   gender: 'Female' | 'Male' | 'Genderless' | 'unknown',
- *   origin: { name: string, url: string },
- *   location: { name: string, url: string },
- *   image: string,
- *   episode: string[],
- * }} ApiCharacter
+ * @typedef {import('./api').ApiLocation} ApiLocation
  */
 
 /**
- * @typedef {ApiEntry & {
- *  type: string,
- *  dimension: string,
- *  residents: string[],
- * }} ApiLocation
- */
-
-/**
- * @typedef {ApiEntry & {
- *  air_date: string,
- *  episode: string,
- *  characters: string[],
- * }} ApiEpisode
+ * @typedef {import('./api').ApiEpisode} ApiEpisode
  */
 
 /**
@@ -54,7 +28,11 @@ import _ from 'lodash';
  */
 function generateCharacterQuestion(answersNumber, allCharacters) {
   const character = _.sample(allCharacters);
-  const question = { image: character.image, answers: [{ name: character.name, correct: true }] };
+  const question = {
+    category: 'character',
+    image: character.image,
+    answers: [{ name: character.name, correct: true }],
+  };
   const incorrect = _.sampleSize(
     allCharacters.filter((item) => item.id !== character.id),
     answersNumber - 1,
@@ -75,20 +53,25 @@ function generateCharacterQuestion(answersNumber, allCharacters) {
  * @returns {EpisodeOrLocationQuestion} question
  */
 function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords) {
-  const record = _.sample(allRecords);
-  // `characters` for Episode, `residents` for Location data
-  // @ts-ignore
-  const characters = record.characters ?? record.residents;
-  // @ts-ignore
-  const question = { name: record.name, answers: [] };
+  const record = /** @type {ApiLocation|ApiEpisode} */ (_.sample(allRecords));
+  let characters;
+  let category;
+  if ('characters' in record) {
+    characters = record.characters;
+    category = 'episode';
+  } else {
+    characters = record.residents;
+    category = 'location';
+  }
+  const question = { category, name: record.name, answers: [] };
 
   // Ensuring that there will be no more correct answers than characters in the episode/location
   // and at least one correct answer as long as the character list is not empty
   let correctAnswersNumber;
   if (characters.length === 0) correctAnswersNumber = 0;
   else {
-    const maxCorrectAnswersNumber = characters.length < answersNumber ? characters.length : answersNumber;
-    correctAnswersNumber = Math.floor(Math.random() * maxCorrectAnswersNumber) + 1;
+    const maxCorrectAnswersNumber = Math.min(characters.length, answersNumber);
+    correctAnswersNumber = _.random(1, maxCorrectAnswersNumber);
   }
 
   const correct = _.sampleSize(characters, correctAnswersNumber);
@@ -112,17 +95,41 @@ function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allReco
 }
 
 /**
+ * Generates a question from random category
+ * @param {number} answersNumber
+ * @param {ApiCharacter[]} allCharacters
+ * @param {ApiEpisode[]} allEpisodes
+ * @param {ApiLocation[]} allLocations
+ * @returns {CharacterQuestion|EpisodeOrLocationQuestion}
+ */
+function generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLocations) {
+  const category = _.sample(['character', 'episode', 'location']);
+  if (category === 'character') return generateCharacterQuestion(answersNumber, allCharacters);
+  if (category === 'episode') return generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allEpisodes);
+  return generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allLocations);
+}
+
+/**
  * Generates questions from one of the three categories (Character, Episode or Location) depending on the arguments passed.
  * When allRecords argument is not passed, it generates question from Characters category.
  * @param {number} answersNumber
  * @param {ApiCharacter[]} allCharacters
- * @param {ApiLocation[]|ApiEpisode[]} allRecords
- * @yelds {CharacterQuestion|EpisodeOrLocationQuestion}
+ * @param {ApiEpisode[]} allEpisodes
+ * @param {ApiLocation[]} allLocations
+ * @yields {CharacterQuestion|EpisodeOrLocationQuestion}
  */
-export function* generateQuestions(answersNumber, allCharacters, allRecords = null) {
+export function* generateQuestions(answersNumber, allCharacters, allEpisodes = null, allLocations = null) {
   while (1) {
-    yield allRecords
-      ? generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords)
-      : generateCharacterQuestion(answersNumber, allCharacters);
+    if (allEpisodes) {
+      if (allLocations) {
+        yield generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLocations);
+      } else {
+        yield generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allEpisodes);
+      }
+    } else if (allLocations) {
+      yield generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allLocations);
+    } else {
+      yield generateCharacterQuestion(answersNumber, allCharacters);
+    }
   }
 }
