@@ -3,7 +3,7 @@ import { GameTypeButton } from '../GameTypeButton';
 import styles from './GameTypes.module.css';
 
 /**
- * @param {{heading: string, categories: string[], type: string, layout?: 'default' | 'halfWidth' }} props
+ * @param {{heading: string, categories: string[], type: 'categories' | 'levels', layout?: 'default' | 'halfWidth' }} props
  */
 
 function GameTypes({ heading, categories, type, layout = 'default' }) {
