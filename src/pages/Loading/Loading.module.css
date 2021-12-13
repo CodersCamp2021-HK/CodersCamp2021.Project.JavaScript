@@ -12,19 +12,21 @@
   text-align: center;
   gap: 1.5rem;
   color: var(--common-white);
+  font-weight: 600;
 }
 
 .header {
-  font-size: 1.125rem;
+  font-size: var(--header-3);
   font-weight: 800;
 }
 
-.outlinedInfo {
-  min-width: 65%;
+.info {
   font-size: var(--button-text);
   padding: 0.625rem 1.5rem;
-  border: 0.1875rem solid var(--primary-light);
-  border-radius: 3.125rem;
+}
+
+.minorInfo {
+  font-size: 0.9375rem;
 }
 
 .portalWrapper {

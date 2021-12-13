@@ -49,12 +49,12 @@ function Loading({ selectedCategory, selectedDifficulty }) {
   return html`<div class="${styles.wrapper}">
     <section class="${styles.column}">
       <header><h1 class="${styles.header}">Wybrałeś:</h1></header>
-      <div class="${styles.outlinedInfo}">Kategoria: ${categoryDisplayName(selectedCategory)}</div>
+      <div class="${styles.info}">Kategoria: ${categoryDisplayName(selectedCategory)}</div>
       <div class="${styles.portalWrapper}">
         <img class="${styles.portal}" src="${portalImgUrl}" alt="A portal from the show." />
-        <div>ładowanie...</div>
+        <div class="${styles.minorInfo}">ładowanie...</div>
       </div>
-      <div class="${styles.outlinedInfo}">Poziom: ${difficultyDisplayName(selectedDifficulty)}</div>
+      <div class="${styles.info}">Poziom: ${difficultyDisplayName(selectedDifficulty)}</div>
     </section>
   </div>`;
 }
