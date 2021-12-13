@@ -6,11 +6,11 @@ import styles from './RulesTextBox.module.css';
  * @param {string} text
  * @returns {HTMLElement}
  */
-function RulesBox(header, text) {
+function RulesTextBox(header, text) {
   const box = html`<div class="${styles.box}">
     <h3>${header}</h3>
     <p class="${styles.boxRulesText}">${text}</p>
   </div>`;
   return box;
 }
-export { RulesBox };
+export { RulesTextBox };
