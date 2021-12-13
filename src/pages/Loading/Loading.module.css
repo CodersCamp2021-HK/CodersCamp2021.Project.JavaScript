@@ -1,7 +1,5 @@
 .wrapper {
   min-height: 100vh;
-  background: #336f7a url('/src/public/img/tinted-background.jpg');
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
