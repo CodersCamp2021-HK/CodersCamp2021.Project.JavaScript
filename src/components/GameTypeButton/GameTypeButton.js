@@ -6,7 +6,7 @@ import styles from './GameTypeButton.module.css';
  * @returns {HTMLButtonElement}
  */
 function GameTypeButton({ onClick, id, text }) {
-  const btn = html`<button id="${ id }" class="${styles.btn}" type="button">${text}</button>`;
+  const btn = html`<button id="${id}" class="${styles.btn}" type="button">${text}</button>`;
   btn.addEventListener('click', onClick);
   // @ts-ignore
   return btn;

@@ -26,21 +26,19 @@ function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
   };
 
   const createTypesList = () =>
-    categories.map(
-      (category) => GameTypeButton({
-          onClick: (e) => {
-            selectedTypes(e);
-          },
-          text: category.text,
-          id: category.id
-        }),
+    categories.map((category) =>
+      GameTypeButton({
+        onClick: (e) => {
+          selectedTypes(e);
+        },
+        text: category.text,
+        id: category.id,
+      }),
     );
 
   return html`<div>
-  <h3 class="${styles.heading}">${heading}</h3>
-    <div class="${styles.container} ${typeStyles[layout]}">
-      ${createTypesList()}
-    </div>
+    <h3 class="${styles.heading}">${heading}</h3>
+    <div class="${styles.container} ${typeStyles[layout]}">${createTypesList()}</div>
   </div>`;
 }
 
