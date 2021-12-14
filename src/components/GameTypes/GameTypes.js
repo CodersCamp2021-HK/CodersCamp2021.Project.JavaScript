@@ -3,42 +3,44 @@ import { GameTypeButton } from '../GameTypeButton';
 import styles from './GameTypes.module.css';
 
 /**
- * @param {{heading: string, categories: string[], type: 'categories' | 'levels', layout?: 'default' | 'halfWidth' }} props
+ * @param {{onSelect: (e: MouseEvent) => void, heading: string, categories: object[], layout?: 'default' | 'halfWidth' }} props
  */
 
-function GameTypes({ heading, categories, type, layout = 'default' }) {
+function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
   const typeStyles = {
-    default: styles.wrapperFullWidth,
-    halfWidth: styles.wrapperHalfWidth,
+    default: styles.containerFullWidth,
+    halfWidth: styles.containerHalfWidth,
   };
 
   const selectedTypes = (e) => {
-    const container = e.target.closest('[data-quiz-type]');
+    const container = e.target.parentElement;
     const containerButtons = container.querySelectorAll('button');
 
     if (e.target.matches('button')) {
       [...containerButtons].forEach((button) => {
-        button.classList.remove('selected');
+        button.classList.remove(styles.selectedType);
       });
-      e.target.classList.add('selected');
+      e.target.classList.add(styles.selectedType);
+      onSelect(e.target);
     }
   };
 
   const createTypesList = () =>
     categories.map(
-      (category) => html`<div class="${styles.wrapper} ${typeStyles[layout]}">
-        ${GameTypeButton({
+      (category) => GameTypeButton({
           onClick: (e) => {
             selectedTypes(e);
           },
-          text: category,
-        })}
-      </div>`,
+          text: category.text,
+          id: category.id
+        }),
     );
 
-  return html`<div class="${styles.container}" data-quiz-type="${type}">
-    <h3 class="${styles.heading}">${heading}</h3>
-    ${createTypesList()}
+  return html`<div>
+  <h3 class="${styles.heading}">${heading}</h3>
+    <div class="${styles.container} ${typeStyles[layout]}">
+      ${createTypesList()}
+    </div>
   </div>`;
 }
 

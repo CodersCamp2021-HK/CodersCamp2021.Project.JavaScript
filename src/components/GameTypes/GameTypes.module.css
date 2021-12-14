@@ -8,20 +8,22 @@
 }
 
 .container {
+  width: 39rem;
+  gap: 20px;
+}
+
+.containerFullWidth {
   display: flex;
   flex-wrap: wrap;
-  max-width: 39rem;
-  margin: 0 -0.9rem;
 }
 
-.wrapper {
-  padding: 0 0.9rem;
+.containerHalfWidth {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.wrapperFullWidth {
-  width: 100%;
-}
-
-.wrapperHalfWidth {
-  width: 50%;
+.selectedType {
+  background-color: var(--primary-light);
+  border: 6px solid var(--primary-light);
+  transition: var(--default-transition);
 }
