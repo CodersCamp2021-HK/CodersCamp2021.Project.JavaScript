@@ -3,7 +3,7 @@ import { GameTypeButton } from '../GameTypeButton';
 import styles from './GameTypes.module.css';
 
 /**
- * @param {{onSelect: (buttonElement: object) => void, heading: string, categories: { text: string, id: string }[], layout?: 'default' | 'halfWidth' }} props
+ * @param {{onSelect: (buttonElement: HTMLButtonElement) => void, heading: string, categories: { text: string, id: string }[], layout?: 'default' | 'halfWidth' }} props
  */
 
 function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
