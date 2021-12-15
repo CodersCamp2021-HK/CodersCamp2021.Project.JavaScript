@@ -17,36 +17,22 @@ import { generateQuestions } from '../../data/questions';
  */
 
 /**
- * @param {QuizCategory} category
- * @returns {string}
+ * @type {Readonly<Record<QuizCategory, String>>}
  */
-const categoryDisplayName = (category) => {
-  switch (category) {
-    case 'character':
-      return 'bohaterowie';
-    case 'location':
-      return 'bohaterowie z lokacji';
-    case 'episode':
-      return 'bohaterowie odcinka';
-    default:
-      return '';
-  }
-};
+const categoryDisplayNames = Object.freeze({
+  character: 'bohaterowie',
+  location: 'bohaterowie z lokacji',
+  episode: 'bohaterowie odcinka',
+  mixed: 'mieszane',
+});
 
 /**
- * @param {QuizDifficulty} difficulty
- * @returns {string}
+ * @type {Readonly<Record<QuizDifficulty, String>>}
  */
-const difficultyDisplayName = (difficulty) => {
-  switch (difficulty) {
-    case 'easy':
-      return 'łatwy';
-    case 'hard':
-      return 'trudny';
-    default:
-      return '';
-  }
-};
+const difficultyDisplayNames = Object.freeze({
+  easy: 'łatwy',
+  hard: 'trudny',
+});
 
 /**
  * Returns a generator of questions, that can be passed to the quiz screen.
@@ -89,12 +75,12 @@ function Loading({ router, selectedCategory, selectedDifficulty }) {
   return html`<div class="${styles.wrapper}">
     <section class="${styles.column}">
       <header><h1 class="${styles.header}">Wybrałeś:</h1></header>
-      <div class="${styles.info}">Kategoria: ${categoryDisplayName(selectedCategory)}</div>
+      <div class="${styles.info}">Kategoria: ${categoryDisplayNames[selectedCategory]}</div>
       <div class="${styles.portalWrapper}">
         <img class="${styles.portal}" src="${portalImgUrl}" alt="A portal from the show." />
         <div class="${styles.minorInfo}">ładowanie...</div>
       </div>
-      <div class="${styles.info}">Poziom: ${difficultyDisplayName(selectedDifficulty)}</div>
+      <div class="${styles.info}">Poziom: ${difficultyDisplayNames[selectedDifficulty]}</div>
     </section>
   </div>`;
 }
