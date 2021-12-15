@@ -1,43 +1,39 @@
 import userEvent from '@testing-library/user-event';
 import { Button } from './Button';
 
-function ButtonFixture(overrides) {
-  const mocks = {
-    onClick: jest.fn(),
-  };
-  const props = {
-    text: 'Click',
-  };
-  const sut = Button({ ...mocks, ...props, ...overrides });
-  return { mocks, props, sut };
-}
-
-describe('Button tests', () => {
-  it('should have type="button', () => {
+describe('MenuButton tests', () => {
+  it('should render text', () => {
     // Given
-    const { sut } = ButtonFixture();
+    const text = 'Test';
+    const menuButton = Button({ text, onClick: () => {} });
 
     // Then
-    expect(sut).toHaveAttribute('type', 'button');
+    expect(menuButton.textContent.trim()).toBe(text);
   });
 
-  it('should work with text props', () => {
+  it('should handle clicks', () => {
     // Given
-    const { sut, props } = ButtonFixture();
-
-    // Then
-    expect(sut.textContent).toBe(props.text);
-  });
-
-  it('should work with onClick props', () => {
-    // Given
-    const { sut, mocks } = ButtonFixture();
-    expect(mocks.onClick).toHaveBeenCalledTimes(0);
+    const onClick = jest.fn();
+    const menuButton = Button({ text: 'Click!', onClick, variant: 'outlined' });
+    expect(onClick).toHaveBeenCalledTimes(0);
 
     // When
-    userEvent.click(sut);
+    userEvent.click(menuButton);
 
     // Then
-    expect(mocks.onClick).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('can be disabled', () => {
+    // Given
+    const onClick = jest.fn();
+    const menuButton = Button({ text: 'Disabled button', onClick, disabled: true });
+
+    // When
+    userEvent.click(menuButton);
+
+    // Then
+    expect(menuButton.disabled).toBe(true);
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 });

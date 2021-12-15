@@ -1,6 +1,7 @@
 import { html } from '../../shared';
-import { GameTypeButton } from '../GameTypeButton';
+// import { GameTypeButton } from '../GameTypeButton';
 import styles from './GameTypes.module.css';
+import { Button } from '../Button';
 
 /**
  * @param {{onSelect: (buttonElement: HTMLButtonElement) => void, heading: string, categories: { text: string, id: string }[], layout?: 'default' | 'halfWidth' }} props
@@ -27,13 +28,15 @@ function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
 
   const createTypesList = () =>
     categories.map((category) =>
-      GameTypeButton({
-        onClick: (e) => {
-          selectedTypes(e);
+      Button(
+        {
+          onClick: (e) => {
+            selectedTypes(e);
+          },
+          text: category.text,
         },
-        text: category.text,
-        id: category.id,
-      }),
+        category.id,
+      ),
     );
 
   return html`<div>
