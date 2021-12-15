@@ -16,6 +16,8 @@ import { generateQuestions } from '../../data/questions';
  * @typedef {Generator<import('../../data/questions').CharacterQuestion | import('../../data/questions').EpisodeOrLocationQuestion, void, unknown>} QuestionGenerator
  */
 
+const FETCH_MIN_DURATION_SECONDS = 3;
+
 /**
  * @type {Readonly<Record<QuizCategory, String>>}
  */
@@ -65,12 +67,32 @@ const fetchQuestions = async (category, difficulty) => {
 };
 
 /**
+ * Makes sure a given `promise` takes at least `seconds` to complete.
+ *
+ * @template T type resolved from the promise
+ * @param {Promise<T>} promise
+ * @param {number} seconds
+ * @returns {Promise<T>} `promise` taking at least `seconds` to resolve
+ */
+const withMinDuration = async (promise, seconds) => {
+  const sleep = new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+
+  const [result] = await Promise.all([promise, sleep]);
+
+  return result;
+};
+
+/**
  * @param { { selectedCategory: QuizCategory, selectedDifficulty: QuizDifficulty } & import('..').RouterProps } props
  */
 function Loading({ router, selectedCategory, selectedDifficulty }) {
-  fetchQuestions(selectedCategory, selectedDifficulty).then((generator) => {
-    router.goto({ page: 'quiz', data: { generator } });
-  });
+  withMinDuration(fetchQuestions(selectedCategory, selectedDifficulty), FETCH_MIN_DURATION_SECONDS).then(
+    (generator) => {
+      router.goto({ page: 'quiz', data: { generator } });
+    },
+  );
 
   return html`<div class="${styles.wrapper}">
     <section class="${styles.column}">
