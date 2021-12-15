@@ -1,0 +1,23 @@
+.btn {
+  border: 6px solid var(--primary-light);
+  border-radius: 50px;
+  width: 100%;
+  height: 70px;
+  color: var(--common-white);
+  font-size: var(--button-text);
+  font-weight: 600;
+  transition: var(--default-transition);
+}
+
+.btn:hover {
+  background-color: var(--primary-main);
+  border: 6px solid var(--primary-main);
+  transition: var(--default-transition);
+}
+
+.btn:active,
+.btn:focus {
+  background-color: var(--primary-light);
+  border: 6px solid var(--primary-light);
+  transition: var(--default-transition);
+}

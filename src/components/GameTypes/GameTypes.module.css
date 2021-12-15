@@ -1,0 +1,29 @@
+.heading {
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: var(--common-white);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  width: 39rem;
+  gap: 20px;
+}
+
+.containerFullWidth {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.containerHalfWidth {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.selectedType {
+  background-color: var(--primary-light);
+  border: 6px solid var(--primary-light);
+  transition: var(--default-transition);
+}
