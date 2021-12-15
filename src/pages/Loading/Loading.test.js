@@ -25,7 +25,7 @@ describe('Loading page tests', () => {
   it('Navigates to quiz page after loading', async () => {
     const { mocks } = LoadingPageFixture({ selectedCategory: 'character', selectedDifficulty: 'hard' });
 
-    await waitFor(() => expect(mocks.router.goto).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mocks.router.goto).toHaveBeenCalledTimes(1), { timeout: 10_000 });
   });
 
   it('Works for locations', () => {
