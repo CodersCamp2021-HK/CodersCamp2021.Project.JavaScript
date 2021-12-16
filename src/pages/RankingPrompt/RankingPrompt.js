@@ -4,8 +4,10 @@ import rickAndMortyLogoUrl from '../../public/img/RickAndMortyLogo.png';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
 /**
+ * @todo add close button, text field, and submit button
+ *
  * @param {{ score: number } & import('..').RouterProps} props
- * @returns
+ * @returns {HTMLElement}
  */
 function RankingPrompt({ score }) {
   return html`<div class="${styles.wrapper}">
