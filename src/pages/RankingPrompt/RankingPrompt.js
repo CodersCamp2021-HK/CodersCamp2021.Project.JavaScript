@@ -1,7 +1,7 @@
 import { html } from '../../shared';
 import styles from './RankingPrompt.module.css';
-import rickAndMortyLogoUrl from '../../images/RickAndMortyLogo.png';
-import charactersCelebrationUrl from '../../public/img/charactersCelebration.png';
+import rickAndMortyLogoUrl from '../../public/img/RickAndMortyLogo.png';
+import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
 /**
  * @param {{ score: number } & import('..').RouterProps} props
