@@ -2,11 +2,10 @@ import { html } from '../../shared';
 import styles from './Button.module.css';
 
 /**
- * @param {{ text: string, onClick: (e: MouseEvent) => void, variant?: 'normal' | 'outlined' | 'nextQuestion' | 'gameMode', disabled?: boolean }} props
- * * @param  {...string} id
+ * @param {{ text: string, onClick: (e: MouseEvent) => void, variant?: 'normal' | 'outlined' | 'nextQuestion' | 'gameMode', disabled?: boolean, id?: string }} props
  * @returns {HTMLButtonElement}
  */
-function Button({ text, onClick, variant = 'normal', disabled = false }, ...id) {
+function Button({ text, onClick, variant = 'normal', disabled = false, id }) {
   const classNamesForVariant = {
     normal: styles.ButtonNormal,
     outlined: styles.ButtonOutlined,
@@ -16,10 +15,10 @@ function Button({ text, onClick, variant = 'normal', disabled = false }, ...id) 
   const showText = variant === 'nextQuestion' ? html`<span>${text} &#8594</span>` : text;
 
   const button = html`<button
-    id="${id}"
     class="${classNamesForVariant[variant]}"
     type="button"
     ${disabled ? ' disabled' : ''}
+    ${id ? `id="${id}"` : ''}
   >
     ${showText}
   </button>`;

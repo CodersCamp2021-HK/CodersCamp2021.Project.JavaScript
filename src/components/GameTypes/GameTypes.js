@@ -28,16 +28,14 @@ function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
 
   const createTypesList = () =>
     categories.map((category) =>
-      Button(
-        {
-          onClick: (e) => {
-            selectedTypes(e);
-          },
-          text: category.text,
-          variant: 'gameMode',
+      Button({
+        onClick: (e) => {
+          selectedTypes(e);
         },
-        category.id,
-      ),
+        text: category.text,
+        variant: 'gameMode',
+        id: category.id,
+      }),
     );
 
   return html`<div>
