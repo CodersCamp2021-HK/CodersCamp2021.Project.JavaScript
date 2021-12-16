@@ -34,6 +34,7 @@ function GameTypes({ onSelect, heading, categories, layout = 'default' }) {
             selectedTypes(e);
           },
           text: category.text,
+          variant: 'gameMode',
         },
         category.id,
       ),
