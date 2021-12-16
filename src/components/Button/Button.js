@@ -11,23 +11,19 @@ function Button({ text, onClick, variant = 'normal', disabled = false }, ...id) 
     normal: styles.ButtonNormal,
     outlined: styles.ButtonOutlined,
     nextQuestion: styles.ButtonNextQuestion,
-    gameMode: styles.ButtonGameType,
+    gameMode: styles.ButtonGameMode,
   };
-  let button;
-  if (variant === 'nextQuestion') {
-    button = html`<button class="${classNamesForVariant[variant]}" type="button" ${disabled ? ' disabled' : ''}>
-      ${text} &raquo
-    </button>`;
-  } else {
-    button = html`<button
-      id="${id}"
-      class="${classNamesForVariant[variant]}"
-      type="button"
-      ${disabled ? ' disabled' : ''}
-    >
-      ${text}
-    </button>`;
-  }
+  const showText = variant === 'nextQuestion' ? html`<span>${text} &#8594</span>` : text;
+
+  const button = html`<button
+    id="${id}"
+    class="${classNamesForVariant[variant]}"
+    type="button"
+    ${disabled ? ' disabled' : ''}
+  >
+    ${showText}
+  </button>`;
+
   button.addEventListener('click', onClick);
   // @ts-ignore
   return button;

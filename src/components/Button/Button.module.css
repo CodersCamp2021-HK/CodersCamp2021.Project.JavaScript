@@ -21,7 +21,7 @@
   background-color: var(--secondary-dark);
 }
 
-.ButtonGameType {
+.ButtonGameMode {
   composes: Button;
   width: 100%;
   height: 4.375rem;
@@ -51,12 +51,12 @@
   border-color: transparent;
 }
 
-.ButtonGameType:hover {
+.ButtonGameMode:hover {
   background-color: var(--primary-main);
   border: 6px solid var(--primary-main);
 }
 
-.ButtonGameType:active {
+.ButtonGameMode:active {
   background-color: var(--primary-light);
   border-color: transparent;
 }
