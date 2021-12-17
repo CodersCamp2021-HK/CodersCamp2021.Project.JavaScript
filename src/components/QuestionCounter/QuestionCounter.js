@@ -20,7 +20,7 @@ function QuestionCounter({ initialCount = 1 } = {}) {
 
   const increment = () => {
     count += 1;
-    countElement.innerText = count.toString();
+    countElement.textContent = count.toString();
   };
 
   const getCount = () => count;
