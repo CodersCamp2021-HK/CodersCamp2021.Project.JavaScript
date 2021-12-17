@@ -4,7 +4,6 @@
 
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
 }
 
 .blobBox > * {
