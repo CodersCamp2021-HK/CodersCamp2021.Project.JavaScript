@@ -7,8 +7,31 @@
 
 .quizContainer {
   background-color: var(--primary-main);
-  border-radius: 100px;
+  border-radius: var(--default-border-radius);
   width: 60.417vw;
   min-width: 320px;
   min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem;
+  position: relative;
+}
+
+.logoWrapper {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-60px);
+}
+
+.headImgWrapper {
+  position: absolute;
+  bottom: 100%;
+  transform: translateY(50px);
+}
+
+.headImgWrapper img {
+  max-width: 100%;
+  height: auto;
 }

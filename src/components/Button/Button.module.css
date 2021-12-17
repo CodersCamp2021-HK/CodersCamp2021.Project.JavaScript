@@ -18,6 +18,7 @@
 .ButtonNextQuestion {
   composes: Button;
   background-color: var(--secondary-dark);
+  text-transform: uppercase;
 }
 
 .ButtonGameMode {
