@@ -29,6 +29,9 @@
   --header-3: 1.12rem;
   --text-1: 1rem;
   --extra-big-text: 1.5625rem;
+  --question-text: 0.875rem;
+
+  --popup-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
