@@ -33,6 +33,7 @@
   --button-text-small: 1rem;
   --extra-big-text: 2.5rem;
 
+  --default-border-radius: 50px;
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
   font-size: 20px;
