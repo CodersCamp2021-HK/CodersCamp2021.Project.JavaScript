@@ -1,0 +1,14 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quizContainer {
+  background-color: var(--primary-main);
+  border-radius: 100px;
+  width: 60.417vw;
+  min-width: 320px;
+  min-height: 400px;
+}
