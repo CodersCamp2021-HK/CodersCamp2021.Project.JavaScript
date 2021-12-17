@@ -1,0 +1,18 @@
+.blobBox {
+  width: 6.125rem;
+  height: 6.125rem;
+
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+}
+
+.blobBox > * {
+  grid-area: 1 / -1 / 1 / -1;
+}
+
+.count {
+  font-size: var(--extra-big-text);
+  font-weight: 800;
+  color: var(--secondary-dark);
+}
