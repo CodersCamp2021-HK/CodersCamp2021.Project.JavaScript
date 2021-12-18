@@ -13,7 +13,7 @@ function Question(questionData) {
     // @ts-ignore
     episode: `Kto grał w odcinku ${questionData.name}?`,
     // @ts-ignore
-    location: `Kto mieszka w miejscu o nazwie ${questionData.name}?`,
+    location: `Które postaci mieszkają w miejscu ${questionData.name}?`,
   };
 
   const answerLetter = {
@@ -59,6 +59,17 @@ function Question(questionData) {
           <p class="${styles.questionText}">${questionText[category]}</p>
           <div class="${styles.answersContainer}">${answers}</div>
         </div>`;
+
+  answers.forEach((answer) => {
+    answer.addEventListener('click', () => {
+      if (category === 'character') {
+        answers.forEach((a) => a.classList.remove(`${styles.selected}`));
+        answer.classList.add(`${styles.selected}`);
+      } else {
+        answer.classList.toggle(`${styles.selected}`);
+      }
+    });
+  });
 
   return question;
 }

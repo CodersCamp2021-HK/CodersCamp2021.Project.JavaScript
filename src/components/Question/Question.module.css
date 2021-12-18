@@ -47,6 +47,10 @@
     align-items: center;
 }
 
+.answer:hover {
+    color: var(--secondary-dark);
+}
+
 .answerItem {
     height: 4rem;
     width: 4rem;
@@ -73,4 +77,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.selected {
+    border: 2px solid var(--secondary-dark);
+    border-radius: 2rem;
 }
