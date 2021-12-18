@@ -16,6 +16,7 @@ function Home({ router }) {
           router.goto({ page: 'todo', data: { id: x } });
         },
         text: `Go to page ${x}`,
+        variant: 'normal',
       }),
     )}
   </div>`;

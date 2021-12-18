@@ -2,14 +2,30 @@ import { html } from '../../shared';
 import styles from './Button.module.css';
 
 /**
- * @param {{onClick: (e: MouseEvent) => void, text: string}} props
+ * @param {{ text: string, onClick: (e: MouseEvent) => void, variant?: 'normal' | 'outlined' | 'nextQuestion' | 'gameMode', disabled?: boolean, id?: string }} props
  * @returns {HTMLButtonElement}
  */
-function Button({ onClick, text }) {
-  const btn = html`<button class="${styles.btn}" type="button">${text}</button>`;
-  btn.addEventListener('click', onClick);
+function Button({ text, onClick, variant = 'normal', disabled = false, id }) {
+  const classNamesForVariant = {
+    normal: styles.ButtonNormal,
+    outlined: styles.ButtonOutlined,
+    nextQuestion: styles.ButtonNextQuestion,
+    gameMode: styles.ButtonGameMode,
+  };
+  const showText = variant === 'nextQuestion' ? html`<span>${text} &#8594</span>` : text;
+
+  const button = html`<button
+    class="${classNamesForVariant[variant]}"
+    type="button"
+    ${disabled ? ' disabled' : ''}
+    ${id ? `id="${id}"` : ''}
+  >
+    ${showText}
+  </button>`;
+
+  button.addEventListener('click', onClick);
   // @ts-ignore
-  return btn;
+  return button;
 }
 
 export { Button };
