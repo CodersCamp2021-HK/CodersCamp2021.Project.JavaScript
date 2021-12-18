@@ -6,9 +6,26 @@ import styles from './Home.module.css';
  * @param {{} & import('..').RouterProps} props
  * @returns
  */
+
 function Home({ router }) {
-  let selectedCategory;
-  let selectedDifficulty;
+  let selectedCategory = null;
+  let selectedDifficulty = null;
+  console.log(selectedDifficulty);
+  console.log(selectedCategory);
+
+  const btnStart = Button({
+    text: 'Rozpocznij quiz',
+    disabled: true,
+    onClick: () => {
+      router.goto({ page: 'loading', data: { selectedCategory, selectedDifficulty } });
+    },
+  });
+
+  const updateButtonDisabledState = () => {
+    const shouldBeDisabled = selectedCategory === null || selectedDifficulty === null;
+    console.log('dziala');
+    btnStart.disabled = shouldBeDisabled;
+  };
 
   return html`<div class="${styles.wrapper}">
     <section>
@@ -24,6 +41,7 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedCategory = selected.id;
             console.log(selectedCategory);
+            updateButtonDisabledState();
           },
           heading: 'Wybierz kategorię',
           categories: [
@@ -40,6 +58,7 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
             console.log(selectedDifficulty);
+            updateButtonDisabledState();
           },
           heading: 'Wybierz poziom',
           categories: [
@@ -50,15 +69,7 @@ function Home({ router }) {
         })}
       </div>
       <div class = ${styles.sth}>
-      ${Button({
-        text: 'Rozpocznij quiz',
-        onClick: () => {
-          console.log(selectedDifficulty);
-          console.log(selectedCategory);
-
-          router.goto({ page: 'loading', data: { selectedCategory, selectedDifficulty } });
-        },
-      })}
+      ${btnStart}
       ${Button({
         text: 'Ranking',
         onClick: () => {},
