@@ -1,0 +1,19 @@
+.blobBox {
+  width: 6.125rem;
+  height: 6.125rem;
+
+  display: grid;
+  place-items: center;
+}
+
+.blobBox > * {
+  grid-area: 1 / -1 / 1 / -1;
+}
+
+.crossIcon {
+  width: 25%;
+}
+
+.crossIcon path {
+  fill: var(--secondary-dark);
+}
