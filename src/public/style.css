@@ -24,17 +24,20 @@
   --text-disabled: rgba(0, 0, 0, 0.3799999952316284);
 
   /* Text-size styles */
-  /* base size: button-text (32px) */
-  --button-text: 1rem;
-  --header-3: 1.12rem;
-  --text-1: 1rem;
-  --question-text: 0.875rem;
+  /* base size: button-text-small (20px) */
+  --button-text: 1.6rem;
+  --header-3: 1.8rem;
+  --text-1: 1.6rem;
+  --question-text: 1.4rem;
+  --question-button: 1.6rem;
+  --button-text-small: 1rem;
+  --extra-big-text: 2.5rem;
 
+  --default-border-radius: 50px;
   --popup-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'Montserrat', sans-serif;
 
   background: var(--common-dark) url('/src/public/img/background.jpg') center center / cover;
