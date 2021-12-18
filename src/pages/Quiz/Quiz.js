@@ -1,5 +1,5 @@
 import { html } from '../../shared';
-import { Button, Logo, BackgroundDecoration } from '../../components';
+import { Button, Logo, BackgroundDecoration, Question } from '../../components';
 import styles from './Quiz.module.css';
 
 /**
@@ -7,13 +7,15 @@ import styles from './Quiz.module.css';
  */
 // eslint-disable-next-line no-unused-vars
 function Quiz(props) {
+  // @ts-ignore
+  const { question } = Question(props.generator.next().value);
   return html`<div class="${styles.wrapper}">
   ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.headImgWrapper}"">
         <img src="../src/public/img/RicksHead.png" alt="Ricks head" />
       </div>
-      <!-- TODO: render here question list component -->
+      ${question}
       ${Button({
         onClick: (e) => {
           e.preventDefault();
