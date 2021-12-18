@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { html } from '../../shared';
 import styles from './BackgroundDecoration.module.css';
 
@@ -7,19 +8,20 @@ import styles from './BackgroundDecoration.module.css';
 function BackgroundDecoration() {
   const url = '../src/public/img/ellipse.svg';
 
+  /**
+   * @param {string} className
+   * @returns {HTMLElement}
+   */
+
+  const backgroundDecorationElement = (className) => {
+    return html`<div class="${className}">
+      <img src="${url}" alt="" />
+    </div>`;
+  };
+
   return html`<div>
-    <div class="${styles.bgDecoration1}">
-      <img src="${url}" alt="" />
-    </div>
-    <div class="${styles.bgDecoration2}">
-      <img src="${url}" alt="" />
-    </div>
-    <div class="${styles.bgDecoration3}">
-      <img src="${url}" alt="" />
-    </div>
-    <div class="${styles.bgDecoration4}">
-      <img src="${url}" alt="" />
-    </div>
+    ${backgroundDecorationElement(styles.bgDecoration1)} ${backgroundDecorationElement(styles.bgDecoration2)}
+    ${backgroundDecorationElement(styles.bgDecoration3)} ${backgroundDecorationElement(styles.bgDecoration4)}
   </div>`;
 }
 
