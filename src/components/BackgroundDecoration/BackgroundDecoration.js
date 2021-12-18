@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { html } from '../../shared';
 import styles from './BackgroundDecoration.module.css';
 
