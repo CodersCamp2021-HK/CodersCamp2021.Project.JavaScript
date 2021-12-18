@@ -2,8 +2,14 @@ import { html } from '../../shared';
 import styles from './Question.module.css';
 
 /**
+ * @typedef {Object} QuestionInstance
+ * @property {HTMLElement} question
+ * @property {() => boolean} isAnswerCorrect Function that returns whether the user has correctly answered a question
+ */
+
+/**
  * @param {(import('../../data/questions').CharacterQuestion|import('../../data/questions').EpisodeOrLocationQuestion)} questionData
- * @returns {HTMLElement} question
+ * @returns {QuestionInstance}
  */
 function Question(questionData) {
   const { category } = questionData;
@@ -71,7 +77,12 @@ function Question(questionData) {
     });
   });
 
-  return question;
+  const isAnswerCorrect = () =>
+    answers.every(
+      (answer) => answer.classList.contains(`${styles.selected}`) === questionData.answers[`${answer.id}`].correct,
+    );
+
+  return { question, isAnswerCorrect };
 }
 
 export { Question };
