@@ -13,9 +13,7 @@ function Home({ router }) {
   let selectedDifficulty = null;
 
   const rulesBox = RulesTextBox(
-    {
-      header: 'Opis poziomu',
-    },
+    'Opis poziomu',
     'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and',
   );
 
