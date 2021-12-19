@@ -1,4 +1,4 @@
-import { Button } from '../../components';
+import { Input } from '../../components';
 import { html } from '../../shared';
 
 /**
@@ -6,19 +6,13 @@ import { html } from '../../shared';
  * @returns
  */
 function Home({ router }) {
-  const pages = [1, 2, 3, 4, 5];
+  const playerName = null;
+
   return html`<div class="vstack">
     <h2>Home</h2>
-    ${pages.map((x) =>
-      Button({
-        onClick: (e) => {
-          e.preventDefault();
-          router.goto({ page: 'todo', data: { id: x } });
-        },
-        text: `Go to page ${x}`,
-        variant: 'normal',
-      }),
-    )}
+    ${Input({
+      onChange: () => {},
+    })}
   </div>`;
 }
 

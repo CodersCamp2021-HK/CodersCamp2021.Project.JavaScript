@@ -4,3 +4,4 @@ export * from './RulesTextBox';
 export * from './Logo';
 export * from './BackgroundDecoration';
 export * from './QuestionCounter';
+export * from './Input';

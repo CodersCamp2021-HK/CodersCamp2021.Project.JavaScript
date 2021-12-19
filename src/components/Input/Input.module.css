@@ -1,0 +1,62 @@
+.Button {
+  font-size: var(--button-text);
+  padding: 0.625rem 1.6rem;
+  border-radius: var(--default-border-radius);
+  color: var(--common-white);
+  transition-duration: var(--default-transition);
+}
+
+.ButtonOutlined {
+  composes: Button;
+  border: 0.1875rem solid var(--secondary-main);
+}
+.ButtonNormal {
+  composes: Button;
+  background-color: var(--secondary-main);
+}
+
+.ButtonNextQuestion {
+  composes: Button;
+  background-color: var(--secondary-dark);
+  text-transform: uppercase;
+}
+
+.ButtonGameMode {
+  composes: Button;
+  width: 100%;
+  border: 6px solid var(--primary-light);
+}
+
+.Button:hover {
+  background-color: var(--secondary-dark);
+  border-color: transparent;
+}
+
+.Button:disabled {
+  color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+  cursor: initial;
+}
+
+.ButtonNextQuestion:hover {
+  background-color: var(--secondary-main);
+  border-color: transparent;
+}
+
+.ButtonNextQuestion:active {
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+  border-color: transparent;
+}
+
+.ButtonGameMode:hover {
+  background-color: var(--primary-main);
+  border: 6px solid var(--primary-main);
+}
+
+.ButtonGameMode:active {
+  background-color: var(--primary-light);
+  border-color: transparent;
+  color: var(--primary-contrast);
+}
