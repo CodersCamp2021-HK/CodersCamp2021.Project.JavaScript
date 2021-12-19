@@ -81,7 +81,7 @@ function Home({ router }) {
         })}
       </div>
 
-      <div>
+      <div class = "${styles.difficult}">
         ${GameTypes({
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
