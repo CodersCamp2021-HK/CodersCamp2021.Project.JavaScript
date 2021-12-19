@@ -11,8 +11,6 @@ import styles from './Home.module.css';
 function Home({ router }) {
   let selectedCategory = null;
   let selectedDifficulty = null;
-  console.log(selectedDifficulty);
-  console.log(selectedCategory);
 
   const btnStart = Button({
     text: 'Rozpocznij quiz',
@@ -29,16 +27,24 @@ function Home({ router }) {
 
   return html`<div class="${styles.wrapper}">
     <section>
-      <div>
-      <img class="${styles.image}" src="${rickAndMorty}" alt="Rick and Morty" />
+      <div class="${styles.image}">
+      <img  src="${rickAndMorty}" alt="Rick and Morty" />
+      <div class="${styles.hide}" id='rules'>
+      ${RulesTextBox(
+        'zasady',
+        'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and',
+      )};
+      </div>
       </div>
       <div>
       <div>
         ${GameTypes({
           onSelect: (selected) => {
             selectedCategory = selected.id;
-            console.log(selectedCategory);
             updateButtonDisabledState();
+            if (selectedCategory === 'mixed') {
+              document.getElementById('rules').className = styles.show;
+            }
           },
           heading: 'Wybierz kategorię',
           categories: [
@@ -54,7 +60,6 @@ function Home({ router }) {
         ${GameTypes({
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
-            console.log(selectedDifficulty);
             updateButtonDisabledState();
           },
           heading: 'Wybierz poziom',
