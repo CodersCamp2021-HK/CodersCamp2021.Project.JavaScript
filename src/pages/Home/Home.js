@@ -42,7 +42,7 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedCategory = selected.id;
             updateButtonDisabledState();
-            if (selectedCategory === 'mixed') {
+            if (selectedCategory !== null) {
               document.getElementById('rules').className = styles.show;
             }
           },
@@ -61,6 +61,9 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
             updateButtonDisabledState();
+            if (selectedDifficulty !== null) {
+              document.getElementById('rules').className = styles.show;
+            }
           },
           heading: 'Wybierz poziom',
           categories: [
