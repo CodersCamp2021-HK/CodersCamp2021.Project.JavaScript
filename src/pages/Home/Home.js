@@ -31,8 +31,8 @@ function Home({ router }) {
   const updateRulexTextBox = (header, rules) => {
     const h3 = document.getElementById('rules').getElementsByTagName('h3')[0];
     const p = document.getElementById('rules').getElementsByTagName('p')[0];
-    h3.innerHTML = header;
-    p.innerHTML = rules;
+    h3.textContent = header;
+    p.textContent = rules;
   };
 
   return html`<div class="${styles.wrapper}">
