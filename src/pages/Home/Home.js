@@ -70,7 +70,7 @@ function Home({ router }) {
           layout: 'halfWidth',
         })}
       </div>
-      <div class = ${styles.sth}>
+      <div class = "${styles.startBtn}">
       ${btnStart}
       ${Button({
         text: 'Ranking',
