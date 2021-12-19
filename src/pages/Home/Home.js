@@ -12,6 +12,13 @@ function Home({ router }) {
   let selectedCategory = null;
   let selectedDifficulty = null;
 
+  const rulesBox = RulesTextBox(
+    {
+      header: 'Opis poziomu',
+    },
+    'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and',
+  );
+
   const btnStart = Button({
     text: 'Rozpocznij quiz',
     disabled: true,
@@ -25,15 +32,19 @@ function Home({ router }) {
     btnStart.disabled = shouldBeDisabled;
   };
 
+  const updateRulexTextBox = (header, rules) => {
+    const h3 = document.getElementById('rules').getElementsByTagName('h3')[0];
+    const p = document.getElementById('rules').getElementsByTagName('p')[0];
+    h3.innerHTML = header;
+    p.innerHTML = rules;
+  };
+
   return html`<div class="${styles.wrapper}">
     <section>
       <div class="${styles.image}">
       <img  src="${rickAndMorty}" alt="Rick and Morty" />
       <div class="${styles.hide}" id='rules'>
-      ${RulesTextBox(
-        'zasady',
-        'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and',
-      )};
+      ${rulesBox}
       </div>
       </div>
       <div>
@@ -42,9 +53,28 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedCategory = selected.id;
             updateButtonDisabledState();
-            if (selectedCategory !== null) {
-              document.getElementById('rules').className = styles.show;
+            if (selectedCategory === 'character') {
+              updateRulexTextBox(
+                'Opis kategori',
+                'Co to za postac. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
+            } else if (selectedCategory === 'episode') {
+              updateRulexTextBox(
+                'Opis kategori',
+                'Bohaterowie odc. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
+            } else if (selectedCategory === 'location') {
+              updateRulexTextBox(
+                'Opis kategori',
+                'Kto tu mieszka. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
+            } else if (selectedCategory === 'mixed') {
+              updateRulexTextBox(
+                'Opis kategori',
+                'Poziom mieszany. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
             }
+            document.getElementById('rules').className = styles.show;
           },
           heading: 'Wybierz kategorię',
           categories: [
@@ -61,9 +91,18 @@ function Home({ router }) {
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
             updateButtonDisabledState();
-            if (selectedDifficulty !== null) {
-              document.getElementById('rules').className = styles.show;
+            if (selectedDifficulty === 'easy') {
+              updateRulexTextBox(
+                'Opis poziomu',
+                'Poziom łatwy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
+            } else if (selectedDifficulty === 'hard') {
+              updateRulexTextBox(
+                'Opis poziomu',
+                'Poziom trudny. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+              );
             }
+            document.getElementById('rules').className = styles.show;
           },
           heading: 'Wybierz poziom',
           categories: [
