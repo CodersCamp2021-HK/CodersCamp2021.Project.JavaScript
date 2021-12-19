@@ -2,10 +2,10 @@
   font-size: var(--button-text);
   padding: 0.625rem 1.6rem;
   width: 100%;
-  height: 4.375rem;
   border-radius: 3.125rem;
   color: var(--common-white);
   transition-duration: var(--default-transition);
+  line-height: 1;
 }
 
 .ButtonOutlined {
