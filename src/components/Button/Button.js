@@ -18,7 +18,7 @@ function Button({ text, onClick, variant = 'normal', disabled = false, id }) {
     class="${classNamesForVariant[variant]}"
     type="button"
     ${disabled ? ' disabled' : ''}
-    ${id ? `id="${id}"` : ''}
+    ${id ? `id=${id}` : ''}
   >
     ${showText}
   </button>`;
