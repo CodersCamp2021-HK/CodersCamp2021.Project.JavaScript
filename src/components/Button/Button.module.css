@@ -1,7 +1,6 @@
 .Button {
   font-size: var(--button-text);
   padding: 0.625rem 1.6rem;
-  width: 100%;
   border-radius: 3.125rem;
   color: var(--common-white);
   transition-duration: var(--default-transition);
@@ -11,10 +10,12 @@
 .ButtonOutlined {
   composes: Button;
   border: 6px solid var(--secondary-main);
+  width: 100%;
 }
 .ButtonNormal {
   composes: Button;
   background-color: var(--secondary-main);
+  width: 100%;
 }
 
 .ButtonNextQuestion {
@@ -27,6 +28,7 @@
   composes: Button;
   border: 6px solid var(--primary-light);
   height: 3.75rem;
+  width: 100%;
 }
 
 .Button:hover {

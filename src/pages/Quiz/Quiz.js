@@ -1,6 +1,7 @@
 import { html } from '../../shared';
 import { Button, Logo, BackgroundDecoration, Question } from '../../components';
 import styles from './Quiz.module.css';
+import head from '../../public/img/RicksHead.png';
 
 /**
  * @param { { generator: import('../Loading').QuestionGenerator } & import('..').RouterProps } props
@@ -13,7 +14,7 @@ function Quiz(props) {
   ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.headImgWrapper}"">
-        <img src="../src/public/img/RicksHead.png" alt="Ricks head" />
+        <img src="${head}" alt="Ricks head" />
       </div>
       ${question}
       ${Button({
