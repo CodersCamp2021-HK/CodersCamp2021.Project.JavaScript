@@ -1,5 +1,6 @@
 .questionContainer {
-    width: 59.875rem;
+    width: 47.9rem;
+    margin-bottom: 1.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +8,7 @@
 }
 
 .questionText {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-size: var(--header-3);
     font-weight: 800;
     text-align: center;
@@ -19,9 +20,9 @@
 }
 
 .characterImageDiv {
-    width: 11.125rem;
-    height: 11.125rem;
-    margin-right: 2.25rem;
+    width: 8.9rem;
+    height: 8.9rem;
+    margin-right: 1.8rem;
 }
 
 .characterImageDiv img {
@@ -32,17 +33,17 @@
 }
 
 .answersContainer {
-    width: 46.3125rem;
-    height: 11.25rem;
+    width: 37.05rem;
+    height: 9rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
 .answer {
-    width: 21.875rem;
-    height: 4rem;
-    margin-right: 2.25rem;
+    width: 17.5rem;
+    height: 3.2rem;
+    margin-right: 1.8rem;
     display: flex;
     flex-basis: 45%;
     align-items: center;
@@ -54,8 +55,8 @@
 }
 
 .answerItem {
-    height: 4rem;
-    width: 4rem;
+    height: 3.2rem;
+    width: 3.2rem;
     border-radius: 50%;
     background-color: var(--secondary-dark);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -64,7 +65,7 @@
     font-weight: 800;
     text-align: center;
     vertical-align: middle;
-    line-height: 4rem;
+    line-height: 3.2rem;
 }
 
 .answerItem img {
@@ -75,8 +76,8 @@
 }
 
 .answerText {
-    max-width: 16.25rem;
-    padding-left: 1rem;
+    max-width: 13rem;
+    padding-left: 0.8rem;
     font-size: var(--question-text);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -85,5 +86,5 @@
 
 .selected {
     outline: 4px solid var(--secondary-dark);
-    border-radius: 2rem;
+    border-radius: 1.6rem;
 }

@@ -16,7 +16,6 @@ function Question(questionData) {
 
   const questionText = {
     character: 'Co to za postać?',
-    // @ts-ignore
     episode: `Kto grał w odcinku ${questionData.name}?`,
     // @ts-ignore
     location: `Które postaci mieszkają w miejscu ${questionData.name}?`,
