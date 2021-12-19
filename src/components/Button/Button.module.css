@@ -1,7 +1,9 @@
 .Button {
   font-size: var(--button-text);
   padding: 0.625rem 1.6rem;
-  border-radius: var(--default-border-radius);
+  width: 100%;
+  height: 4.375rem;
+  border-radius: 3.125rem;
   color: var(--common-white);
   transition-duration: var(--default-transition);
 }
@@ -23,7 +25,6 @@
 
 .ButtonGameMode {
   composes: Button;
-  width: 100%;
   border: 6px solid var(--primary-light);
   height: 3.75rem;
 }
