@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
 /**
- * @typedef {{category: string, image: string, answers: {name: string, correct: boolean}[]}} CharacterQuestion
+ * @typedef {{category: 'character', image: string, answers: {name: string, correct: boolean}[]}} CharacterQuestion
  */
 
 /**
- * @typedef {{category: string, name: string, answers: {name: string, image: string, correct: boolean}[]}} EpisodeOrLocationQuestion
+ * @typedef {{category: ('episode'|'location'), name: string, answers: {name: string, image: string, correct: boolean}[]}} EpisodeOrLocationQuestion
  */
 
 /**
@@ -28,6 +28,7 @@ import _ from 'lodash';
  */
 function generateCharacterQuestion(answersNumber, allCharacters) {
   const character = _.sample(allCharacters);
+  /** @type {CharacterQuestion} */
   const question = {
     category: 'character',
     image: character.image,
@@ -55,6 +56,7 @@ function generateCharacterQuestion(answersNumber, allCharacters) {
 function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allRecords) {
   const record = /** @type {ApiLocation|ApiEpisode} */ (_.sample(allRecords));
   let characters;
+  /** @type {'episode'|'location'} */
   let category;
   if ('characters' in record) {
     characters = record.characters;
@@ -63,6 +65,7 @@ function generateEpisodeOrLocationQuestion(answersNumber, allCharacters, allReco
     characters = record.residents;
     category = 'location';
   }
+  /** @type {EpisodeOrLocationQuestion} */
   const question = { category, name: record.name, answers: [] };
 
   // Ensuring that there will be no more correct answers than characters in the episode/location

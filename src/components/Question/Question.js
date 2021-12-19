@@ -14,12 +14,14 @@ import styles from './Question.module.css';
 function Question(questionData) {
   const { category } = questionData;
 
-  const questionText = {
-    character: 'Co to za postać?',
-    // @ts-ignore
-    episode: `Kto grał w odcinku ${questionData.name}?`,
-    // @ts-ignore
-    location: `Które postaci mieszkają w miejscu ${questionData.name}?`,
+  const questionText = (data) => {
+    if (data.category === 'character') {
+      return 'Co to za postać?';
+    }
+    if (data.category === 'episode') {
+      return `Kto grał w odcinku ${data.name}?`;
+    }
+    return `Które postaci mieszkają w miejscu ${data.name}?`;
   };
 
   const answerLetter = ['A', 'B', 'C', 'D'];
@@ -42,22 +44,16 @@ function Question(questionData) {
   const question =
     category === 'character'
       ? html`<div class="${styles.questionContainer}">
-          <p class="${styles.questionText}">${questionText[category]}</p>
+          <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.content}">
             <div class="${styles.characterImageDiv}">
-              <img
-                src="${
-                  // @ts-ignore
-                  questionData.image
-                }"
-                alt="Zdjęcie postaci"
-              />
+              <img src="${questionData.image}" alt="Zdjęcie postaci" />
             </div>
             <div class="${styles.answersContainer}">${answers}</div>
           </div>
         </div>`
       : html`<div class="${styles.questionContainer}">
-          <p class="${styles.questionText}">${questionText[category]}</p>
+          <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.answersContainer}">${answers}</div>
         </div>`;
 
