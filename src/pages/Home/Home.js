@@ -1,5 +1,6 @@
 import { Button, GameTypes, RulesTextBox } from '../../components';
 import { html } from '../../shared';
+import rickAndMorty from '../../public/img/HomeRickAndMorty.png';
 import styles from './Home.module.css';
 
 /**
@@ -23,17 +24,13 @@ function Home({ router }) {
 
   const updateButtonDisabledState = () => {
     const shouldBeDisabled = selectedCategory === null || selectedDifficulty === null;
-    console.log('dziala');
     btnStart.disabled = shouldBeDisabled;
   };
 
   return html`<div class="${styles.wrapper}">
     <section>
       <div>
-        ${RulesTextBox(
-          'Opis zasad',
-          'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing andWhat is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and',
-        )};
+      <img class="${styles.image}" src="${rickAndMorty}" alt="Rick and Morty" />
       </div>
       <div>
       <div>
