@@ -47,6 +47,7 @@
     display: flex;
     flex-basis: 45%;
     align-items: center;
+    transition: color 0.3s;
 }
 
 .answer:hover {

@@ -16,17 +16,13 @@ function Question(questionData) {
 
   const questionText = {
     character: 'Co to za postać?',
+    // @ts-ignore
     episode: `Kto grał w odcinku ${questionData.name}?`,
     // @ts-ignore
     location: `Które postaci mieszkają w miejscu ${questionData.name}?`,
   };
 
-  const answerLetter = {
-    0: 'A',
-    1: 'B',
-    2: 'C',
-    3: 'D',
-  };
+  const answerLetter = ['A', 'B', 'C', 'D'];
 
   const answers =
     category === 'character'
