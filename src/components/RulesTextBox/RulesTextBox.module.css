@@ -1,8 +1,8 @@
 .box {
   height: fit-content;
-  width: 23rem;
+  width: 25rem;
   border-radius: 28px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.91);
   color: var(--common-white);
   border: 3px solid var(--common-white);
   box-sizing: border-box;
