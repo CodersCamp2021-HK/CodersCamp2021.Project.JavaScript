@@ -9,19 +9,23 @@ import head from '../../public/img/RicksHead.png';
 // eslint-disable-next-line no-unused-vars
 function Quiz(props) {
   // @ts-ignore
-  const { question } = Question(props.generator.next().value);
+  let question = Question(props.generator.next().value);
   return html`<div class="${styles.wrapper}">
   ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.headImgWrapper}"">
         <img src="${head}" alt="Ricks head" />
       </div>
-      ${question}
+      
+      ${question.question}
       ${Button({
         onClick: (e) => {
           e.preventDefault();
+          // @ts-ignore
+          question = Question(props.generator.next().value);
+          document.getElementById('question').replaceWith(question.question);
         },
-        text: `dalej`,
+        text: 'dalej',
         variant: 'nextQuestion',
       })}
       <div class="${styles.logoWrapper}">${Logo(31)}</div>

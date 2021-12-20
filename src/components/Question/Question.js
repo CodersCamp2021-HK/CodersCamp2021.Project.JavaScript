@@ -43,7 +43,7 @@ function Question(questionData) {
 
   const question =
     category === 'character'
-      ? html`<div class="${styles.questionContainer}">
+      ? html`<div id="question" class="${styles.questionContainer}">
           <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.content}">
             <div class="${styles.characterImageDiv}">
@@ -52,7 +52,7 @@ function Question(questionData) {
             <div class="${styles.answersContainer}">${answers}</div>
           </div>
         </div>`
-      : html`<div class="${styles.questionContainer}">
+      : html`<div id="question" class="${styles.questionContainer}">
           <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.answersContainer}">${answers}</div>
         </div>`;
