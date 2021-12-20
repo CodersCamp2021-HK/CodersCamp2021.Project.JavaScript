@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import * as API from './api';
 
 /**
