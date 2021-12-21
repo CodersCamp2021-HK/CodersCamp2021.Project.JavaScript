@@ -1,0 +1,48 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.startBtn {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+}
+.centered {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  position: relative;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.difficult {
+  margin-top: 3rem;
+}

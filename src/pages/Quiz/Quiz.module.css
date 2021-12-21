@@ -8,7 +8,7 @@
 .quizContainer {
   background-color: var(--primary-main);
   border-radius: var(--default-border-radius);
-  width: 60.417vw;
+  width: 58.15rem;
   min-width: 320px;
   min-height: 400px;
   display: flex;

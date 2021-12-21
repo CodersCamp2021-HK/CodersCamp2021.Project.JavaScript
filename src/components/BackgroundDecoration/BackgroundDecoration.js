@@ -1,12 +1,11 @@
 import { html } from '../../shared';
 import styles from './BackgroundDecoration.module.css';
+import ellipse from '../../public/img/ellipse.svg';
 
 /**
  * @returns {HTMLElement}
  */
 function BackgroundDecoration() {
-  const url = '../src/public/img/ellipse.svg';
-
   /**
    * @param {string} className
    * @returns {HTMLElement}
@@ -14,7 +13,7 @@ function BackgroundDecoration() {
 
   const backgroundDecorationElement = (className) => {
     return html`<div class="${className}">
-      <img src="${url}" alt="" />
+      <img src="${ellipse}" alt="" />
     </div>`;
   };
 

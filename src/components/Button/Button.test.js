@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { Button } from './Button';
 
-describe('MenuButton tests', () => {
+describe('Button tests', () => {
   it('should render text', () => {
     // Given
     const text = 'Test';
