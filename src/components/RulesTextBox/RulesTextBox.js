@@ -15,8 +15,8 @@ import styles from './RulesTextBox.module.css';
 const categoryDescriptions = Object.freeze({
   character: 'Musisz wskazać, która postać jest przedstawiona na obrazie. Pytania jednokrotnego wyboru.',
   episode: 'Musisz wskazać postacie, które występowały w danym odcinku. Pytania wielokrotnego wyboru.',
-  location: 'Musisz wskazać postacie, które znajdują się w danej lokacji. Pytania wielokrotnego wyboru.',
-  mixed: 'Pytania z każdej innej kategorii.',
+  location: 'Musisz wskazać postacie, które mieszkają w danej lokacji. Pytania wielokrotnego wyboru.',
+  mixed: 'Pytania z każdej kategorii.',
 });
 
 /**
