@@ -2,7 +2,7 @@ import { html } from '../../shared';
 import styles from './Input.module.css';
 
 /**
- * @param {{minCharacters: number, maxCharacters: number, onChange: (e) => void }} props
+ * @param {{minCharacters: number, maxCharacters?: number, onChange: (e) => void }} props
  */
 function Input({ minCharacters, maxCharacters = 20, onChange }) {
   const input = html`<input
