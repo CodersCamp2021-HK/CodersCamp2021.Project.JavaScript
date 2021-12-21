@@ -8,13 +8,17 @@ import head from '../../public/img/RicksHead.png';
  */
 // eslint-disable-next-line no-unused-vars
 function Quiz(props) {
+  const allAnswers = [];
   const { element: counterElement, increment, getCount } = QuestionCounter();
   const onClick = () => {
-    const answeredQuestions = getCount();
+    const answeredQuestions = getCount() - 1;
+    const points = allAnswers.filter((answer) => answer.correct).length;
     console.log(`Quiz finished after answering ${answeredQuestions} questions!`);
+    console.log(`You scored ${points} points!`);
   };
   // @ts-ignore
   let question = Question(props.generator.next().value);
+
   return html`<div class="${styles.wrapper}">
   ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
@@ -27,6 +31,7 @@ function Quiz(props) {
       ${Button({
         onClick: (e) => {
           e.preventDefault();
+          allAnswers.push(question.getFullAnswer());
           // @ts-ignore
           question = Question(props.generator.next().value);
           increment();
