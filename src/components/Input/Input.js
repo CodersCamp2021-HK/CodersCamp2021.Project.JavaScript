@@ -6,13 +6,13 @@ import styles from './Input.module.css';
  */
 function Input({ minCharacters, maxCharacters = 20, onChange }) {
   const input = html`<input
-      class="${styles.input}"
-      type="text"
-      minlength="${minCharacters || 1}"
-      maxlength="${maxCharacters}"
-      placeholder="Nazwa gracza"
-    />
-    required`;
+    class="${styles.input}"
+    type="text"
+    minlength="${minCharacters || 1}"
+    maxlength="${maxCharacters}"
+    placeholder="Nazwa gracza"
+    required
+  />`;
   input.addEventListener('input', onChange);
   return input;
 }
