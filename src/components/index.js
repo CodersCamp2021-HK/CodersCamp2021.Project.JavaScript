@@ -5,4 +5,5 @@ export * from './Question';
 export * from './Logo';
 export * from './BackgroundDecoration';
 export * from './QuestionCounter';
+export * from './Input';
 export * from './PopupClose';

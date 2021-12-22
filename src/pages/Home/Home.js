@@ -1,5 +1,5 @@
 import { Button, GameTypes, RulesTextBox } from '../../components';
-import { html } from '../../shared';
+import { html, render } from '../../shared';
 import rickAndMorty from '../../public/img/HomeRickAndMorty.png';
 import styles from './Home.module.css';
 
@@ -7,12 +7,11 @@ import styles from './Home.module.css';
  * @param {{} & import('..').RouterProps} props
  * @returns
  */
-
 function Home({ router }) {
   let selectedCategory = null;
   let selectedDifficulty = null;
 
-  const rulesBox = RulesTextBox('', '');
+  const rulesWrapper = html`<div class="${styles.hide}">${RulesTextBox()}</div>`;
 
   const btnStart = Button({
     text: 'Rozpocznij quiz',
@@ -22,54 +21,32 @@ function Home({ router }) {
     },
   });
 
-  const updateButtonDisabledState = () => {
+  const onGameOptionSelect = () => {
     const shouldBeDisabled = selectedCategory === null || selectedDifficulty === null;
     btnStart.disabled = shouldBeDisabled;
-    document.getElementById('rules').className = styles.show;
-  };
 
-  const updateRulesTextBox = (header, rules) => {
-    const h3 = document.getElementById('rules').getElementsByTagName('h3')[0];
-    const p = document.getElementById('rules').getElementsByTagName('p')[0];
-    h3.textContent = header;
-    p.textContent = rules;
+    rulesWrapper.className = styles.show;
+    render({
+      element: RulesTextBox({
+        category: selectedCategory,
+        difficulty: selectedDifficulty,
+      }),
+      on: rulesWrapper.firstElementChild,
+    });
   };
 
   return html`<div class="${styles.wrapper}">
-    <section>
+    <section class="${styles.homeSection}">
       <div class="${styles.image}">
-      <img  src="${rickAndMorty}" alt="Rick and Morty" />
-      <div class="${styles.hide}" id='rules'>
-      ${rulesBox}
-      </div>
+        <img src="${rickAndMorty}" alt="Rick and Morty" />
+        ${rulesWrapper}
       </div>
       <div>
       <div>
         ${GameTypes({
           onSelect: (selected) => {
             selectedCategory = selected.id;
-            updateButtonDisabledState();
-            if (selectedCategory === 'character') {
-              updateRulesTextBox(
-                'Opis kategori',
-                'Co to za postac. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            } else if (selectedCategory === 'episode') {
-              updateRulesTextBox(
-                'Opis kategori',
-                'Bohaterowie odc. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            } else if (selectedCategory === 'location') {
-              updateRulesTextBox(
-                'Opis kategori',
-                'Kto tu mieszka. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            } else if (selectedCategory === 'mixed') {
-              updateRulesTextBox(
-                'Opis kategori',
-                'Poziom mieszany. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            }
+            onGameOptionSelect();
           },
           heading: 'Wybierz kategorię',
           categories: [
@@ -85,18 +62,7 @@ function Home({ router }) {
         ${GameTypes({
           onSelect: (selected) => {
             selectedDifficulty = selected.id;
-            updateButtonDisabledState();
-            if (selectedDifficulty === 'easy') {
-              updateRulesTextBox(
-                'Opis poziomu',
-                'Poziom łatwy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            } else if (selectedDifficulty === 'hard') {
-              updateRulesTextBox(
-                'Opis poziomu',
-                'Poziom trudny. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-              );
-            }
+            onGameOptionSelect();
           },
           heading: 'Wybierz poziom',
           categories: [
