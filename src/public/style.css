@@ -11,17 +11,17 @@
   --secondary-light: rgba(95, 226, 251, 1);
   --secondary-dark: rgba(0, 128, 151, 1);
   --secondary-contrast: rgba(0, 0, 0, 1);
-  --action-active: rgba(0, 0, 0, 0.5400000214576721);
-  --action-hover: rgba(0, 0, 0, 0.03999999910593033);
-  --action-selected: rgba(0, 0, 0, 0.07999999821186066);
-  --action-disabled: rgba(0, 0, 0, 0.25999999046325684);
-  --action-disabled--background: rgba(0, 0, 0, 0.11999999731779099);
-  --action-focus: rgba(0, 0, 0, 0.11999999731779099);
+  --action-active: rgba(0, 0, 0, 0.54);
+  --action-hover: rgba(0, 0, 0, 0.04);
+  --action-selected: rgba(0, 0, 0, 0.08);
+  --action-disabled: rgba(0, 0, 0, 0.26);
+  --action-disabled--background: rgba(0, 0, 0, 0.12);
+  --action-focus: rgba(0, 0, 0, 0.12);
   --common-dark: rgba(0, 0, 0, 1);
   --common-white: rgba(255, 255, 255, 1);
-  --text-primary: rgba(0, 0, 0, 0.8700000047683716);
-  --text-secondary: rgba(0, 0, 0, 0.6000000238418579);
-  --text-disabled: rgba(0, 0, 0, 0.3799999952316284);
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
 
   /* Text-size styles */
   /* base size: button-text-small (20px) */
@@ -46,16 +46,4 @@
 body,
 #app {
   min-height: 100vh;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-.vstack {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  padding: 0.5rem;
 }
