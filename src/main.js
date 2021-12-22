@@ -4,4 +4,4 @@ import { PageRouter } from './shared';
 
 const root = document.querySelector('#app');
 const pageRouter = new PageRouter(pages, root);
-pageRouter.goto({ page: 'emptyPage' });
+pageRouter.goto({ page: 'home' });

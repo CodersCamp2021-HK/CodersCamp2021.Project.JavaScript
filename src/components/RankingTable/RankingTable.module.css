@@ -1,6 +1,24 @@
-li {
+table {
   color: white;
-  /* display: list-item;
-  list-style-position: inside; */
   list-style: number;
+  width: 100%;
+  text-align: center;
+}
+thead th {
+  background-color: gainsboro;
+  color: var(--secondary-dark);
+}
+thead th:first-child {
+  border-radius: 100px 0 0 100px;
+}
+thead th:last-child {
+  border-radius: 0 100px 100px 0;
+}
+.rankingContainer {
+  overflow-y: auto;
+  /* height: 300px; */
+}
+
+.changeColor {
+  color: red;
 }

@@ -2,6 +2,7 @@ import { Button, GameTypes, RulesTextBox } from '../../components';
 import { html } from '../../shared';
 import rickAndMorty from '../../public/img/HomeRickAndMorty.png';
 import styles from './Home.module.css';
+import { addUserToRanking } from '../../shared/ranking';
 
 /**
  * @param {{} & import('..').RouterProps} props
@@ -110,7 +111,11 @@ function Home({ router }) {
       ${btnStart}
       ${Button({
         text: 'Ranking',
-        onClick: () => {},
+        onClick: () => {
+          const now = Date.now();
+          addUserToRanking('Janina', 2, 'mixed', now);
+          router.goto({ page: 'emptyPage', data: { now } });
+        },
         variant: 'outlined',
       })}
       </div>
