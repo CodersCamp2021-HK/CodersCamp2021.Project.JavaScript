@@ -1,0 +1,6 @@
+li {
+  color: white;
+  /* display: list-item;
+  list-style-position: inside; */
+  list-style: number;
+}

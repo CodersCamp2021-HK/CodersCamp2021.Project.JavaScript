@@ -3,6 +3,7 @@ import { Todo } from './Todo';
 import { Loading } from './Loading';
 import { Quiz } from './Quiz';
 import { RankingPrompt } from './RankingPrompt';
+import { EmptyPage } from './EmptyPage';
 
 const pages = Object.freeze({
   home: Home,
@@ -10,6 +11,7 @@ const pages = Object.freeze({
   loading: Loading,
   quiz: Quiz,
   rankingPrompt: RankingPrompt,
+  emptyPage: EmptyPage,
 });
 
 /**
