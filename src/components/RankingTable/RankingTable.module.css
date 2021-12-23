@@ -7,6 +7,8 @@ table {
 thead th {
   background-color: gainsboro;
   color: var(--secondary-dark);
+  position: sticky;
+  top: 0;
 }
 thead th:first-child {
   border-radius: 100px 0 0 100px;
@@ -16,9 +18,25 @@ thead th:last-child {
 }
 .rankingContainer {
   overflow-y: auto;
-  /* height: 300px; */
+  height: 300px;
 }
 
-.changeColor {
-  color: red;
+.userScore {
+  color: var(--primary-light);
+}
+
+.blobBox {
+  width: 4.125rem;
+  height: 4.125rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+
+.blobBox > * {
+  grid-area: 1 / -1 / 1 / -1;
+}
+.userPosition {
+  font-weight: 800;
+  color: var(--secondary-dark);
 }

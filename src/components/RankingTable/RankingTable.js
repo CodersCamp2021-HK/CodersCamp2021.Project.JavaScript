@@ -1,5 +1,7 @@
 import styles from './RankingTable.module.css';
 import { getRankingByCategory } from '../../shared/ranking';
+import { html } from '../../shared';
+import blob from '../../public/img/blob.svg';
 
 function RankingTable(id, category) {
   const items = getRankingByCategory(category).userData;
@@ -25,7 +27,6 @@ function RankingTable(id, category) {
   const names = items.map((e) => e.username);
   const points = items.map((e) => e.points);
   const saveTime = items.map((e) => e.dateTime);
-  console.log(saveTime);
   for (let i = 0; i < items.length; i += 1) {
     const tr = document.createElement('tr');
 
@@ -37,12 +38,16 @@ function RankingTable(id, category) {
     const text2 = document.createTextNode(names[i]);
     const text3 = document.createTextNode(`${points[i]}`);
     if (saveTime[i] === id) {
-      console.log('data jest poprawna');
-      tr.className = styles.changeColor;
-      tr.id = 'change-color';
+      tr.className = styles.userScore;
+      td1.className = styles.blobBox;
+      td1.appendChild(html`<div class="${styles.blobBox}">
+        <img src="${blob}" alt="" />
+        <span class="${styles.userPosition}">${i + 1}</span>
+      </div>`);
+    } else {
+      td1.appendChild(text1);
     }
 
-    td1.appendChild(text1);
     td2.appendChild(text2);
     td3.appendChild(text3);
 
