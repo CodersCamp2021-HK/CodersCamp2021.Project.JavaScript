@@ -12,10 +12,6 @@ import { generateQuestions } from '../../data/questions';
  * @typedef {'easy' | 'hard'} QuizDifficulty
  */
 
-/**
- * @typedef {Generator<import('../../data/questions').CharacterQuestion | import('../../data/questions').EpisodeOrLocationQuestion, void, unknown>} QuestionGenerator
- */
-
 const FETCH_MIN_DURATION_SECONDS = 3;
 
 /**
@@ -41,7 +37,7 @@ const difficultyDisplayNames = Object.freeze({
  *
  * @param {QuizCategory} category
  * @param {QuizDifficulty} difficulty
- * @returns {Promise<QuestionGenerator>}
+ * @returns {Promise<import('../../data/questions').QuestionGenerator>}
  */
 const fetchQuestions = async (category, difficulty) => {
   const answerCount = difficulty === 'easy' ? 2 : 4;

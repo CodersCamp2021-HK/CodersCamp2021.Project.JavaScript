@@ -21,6 +21,10 @@ import _ from 'lodash';
  */
 
 /**
+ * @typedef {Generator<CharacterQuestion | EpisodeOrLocationQuestion, never, unknown>} QuestionGenerator
+ */
+
+/**
  * Generates a question from the Character category.
  * @param {number} answersNumber
  * @param {ApiCharacter[]} allCharacters
@@ -120,9 +124,10 @@ function generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLo
  * @param {ApiEpisode[]} allEpisodes
  * @param {ApiLocation[]} allLocations
  * @yields {CharacterQuestion|EpisodeOrLocationQuestion}
+ * @returns {QuestionGenerator}
  */
 export function* generateQuestions(answersNumber, allCharacters, allEpisodes = null, allLocations = null) {
-  while (1) {
+  while (true) {
     if (allEpisodes) {
       if (allLocations) {
         yield generateRandomQuestion(answersNumber, allCharacters, allEpisodes, allLocations);
