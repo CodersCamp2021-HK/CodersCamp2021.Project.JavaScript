@@ -9,7 +9,7 @@ import blob from '../../public/img/blob.svg';
 
 /**
  * Create Ranking Table
- * @param {{ id?: number, category: QuizCategory }} props param id get from the page and set as Datatime.now().
+ * @param {{ id?: number, category: QuizCategory }} props param id get from the page and set as Date.now().
  * @returns {HTMLElement}
  */
 
@@ -34,7 +34,7 @@ function RankingTable({ id, category }) {
 
   const names = items.map((e) => e.username);
   const points = items.map((e) => e.points);
-  const saveTime = items.map((e) => e.dateTime);
+  const saveTime = items.map((e) => e.id);
   let featuredScore = null;
   let checkIfScrollTo = false;
   for (let i = 0; i < items.length; i += 1) {
