@@ -36,7 +36,7 @@ function RankingTable({ id, category }) {
   const points = items.map((e) => e.points);
   const saveTime = items.map((e) => e.dateTime);
   let featuredScore = null;
-  let m = false;
+  let checkIfScrollTo = false;
   for (let i = 0; i < items.length; i += 1) {
     const tr = document.createElement('tr');
 
@@ -55,7 +55,7 @@ function RankingTable({ id, category }) {
         <span class="${styles.userPosition}">${i + 1}</span>
       </div>`;
       td1.appendChild(featuredScore);
-      m = true;
+      checkIfScrollTo = true;
     } else {
       td1.appendChild(text1);
     }
@@ -68,7 +68,7 @@ function RankingTable({ id, category }) {
     tr.appendChild(td3);
     table.appendChild(tr);
   }
-  if (m) {
+  if (checkIfScrollTo) {
     setTimeout(() => {
       featuredScore.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 0);
