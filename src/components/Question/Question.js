@@ -2,9 +2,26 @@ import { html } from '../../shared';
 import styles from './Question.module.css';
 
 /**
+ * @typedef {{name: string, correct: boolean}[]} CharacterAnswers
+ */
+
+/**
+ * @typedef {{name: string, image: string, correct: boolean}[]} EpisodeOrLocationAnswers
+ */
+
+/**
+ * @typedef {Object} FullAnswer
+ * @property {'character'|'episode'|'location'} category
+ * @property {string} whatIsQuestionAbout Character image, episode title or location name depending on the category
+ * @property {CharacterAnswers|EpisodeOrLocationAnswers} correctAnswers Array of correct answers
+ * @property {CharacterAnswers|EpisodeOrLocationAnswers} userAnswers Array of answers selected by user
+ * @property {boolean} correct
+ */
+
+/**
  * @typedef {Object} QuestionInstance
  * @property {HTMLElement} question
- * @property {() => boolean} isAnswerCorrect Function that returns whether the user has correctly answered a question
+ * @property {() => FullAnswer} getFullAnswer
  */
 
 /**
@@ -43,7 +60,7 @@ function Question(questionData) {
 
   const question =
     category === 'character'
-      ? html`<div class="${styles.questionContainer}">
+      ? html`<div id="question" class="${styles.questionContainer}">
           <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.content}">
             <div class="${styles.characterImageDiv}">
@@ -52,7 +69,7 @@ function Question(questionData) {
             <div class="${styles.answersContainer}">${answers}</div>
           </div>
         </div>`
-      : html`<div class="${styles.questionContainer}">
+      : html`<div id="question" class="${styles.questionContainer}">
           <p class="${styles.questionText}">${questionText(questionData)}</p>
           <div class="${styles.answersContainer}">${answers}</div>
         </div>`;
@@ -68,12 +85,32 @@ function Question(questionData) {
     });
   });
 
+  const getCorrectAnswers = () => {
+    return questionData.answers.filter((answer) => answer.correct);
+  };
+
+  const getUserAnswers = () => {
+    return answers
+      .filter((answer) => answer.classList.contains(`${styles.selected}`))
+      .map((answer) => questionData.answers[`${answer.id}`]);
+  };
+
   const isAnswerCorrect = () =>
     answers.every(
       (answer) => answer.classList.contains(`${styles.selected}`) === questionData.answers[`${answer.id}`].correct,
     );
 
-  return { question, isAnswerCorrect };
+  const getFullAnswer = () => {
+    return {
+      category,
+      whatIsQuestionAbout: category === 'character' ? questionData.image : questionData.name,
+      correctAnswers: getCorrectAnswers(),
+      userAnswers: getUserAnswers(),
+      correct: isAnswerCorrect(),
+    };
+  };
+
+  return { question, getFullAnswer };
 }
 
 export { Question };

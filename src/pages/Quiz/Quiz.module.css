@@ -19,6 +19,18 @@
   position: relative;
 }
 
+.counterElementWrapper {
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+}
+
+.popupCloseWrapper {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+}
+
 .logoWrapper {
   position: absolute;
   top: 100%;
