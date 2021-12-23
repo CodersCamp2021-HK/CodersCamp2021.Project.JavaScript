@@ -1,7 +1,8 @@
 .Button {
   font-size: var(--button-text);
-  padding: 0.625rem 1.6rem;
-  border-radius: 3.125rem;
+  padding: 0.75rem 1.6rem;
+  border: 6px solid transparent;
+  border-radius: var(--default-border-radius);
   color: var(--common-white);
   transition: var(--default-transition);
   line-height: 1;
@@ -9,10 +10,11 @@
 
 .ButtonOutlined {
   composes: Button;
-  border: 6px solid var(--secondary-main);
+  border-color: var(--secondary-main);
   width: 100%;
 }
-.ButtonNormal {
+
+.ButtonMain {
   composes: Button;
   background-color: var(--secondary-main);
   width: 100%;
@@ -26,8 +28,7 @@
 
 .ButtonGameMode {
   composes: Button;
-  border: 6px solid var(--primary-light);
-  height: 3.75rem;
+  border-color: var(--primary-main);
   width: 100%;
 }
 
@@ -45,16 +46,13 @@
 
 .ButtonNextQuestion:hover {
   background-color: var(--secondary-main);
-  border-color: transparent;
 }
 
 .ButtonNextQuestion:active {
   background-color: var(--secondary-light);
   color: var(--secondary-dark);
-  border-color: transparent;
 }
 
 .ButtonGameMode:hover {
-  background-color: var(--primary-main);
-  border-color: transparent;
+  background-color: var(--primary-dark);
 }
