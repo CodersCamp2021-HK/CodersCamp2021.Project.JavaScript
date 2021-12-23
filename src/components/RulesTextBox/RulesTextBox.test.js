@@ -1,6 +1,20 @@
+import { getByRole } from '@testing-library/dom';
 import { RulesTextBox } from './RulesTextBox';
 
-test('Check if element appears on the page', () => {
-  const renderBox = RulesTextBox('Opis zasad', 'tutaj beda zasady');
-  expect(renderBox.getAttribute('class')).toBe('box');
+describe('RulesTextBox tests', () => {
+  it('shows category info', () => {
+    // Given
+    const renderBox = RulesTextBox({ category: 'character' });
+
+    // Then
+    expect(getByRole(renderBox, 'heading', { name: 'O kategorii' })).toBeDefined();
+  });
+
+  it('shows difficulty info', () => {
+    // Given
+    const renderBox = RulesTextBox({ difficulty: 'easy' });
+
+    // Then
+    expect(getByRole(renderBox, 'heading', { name: 'O poziomie trudności' })).toBeDefined();
+  });
 });

@@ -23,7 +23,7 @@
 }
 
 .selectedType {
+  color: var(--primary-contrast);
   background-color: var(--primary-light);
-  border: 6px solid var(--primary-light);
-  transition: var(--default-transition);
+  border-color: transparent;
 }

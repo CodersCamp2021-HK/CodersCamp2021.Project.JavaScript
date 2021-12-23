@@ -3,7 +3,7 @@
   padding: 0.625rem 1.6rem;
   border-radius: 3.125rem;
   color: var(--common-white);
-  transition-duration: var(--default-transition);
+  transition: var(--default-transition);
   line-height: 1;
 }
 
@@ -56,11 +56,5 @@
 
 .ButtonGameMode:hover {
   background-color: var(--primary-main);
-  border: 6px solid var(--primary-main);
-}
-
-.ButtonGameMode:active {
-  background-color: var(--primary-light);
   border-color: transparent;
-  color: var(--primary-contrast);
 }
