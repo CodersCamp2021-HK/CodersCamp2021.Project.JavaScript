@@ -1,12 +1,11 @@
-import { html } from '../../shared';
+import { html, render } from '../../shared';
 import { Button, Logo, BackgroundDecoration, Question, PopupClose, QuestionCounter } from '../../components';
 import styles from './Quiz.module.css';
 import head from '../../public/img/RicksHead.png';
 
 /**
- * @param { { generator: import('../Loading').QuestionGenerator } & import('..').RouterProps } props
+ * @param { { generator: import('../../data/questions').QuestionGenerator } & import('..').RouterProps } props
  */
-// eslint-disable-next-line no-unused-vars
 function Quiz(props) {
   const allAnswers = [];
   const { element: counterElement, increment, getCount } = QuestionCounter();
@@ -16,7 +15,6 @@ function Quiz(props) {
     // eslint-disable-next-line no-unused-vars
     const points = allAnswers.filter((answer) => answer.correct).length;
   };
-  // @ts-ignore
   let question = Question(props.generator.next().value);
 
   return html`<div class="${styles.wrapper}">
@@ -32,10 +30,9 @@ function Quiz(props) {
         onClick: (e) => {
           e.preventDefault();
           allAnswers.push(question.getFullAnswer());
-          // @ts-ignore
           question = Question(props.generator.next().value);
           increment();
-          document.getElementById('question').replaceWith(question.question);
+          render({ on: document.getElementById('question'), element: question.question });
         },
         text: 'dalej',
         variant: 'nextQuestion',
