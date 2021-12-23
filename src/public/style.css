@@ -5,7 +5,6 @@
   /* Color styles */
   --primary-light: rgba(231, 255, 140, 1);
   --primary-main: rgba(126, 203, 32, 1);
-  --primary-light: rgba(178, 255, 89, 1);
   --primary-contrast: rgba(0, 0, 0, 1);
   --secondary-main: rgba(0, 176, 200, 1);
   --secondary-light: rgba(95, 226, 251, 1);
@@ -35,6 +34,7 @@
 
   --default-border-radius: 50px;
   --popup-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --heading-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
   font-size: 20px;
