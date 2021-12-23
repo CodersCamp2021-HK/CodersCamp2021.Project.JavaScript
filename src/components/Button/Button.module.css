@@ -8,6 +8,10 @@
   line-height: 1;
 }
 
+.Button:hover {
+  border-color: transparent;
+}
+
 .ButtonNormal {
   composes: Button;
   background-color: var(--secondary-dark);
@@ -16,10 +20,8 @@
   padding: 1rem;
 }
 
-.ButtonOutlined {
-  composes: Button;
-  border-color: var(--secondary-main);
-  width: 100%;
+.ButtonNormal:hover {
+  background-color: var(--secondary-main);
 }
 
 .ButtonMain {
@@ -28,28 +30,24 @@
   width: 100%;
 }
 
+.ButtonMain:hover {
+  background-color: var(--secondary-dark);
+}
+
+.ButtonOutlined {
+  composes: Button;
+  border-color: var(--secondary-main);
+  width: 100%;
+}
+
+.ButtonOutlined:hover {
+  background-color: var(--secondary-dark);
+}
+
 .ButtonNextQuestion {
   composes: Button;
   background-color: var(--secondary-dark);
   text-transform: uppercase;
-}
-
-.ButtonGameMode {
-  composes: Button;
-  border-color: var(--primary-main);
-  width: 100%;
-}
-
-.Button:hover {
-  background-color: var(--secondary-dark);
-  border-color: transparent;
-}
-
-.Button:disabled {
-  color: rgba(255, 255, 255, 0.38);
-  background-color: rgba(255, 255, 255, 0.5);
-  border-color: transparent;
-  cursor: initial;
 }
 
 .ButtonNextQuestion:hover {
@@ -61,10 +59,19 @@
   color: var(--secondary-dark);
 }
 
+.ButtonGameMode {
+  composes: Button;
+  border-color: var(--primary-main);
+  width: 100%;
+}
+
 .ButtonGameMode:hover {
   background-color: var(--primary-dark);
 }
 
-.ButtonNormal:hover {
-  background-color: var(--secondary-main);
+.Button:disabled {
+  color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+  cursor: initial;
 }
