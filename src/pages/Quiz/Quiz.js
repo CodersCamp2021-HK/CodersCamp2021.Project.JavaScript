@@ -11,20 +11,20 @@ function Quiz(props) {
   const allAnswers = [];
   const { element: counterElement, increment, getCount } = QuestionCounter();
   const onClick = () => {
+    // eslint-disable-next-line no-unused-vars
     const answeredQuestions = getCount() - 1;
+    // eslint-disable-next-line no-unused-vars
     const points = allAnswers.filter((answer) => answer.correct).length;
-    console.log(`Quiz finished after answering ${answeredQuestions} questions!`);
-    console.log(`You scored ${points} points!`);
   };
   // @ts-ignore
   let question = Question(props.generator.next().value);
 
   return html`<div class="${styles.wrapper}">
-  ${BackgroundDecoration()}
+    ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.counterElementWrapper}">${counterElement}</div>
       <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick })}</div>
-      <div class="${styles.headImgWrapper}"">
+      <div class="${styles.headImgWrapper}">
         <img src="${head}" alt="Ricks head" />
       </div>
       ${question.question}
