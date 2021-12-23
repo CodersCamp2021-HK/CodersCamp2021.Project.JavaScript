@@ -1,7 +1,7 @@
 /**
  * This function get data from localStorage by category name.
  * @param {string} category
- * @return {{ category: string, userData: { username: string, points: number, dateTime: number }[] }}
+ * @return {{ category: string, userData: { username: string, points: number }[] }}
  */
 export function getRankingByCategory(category) {
   const rankingStorage = JSON.parse(localStorage.getItem(category));
@@ -12,11 +12,10 @@ export function getRankingByCategory(category) {
  * @param {string} username
  * @param {number} points
  * @param {string} category
- * @param {number} dateTime
  */
-export function addUserToRanking(username, points, category, dateTime) {
+export function addUserToRanking(username, points, category) {
   const getRankingData = getRankingByCategory(category);
-  getRankingData.userData.push({ username, points, dateTime });
+  getRankingData.userData.push({ username, points });
   window.localStorage.setItem(category, JSON.stringify(getRankingData));
   return getRankingData;
 }
