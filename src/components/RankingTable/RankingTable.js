@@ -15,7 +15,7 @@ import blob from '../../public/img/blob.svg';
 
 function RankingTable({ id, category }) {
   const items = getRankingByCategory(category).userData;
-  items.sort(function (a, b) {
+  items.sort(function sort(a, b) {
     return b.points - a.points;
   });
 
