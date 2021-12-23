@@ -8,6 +8,14 @@
   line-height: 1;
 }
 
+.ButtonNormal {
+  composes: Button;
+  background-color: var(--secondary-dark);
+  text-transform: uppercase;
+  font-size: var(--button-text-small);
+  padding: 1rem;
+}
+
 .ButtonOutlined {
   composes: Button;
   border-color: var(--secondary-main);
@@ -55,4 +63,8 @@
 
 .ButtonGameMode:hover {
   background-color: var(--primary-dark);
+}
+
+.ButtonNormal:hover {
+  background-color: var(--secondary-main);
 }
