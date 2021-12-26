@@ -1,21 +1,47 @@
 .Button {
   font-size: var(--button-text);
-  padding: 0.625rem 1.6rem;
-  border-radius: 3.125rem;
+  padding: 0.75rem 1.6rem;
+  border: 6px solid transparent;
+  border-radius: var(--default-border-radius);
   color: var(--common-white);
   transition: var(--default-transition);
   line-height: 1;
 }
 
-.ButtonOutlined {
-  composes: Button;
-  border: 6px solid var(--secondary-main);
-  width: 100%;
+.Button:hover {
+  border-color: transparent;
 }
+
 .ButtonNormal {
+  composes: Button;
+  background-color: var(--secondary-dark);
+  text-transform: uppercase;
+  font-size: var(--button-text-small);
+  padding: 1rem;
+}
+
+.ButtonNormal:hover {
+  background-color: var(--secondary-main);
+}
+
+.ButtonMain {
   composes: Button;
   background-color: var(--secondary-main);
   width: 100%;
+}
+
+.ButtonMain:hover {
+  background-color: var(--secondary-dark);
+}
+
+.ButtonOutlined {
+  composes: Button;
+  border-color: var(--secondary-main);
+  width: 100%;
+}
+
+.ButtonOutlined:hover {
+  background-color: var(--secondary-dark);
 }
 
 .ButtonNextQuestion {
@@ -24,16 +50,23 @@
   text-transform: uppercase;
 }
 
+.ButtonNextQuestion:hover {
+  background-color: var(--secondary-main);
+}
+
+.ButtonNextQuestion:active {
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+}
+
 .ButtonGameMode {
   composes: Button;
-  border: 6px solid var(--primary-light);
-  height: 3.75rem;
+  border-color: var(--primary-main);
   width: 100%;
 }
 
-.Button:hover {
-  background-color: var(--secondary-dark);
-  border-color: transparent;
+.ButtonGameMode:hover {
+  background-color: var(--primary-dark);
 }
 
 .Button:disabled {
@@ -41,20 +74,4 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-color: transparent;
   cursor: initial;
-}
-
-.ButtonNextQuestion:hover {
-  background-color: var(--secondary-main);
-  border-color: transparent;
-}
-
-.ButtonNextQuestion:active {
-  background-color: var(--secondary-light);
-  color: var(--secondary-dark);
-  border-color: transparent;
-}
-
-.ButtonGameMode:hover {
-  background-color: var(--primary-main);
-  border-color: transparent;
 }

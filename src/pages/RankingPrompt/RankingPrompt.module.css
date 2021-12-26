@@ -7,7 +7,7 @@
 
 .mainBox {
   color: var(--common-white);
-  background-color: var(--primary-main);
+  background-color: var(--primary-dark);
   position: relative;
   display: flex;
   gap: 3.8125rem;

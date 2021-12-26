@@ -6,7 +6,7 @@
 }
 
 .quizContainer {
-  background-color: var(--primary-main);
+  background-color: var(--primary-dark);
   border-radius: var(--default-border-radius);
   width: 58.15rem;
   min-width: 320px;
