@@ -1,4 +1,4 @@
-import { Button, Logo } from '../../components';
+import { Button, Logo, RankingPrompt } from '../../components';
 import { html } from '../../shared';
 import styles from './Answers.module.css';
 
@@ -9,13 +9,15 @@ import styles from './Answers.module.css';
  */
 function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const answeredQuestions = allAnswers.length;
-  const points = allAnswers.filter((answer) => answer.correct).length;
+  const correctAnswers = allAnswers.filter((answer) => answer.correct).length;
+
+  const score = selectedDifficulty === 'hard' ? 2 * correctAnswers : correctAnswers;
 
   return html`<div class="${styles.wrapper}">
     <div class="${styles.content}">
       <main class="${styles.container}">
         <h3 class="${styles.heading}">
-          Poprawne odpowiedzi: <span class="${styles.score}">${points}/${answeredQuestions}</span>
+          Poprawne odpowiedzi: <span class="${styles.score}">${correctAnswers}/${answeredQuestions}</span>
         </h3>
         <div class="${styles.buttonRow}">
           ${Button({
@@ -39,7 +41,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
         <div class="${styles.logoWrapper}">${Logo(31)}</div>
       </main>
     </div>
-    <div class="${styles.popupOverlay}"></div>
+    <div class="${styles.popupOverlay}">${RankingPrompt({ score })}</div>
   </div>`;
 }
 
