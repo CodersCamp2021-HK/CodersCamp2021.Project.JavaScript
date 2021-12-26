@@ -4,16 +4,16 @@ import styles from './Quiz.module.css';
 import head from '../../public/img/RicksHead.png';
 
 /**
- * @param { { generator: import('../../data/questions').QuestionGenerator } & import('..').RouterProps } props
+ * @param { { generator: import('../../data/questions').QuestionGenerator, selectedCategory: import('../Loading').QuizCategory, selectedDifficulty: import('../Loading').QuizDifficulty } & import('..').RouterProps } props
  */
-function Quiz({ generator, router }) {
+function Quiz({ generator, router, ...otherProps }) {
   /**
    * @type {import('../../components/Question').FullAnswer[]}
    */
   const allAnswers = [];
   const { element: counterElement, increment } = QuestionCounter();
   const onClick = () => {
-    router.goto({ page: 'answers', data: { allAnswers } });
+    router.goto({ page: 'answers', data: { allAnswers, ...otherProps } });
   };
   let question = Question(generator.next().value);
 

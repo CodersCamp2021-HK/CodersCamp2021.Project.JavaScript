@@ -3,10 +3,11 @@ import { html } from '../../shared';
 import styles from './Answers.module.css';
 
 /**
- * @param { { allAnswers: import('../../components/Question').FullAnswer[] } & import('..').RouterProps } props
+ * @todo navigate to the Ranking Page
+ * @param { { allAnswers: import('../../components/Question').FullAnswer[], selectedCategory: import('../Loading').QuizCategory, selectedDifficulty: import('../Loading').QuizDifficulty } & import('..').RouterProps } props
  * @returns {HTMLElement}
  */
-function Answers({ allAnswers }) {
+function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const answeredQuestions = allAnswers.length;
   const points = allAnswers.filter((answer) => answer.correct).length;
 
@@ -19,14 +20,19 @@ function Answers({ allAnswers }) {
         <div class="${styles.buttonRow}">
           ${Button({
             text: 'Spróbuj jeszcze raz',
-            onClick: () => {},
+            onClick: () => {
+              router.goto({ page: 'loading', data: { selectedCategory, selectedDifficulty } });
+            },
           })}
           ${Button({
             text: 'Wróć do ekranu startowego',
-            onClick: () => {},
+            onClick: () => {
+              router.goto({ page: 'home' });
+            },
           })}
           ${Button({
             text: 'Ranking',
+            disabled: true,
             onClick: () => {},
           })}
         </div>
