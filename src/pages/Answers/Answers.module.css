@@ -22,7 +22,7 @@
   position: relative;
 
   color: var(--common-white);
-  background-color: var(--primary-main);
+  background-color: var(--primary-dark);
   box-shadow: var(--popup-shadow);
   padding: 4rem 4.8rem 5rem;
   border-radius: 50px;
