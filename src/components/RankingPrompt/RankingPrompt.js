@@ -17,6 +17,7 @@ function RankingPrompt({ score, close, category }) {
     id: 'player-name',
     minCharacters: 3,
     onChange: (e) => {
+      console.log('changing');
       username = e.target.value;
     },
   });
