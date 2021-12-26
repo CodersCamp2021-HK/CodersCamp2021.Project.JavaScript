@@ -3,7 +3,7 @@ import { html } from '../../shared';
 import styles from './Answers.module.css';
 
 /**
- * @todo navigate to the Ranking Page
+ * @todo navigate to the ranking page, add the answers table
  * @param { { allAnswers: import('../../components/Question').FullAnswer[], selectedCategory: import('../Loading').QuizCategory, selectedDifficulty: import('../Loading').QuizDifficulty } & import('..').RouterProps } props
  * @returns {HTMLElement}
  */
