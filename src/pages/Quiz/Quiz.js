@@ -6,16 +6,16 @@ import head from '../../public/img/RicksHead.png';
 /**
  * @param { { generator: import('../../data/questions').QuestionGenerator } & import('..').RouterProps } props
  */
-function Quiz(props) {
+function Quiz({ generator, router }) {
+  /**
+   * @type {import('../../components/Question').FullAnswer[]}
+   */
   const allAnswers = [];
-  const { element: counterElement, increment, getCount } = QuestionCounter();
+  const { element: counterElement, increment } = QuestionCounter();
   const onClick = () => {
-    // eslint-disable-next-line no-unused-vars
-    const answeredQuestions = getCount() - 1;
-    // eslint-disable-next-line no-unused-vars
-    const points = allAnswers.filter((answer) => answer.correct).length;
+    router.goto({ page: 'answers', data: { allAnswers } });
   };
-  let question = Question(props.generator.next().value);
+  let question = Question(generator.next().value);
 
   return html`<div class="${styles.wrapper}">
     ${BackgroundDecoration()}
@@ -30,7 +30,7 @@ function Quiz(props) {
         onClick: (e) => {
           e.preventDefault();
           allAnswers.push(question.getFullAnswer());
-          question = Question(props.generator.next().value);
+          question = Question(generator.next().value);
           increment();
           render({ on: document.getElementById('question'), element: question.question });
         },
