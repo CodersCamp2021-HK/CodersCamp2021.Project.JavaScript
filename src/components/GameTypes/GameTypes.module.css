@@ -24,6 +24,6 @@
 
 .selectedType {
   color: var(--primary-contrast);
-  background-color: var(--primary-light);
+  background-color: var(--primary-main);
   border-color: transparent;
 }

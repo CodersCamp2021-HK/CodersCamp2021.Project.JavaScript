@@ -3,24 +3,29 @@
 
 :root {
   /* Color styles */
-  --primary-light: rgba(231, 255, 140, 1);
-  --primary-main: rgba(126, 203, 32, 1);
-  --primary-contrast: rgba(0, 0, 0, 1);
-  --secondary-main: rgba(0, 176, 200, 1);
-  --secondary-light: rgba(95, 226, 251, 1);
-  --secondary-dark: rgba(0, 128, 151, 1);
-  --secondary-contrast: rgba(0, 0, 0, 1);
+  --common-dark: #000000;
+  --common-white: #ffffff;
+
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+
+  --primary-main: #b2ff59;
+  --primary-light: #e7ff8c;
+  --primary-dark: #7ecb20;
+  --primary-contrast: #000000;
+
+  --secondary-main: #00b0c8;
+  --secondary-light: #5fe2fb;
+  --secondary-dark: #008097;
+  --secondary-contrast: #000000;
+
   --action-active: rgba(0, 0, 0, 0.54);
   --action-hover: rgba(0, 0, 0, 0.04);
   --action-selected: rgba(0, 0, 0, 0.08);
   --action-disabled: rgba(0, 0, 0, 0.26);
   --action-disabled--background: rgba(0, 0, 0, 0.12);
   --action-focus: rgba(0, 0, 0, 0.12);
-  --common-dark: rgba(0, 0, 0, 1);
-  --common-white: rgba(255, 255, 255, 1);
-  --text-primary: rgba(0, 0, 0, 0.87);
-  --text-secondary: rgba(0, 0, 0, 0.6);
-  --text-disabled: rgba(0, 0, 0, 0.38);
 
   /* Text-size styles */
   /* base size: button-text-small (20px) */
