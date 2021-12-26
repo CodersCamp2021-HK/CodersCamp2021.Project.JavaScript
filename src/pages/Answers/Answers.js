@@ -10,8 +10,23 @@ import styles from './Answers.module.css';
 function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const answeredQuestions = allAnswers.length;
   const correctAnswers = allAnswers.filter((answer) => answer.correct).length;
-
   const score = selectedDifficulty === 'hard' ? 2 * correctAnswers : correctAnswers;
+
+  const popupOverlay = html`<div class="${styles.popupOverlay}"></div>`;
+
+  const closePopup = () => {
+    const transitionSeconds = parseFloat(getComputedStyle(popupOverlay).getPropertyValue('transition-duration'));
+
+    popupOverlay.style.opacity = '0';
+
+    setInterval(() => {
+      popupOverlay.style.display = 'none';
+    }, transitionSeconds * 1000);
+  };
+
+  const rankingPrompt = RankingPrompt({ score, category: selectedCategory, close: closePopup });
+
+  popupOverlay.appendChild(rankingPrompt);
 
   return html`<div class="${styles.wrapper}">
     <div class="${styles.content}">
@@ -41,7 +56,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
         <div class="${styles.logoWrapper}">${Logo(31)}</div>
       </main>
     </div>
-    <div class="${styles.popupOverlay}">${RankingPrompt({ score })}</div>
+    ${popupOverlay}
   </div>`;
 }
 
