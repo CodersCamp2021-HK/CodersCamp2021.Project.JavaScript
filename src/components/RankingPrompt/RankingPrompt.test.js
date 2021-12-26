@@ -1,6 +1,5 @@
-import { getByLabelText, getByRole, getByText, waitFor } from '@testing-library/dom';
+import { getByLabelText, getByRole } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { getRankingByCategory } from '../../shared/ranking';
 import { RankingPrompt } from './RankingPrompt';
 
 describe('RankingPrompt tests', () => {
