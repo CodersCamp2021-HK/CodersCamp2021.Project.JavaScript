@@ -1,0 +1,47 @@
+table {
+  color: white;
+  list-style: number;
+  width: 100%;
+  text-align: center;
+}
+
+thead th {
+  background-color: var(--action-selected);
+  color: var(--secondary-dark);
+  position: sticky;
+  top: 0;
+}
+
+thead th:first-child {
+  border-radius: 100px 0 0 100px;
+}
+
+thead th:last-child {
+  border-radius: 0 100px 100px 0;
+}
+
+.rankingContainer {
+  overflow-y: auto;
+  height: 31.25rem;
+}
+
+.userScore {
+  color: var(--primary-light);
+}
+
+.blobBox {
+  width: 4.125rem;
+  height: 4.125rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+
+.blobBox > * {
+  grid-area: 1 / -1 / 1 / -1;
+}
+
+.userPosition {
+  font-weight: 800;
+  color: var(--secondary-dark);
+}
