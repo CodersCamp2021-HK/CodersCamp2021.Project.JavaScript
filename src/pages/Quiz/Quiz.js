@@ -37,12 +37,12 @@ function Quiz(props) {
         text: 'dalej',
         variant: 'nextQuestion',
       })}
-        ${Timer({
-          startingMinutes: 2,
-          onFinish: () => {
-            // TODO: go to next page/popup
-          }
-        })};
+      ${Timer({
+        startingMinutes: 2,
+        onFinish: () => {
+          // TODO: go to next page/popup
+        },
+      })};
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
   </div>`;
