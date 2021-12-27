@@ -15,6 +15,7 @@ function Home({ router }) {
 
   const btnStart = Button({
     text: 'Rozpocznij quiz',
+    variant: 'main',
     disabled: true,
     onClick: () => {
       router.goto({ page: 'loading', data: { selectedCategory, selectedDifficulty } });
