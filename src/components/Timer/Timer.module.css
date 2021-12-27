@@ -1,47 +1,48 @@
 .container {
-    text-align: center;
-    font-weight: 800;
-    color: var(--common-white);
+  display: inline-block;
+  width: auto;
+  text-align: center;
+}
+
+.timerOuterWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.timerInnerWrapper {
+  transform: rotate(-90deg);
+}
+
+.text {
+  font-size: var(--question-text);
+  color: var(--common-white);
+  font-weight: 800;
+}
+
+.counter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--common-white);
+  font-size: var(--extra-big-text);
+  display: inline-block;
+}
+
+.circle {
+  stroke-dasharray: 544;
+  stroke-dashoffset: 544;
+  animation-name: countdown;
+  animation-duration: var(--animation-time);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 544;
   }
-  
-  .container > p {
-    font-size: 2rem;
-    line-height: 34px;
-    margin: 0;
+  to {
+    stroke-dashoffset: 0;
   }
-  
-  #counter {
-      font-size: 50px;
-  }
-  
-  circle {
-    stroke-width: 15;
-    transform: rotate(-90deg);
-    transform-origin: 50% 42.5%;
-    filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.25));
-  }
-  
-  text {
-    fill: var(--common-white);
-  }
-  
-  .ellipse5 {
-      stroke: var(--common-white);
-      
-  }
-  
-  .ellipse6 {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    stroke: var(--primary-light);
-    animation: countdown 60s linear infinite forwards;
-  }
-  
-  @keyframes countdown {
-    from {
-      stroke-dashoffset: 1000;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
+}

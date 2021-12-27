@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
-@import './preflight.css';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+@import "./preflight.css";
 
 :root {
   /* Color styles */
@@ -31,10 +31,11 @@
 
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
+  --circle-animation-time: 0;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-  background: var(--common-dark) url('/src/public/img/background.jpg') center center / cover;
+  background: var(--common-dark) url("/src/public/img/background.jpg") center center / cover;
 }
 
 body,
