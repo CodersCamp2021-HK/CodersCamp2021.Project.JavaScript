@@ -4,18 +4,22 @@ table {
   width: 100%;
   text-align: center;
 }
+
 thead th {
   background-color: var(--action-selected);
   color: var(--secondary-dark);
   position: sticky;
   top: 0;
 }
+
 thead th:first-child {
   border-radius: 100px 0 0 100px;
 }
+
 thead th:last-child {
   border-radius: 0 100px 100px 0;
 }
+
 .rankingContainer {
   overflow-y: auto;
   height: 31.25rem;
@@ -36,6 +40,7 @@ thead th:last-child {
 .blobBox > * {
   grid-area: 1 / -1 / 1 / -1;
 }
+
 .userPosition {
   font-weight: 800;
   color: var(--secondary-dark);
