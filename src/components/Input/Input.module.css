@@ -1,0 +1,22 @@
+.input {
+  font-size: var(--button-text);
+  padding: 0.625rem 1.6rem;
+  border-radius: var(--default-border-radius);
+  color: var(--text-primary);
+  transition-duration: var(--default-transition);
+  outline: 0;
+  border: 2px solid transparent;
+}
+
+.input::placeholder {
+  color: var(--action-disabled);
+}
+
+.input:active {
+  color: var(--secondary-dark);
+}
+
+.input:focus {
+  color: var(--secondary-dark);
+  border: 2px solid var(--secondary-light);
+}

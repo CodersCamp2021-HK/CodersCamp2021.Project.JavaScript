@@ -2,6 +2,10 @@
   display: inline-block;
   width: auto;
   text-align: center;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-70%, -70%);
 }
 
 .timerOuterWrapper {
@@ -27,6 +31,7 @@
   color: var(--common-white);
   font-size: var(--extra-big-text);
   display: inline-block;
+  font-weight: 800;
 }
 
 .circle {

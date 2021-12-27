@@ -1,0 +1,52 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBox {
+  color: var(--common-white);
+  background-color: var(--primary-dark);
+  position: relative;
+  display: flex;
+  gap: 3.8125rem;
+  padding: 2rem 3.6rem 4rem 2rem;
+  border-radius: 3.125rem;
+  box-shadow: var(--popup-shadow);
+}
+
+.image {
+  max-height: 12rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.875rem;
+}
+
+.heading {
+  font-size: var(--header-3);
+  font-weight: 800;
+}
+
+.questionText {
+  color: var(--secondary-dark);
+  font-size: var(--question-text);
+  font-weight: 600;
+}
+
+.logoWrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(65%);
+}
+
+.logo {
+  width: 65%;
+  margin: 0 auto;
+}

@@ -1,13 +1,13 @@
-import { Home } from './Home/Home';
-import { Todo } from './Todo/Todo';
-import { Loading } from './Loading/Loading';
-import { Quiz } from './Quiz/Quiz';
+import { Home } from './Home';
+import { Loading } from './Loading';
+import { Quiz } from './Quiz';
+import { RankingPrompt } from './RankingPrompt';
 
 const pages = Object.freeze({
   home: Home,
-  todo: Todo,
   loading: Loading,
   quiz: Quiz,
+  rankingPrompt: RankingPrompt,
 });
 
 /**

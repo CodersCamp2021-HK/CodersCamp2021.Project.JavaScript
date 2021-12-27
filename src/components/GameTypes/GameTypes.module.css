@@ -1,6 +1,6 @@
 .heading {
   font-weight: 800;
-  font-size: 2.25rem;
+  font-size: var(--header-3);
   color: var(--common-white);
   text-align: center;
   width: 100%;
@@ -23,7 +23,7 @@
 }
 
 .selectedType {
-  background-color: var(--primary-light);
-  border: 6px solid var(--primary-light);
-  transition: var(--default-transition);
+  color: var(--primary-contrast);
+  background-color: var(--primary-main);
+  border-color: transparent;
 }

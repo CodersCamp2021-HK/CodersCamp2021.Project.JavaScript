@@ -1,0 +1,52 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bgDecoration {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.bgDecoration1 {
+  right: 5vw;
+  top: 30vh;
+  composes: bgDecoration;
+}
+
+.bgDecoration2 {
+  top: 10vh;
+  left: 15vw;
+  composes: bgDecoration;
+}
+.bgDecoration2 img {
+  transform: rotate(90deg);
+}
+
+.bgDecoration3 {
+  left: 5vw;
+  bottom: 15vh;
+  composes: bgDecoration;
+}
+
+.bgDecoration3 img {
+  transform: rotate(-180deg);
+}
+
+.bgDecoration4 {
+  right: 5vw;
+  top: 0;
+  composes: bgDecoration;
+}
+
+.bgDecoration4 img {
+  transform: rotate(-90deg);
+}
