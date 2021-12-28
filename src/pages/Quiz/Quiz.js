@@ -12,7 +12,7 @@ function Quiz({ generator, router, ...otherProps }) {
    */
   const allAnswers = [];
   const { element: counterElement, increment } = QuestionCounter();
-  const onClick = () => {
+  const endQuiz = () => {
     router.goto({ page: 'answers', data: { allAnswers, ...otherProps } });
   };
   let question = Question(generator.next().value);
@@ -21,7 +21,7 @@ function Quiz({ generator, router, ...otherProps }) {
     ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.counterElementWrapper}">${counterElement}</div>
-      <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick })}</div>
+      <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick: endQuiz })}</div>
       <div class="${styles.headImgWrapper}">
         <img src="${head}" alt="Ricks head" />
       </div>
@@ -39,9 +39,7 @@ function Quiz({ generator, router, ...otherProps }) {
       })}
       ${Timer({
         startingMinutes: 2,
-        onFinish: () => {
-          // TODO: go to next page/popup
-        },
+        onFinish: endQuiz,
       })};
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
