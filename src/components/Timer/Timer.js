@@ -19,8 +19,8 @@ function Timer({ startingMinutes, onFinish }) {
       return timeUnit < 10 ? `0${timeUnit}` : timeUnit;
     };
 
-    const mm = checkIfLessThan10(timeObj.getUTCMinutes());
-    const ss = checkIfLessThan10(timeObj.getUTCSeconds());
+    const mm = timeObj.getUTCMinutes().toString().padStart(2, '0');
+    const ss = timeObj.getUTCSeconds().toString().padStart(2, '0');
     return `${mm}:${ss}`;
   };
 
