@@ -5,7 +5,6 @@ import styles from './Timer.module.css';
  * @param {{ startingMinutes: number, onFinish: () => void }} props
  * @returns {HTMLElement}
  */
-
 function Timer({ startingMinutes, onFinish }) {
   let count = startingMinutes * 60;
   let counting;
@@ -14,13 +13,9 @@ function Timer({ startingMinutes, onFinish }) {
 
   const formatDuration = (time) => {
     const timeObj = new Date(time * 1000);
-
-    const checkIfLessThan10 = (timeUnit) => {
-      return timeUnit < 10 ? `0${timeUnit}` : timeUnit;
-    };
-
     const mm = timeObj.getUTCMinutes().toString().padStart(2, '0');
     const ss = timeObj.getUTCSeconds().toString().padStart(2, '0');
+
     return `${mm}:${ss}`;
   };
 
@@ -92,8 +87,7 @@ function Timer({ startingMinutes, onFinish }) {
   </div>`;
 
   const passAnimationDuration = () => {
-    const root = document.querySelector(':root');
-    root.style.setProperty('--animation-time', `${count}s`);
+    displayTimer.style.setProperty('--animation-time', `${count}s`);
   };
 
   passAnimationDuration();
