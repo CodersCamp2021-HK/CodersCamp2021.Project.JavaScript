@@ -42,10 +42,11 @@
   --heading-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
+  --circle-animation-time: 0;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-  background: var(--common-dark) url('/src/public/img/background.jpg') center center / cover;
+  background: var(--common-dark) url("/src/public/img/background.jpg") center center / cover;
 }
 
 body,

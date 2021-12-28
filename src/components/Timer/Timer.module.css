@@ -1,0 +1,53 @@
+.container {
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-70%, -70%);
+}
+
+.timerOuterWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.timerInnerWrapper {
+  transform: rotate(-90deg);
+}
+
+.text {
+  font-size: var(--question-text);
+  color: var(--common-white);
+  font-weight: 800;
+}
+
+.counter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--common-white);
+  font-size: var(--extra-big-text);
+  display: inline-block;
+  font-weight: 800;
+}
+
+.circle {
+  stroke-dasharray: 544;
+  stroke-dashoffset: 544;
+  animation-name: countdown;
+  animation-duration: var(--animation-time);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 544;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

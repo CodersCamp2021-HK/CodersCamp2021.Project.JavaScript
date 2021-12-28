@@ -1,5 +1,5 @@
 import { html, render } from '../../shared';
-import { Button, Logo, BackgroundDecoration, Question, PopupClose, QuestionCounter } from '../../components';
+import { Button, Logo, BackgroundDecoration, Question, PopupClose, QuestionCounter, Timer } from '../../components';
 import styles from './Quiz.module.css';
 import head from '../../public/img/RicksHead.png';
 
@@ -37,6 +37,12 @@ function Quiz({ generator, router, ...otherProps }) {
         text: 'dalej',
         variant: 'nextQuestion',
       })}
+      ${Timer({
+        startingMinutes: 2,
+        onFinish: () => {
+          // TODO: go to next page/popup
+        },
+      })};
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
   </div>`;
