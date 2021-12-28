@@ -8,4 +8,5 @@ export * from './BackgroundDecoration';
 export * from './QuestionCounter';
 export * from './Input';
 export * from './PopupClose';
+export * from './RankingPrompt';
 export * from './RankingTable';

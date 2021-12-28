@@ -1,30 +1,25 @@
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .mainBox {
   color: var(--common-white);
   background-color: var(--primary-dark);
   position: relative;
   display: flex;
-  gap: 3.8125rem;
+  align-items: center;
+  gap: 3rem;
   padding: 2rem 3.6rem 4rem 2rem;
   border-radius: 3.125rem;
   box-shadow: var(--popup-shadow);
 }
 
 .image {
-  max-height: 12rem;
+  padding: 1rem;
+  max-height: 20rem;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2.875rem;
+  gap: 3rem;
 }
 
 .heading {
@@ -38,15 +33,15 @@
   font-weight: 600;
 }
 
-.logoWrapper {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateY(65%);
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
 }
 
-.logo {
-  width: 65%;
-  margin: 0 auto;
+.closeWrapper {
+  position: absolute;
+  right: -2rem;
+  top: -2rem;
 }

@@ -4,24 +4,24 @@ import styles from './Quiz.module.css';
 import head from '../../public/img/RicksHead.png';
 
 /**
- * @param { { generator: import('../../data/questions').QuestionGenerator } & import('..').RouterProps } props
+ * @param { { generator: import('../../data/questions').QuestionGenerator, selectedCategory: import('../Loading').QuizCategory, selectedDifficulty: import('../Loading').QuizDifficulty } & import('..').RouterProps } props
  */
-function Quiz(props) {
+function Quiz({ generator, router, ...otherProps }) {
+  /**
+   * @type {import('../../components/Question').FullAnswer[]}
+   */
   const allAnswers = [];
-  const { element: counterElement, increment, getCount } = QuestionCounter();
-  const onClick = () => {
-    // eslint-disable-next-line no-unused-vars
-    const answeredQuestions = getCount() - 1;
-    // eslint-disable-next-line no-unused-vars
-    const points = allAnswers.filter((answer) => answer.correct).length;
+  const { element: counterElement, increment } = QuestionCounter();
+  const endQuiz = () => {
+    router.goto({ page: 'answers', data: { allAnswers, ...otherProps } });
   };
-  let question = Question(props.generator.next().value);
+  let question = Question(generator.next().value);
 
   return html`<div class="${styles.wrapper}">
     ${BackgroundDecoration()}
     <div class="${styles.quizContainer}">
       <div class="${styles.counterElementWrapper}">${counterElement}</div>
-      <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick })}</div>
+      <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick: endQuiz })}</div>
       <div class="${styles.headImgWrapper}">
         <img src="${head}" alt="Ricks head" />
       </div>
@@ -30,7 +30,7 @@ function Quiz(props) {
         onClick: (e) => {
           e.preventDefault();
           allAnswers.push(question.getFullAnswer());
-          question = Question(props.generator.next().value);
+          question = Question(generator.next().value);
           increment();
           render({ on: document.getElementById('question'), element: question.question });
         },
@@ -39,9 +39,7 @@ function Quiz(props) {
       })}
       ${Timer({
         startingMinutes: 2,
-        onFinish: () => {
-          // TODO: go to next page/popup
-        },
+        onFinish: endQuiz,
       })};
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
