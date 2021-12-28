@@ -7,10 +7,13 @@ import styles from './RankingPrompt.module.css';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
 /**
- * @param {{ score: number, close: () => void, category: import('../../pages/Loading').QuizCategory }} props
+ * @param {{ correctAnswers: number, close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
  * @returns {HTMLElement}
  */
-function RankingPrompt({ score, close, category }) {
+function RankingPrompt({ correctAnswers, close, category, difficulty }) {
+  const multiplier = difficulty === 'hard' ? 2 : 1;
+  const score = correctAnswers * multiplier;
+
   let username = '';
 
   const usernameInput = Input({
@@ -37,18 +40,23 @@ function RankingPrompt({ score, close, category }) {
     submitButton.blur();
     usernameInput.blur();
 
-    addUserToRanking(username, score, category);
-
-    close();
+    const id = Date.now();
+    addUserToRanking(username, score, category, id);
+    close(id);
   });
 
+  const message =
+    multiplier === 1
+      ? `Twój wynik to ${score} punktów.`
+      : `Odpowiedziałeś poprawnie na ${correctAnswers} pytań, co daje Ci ${score} punktów.`;
+
   return html` <section class="${styles.mainBox}">
-    <div class="${styles.closeWrapper}">${PopupClose({ onClick: close })}</div>
+    <div class="${styles.closeWrapper}">${PopupClose({ onClick: () => close(null) })}</div>
     <img class="${styles.image}" src="${charactersCelebrationUrl}" alt="Characters from the show dancing." />
     <div class=${styles.column}>
       <header>
         <h3 class="${styles.heading}">Gratulacje!</h3>
-        <p>Twój wynik to ${score} pkt.</p>
+        <p>${message}</p>
       </header>
       ${form}
     </div>

@@ -10,7 +10,6 @@ import styles from './Answers.module.css';
 function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const answeredQuestions = allAnswers.length;
   const correctAnswers = allAnswers.filter((answer) => answer.correct).length;
-  const score = selectedDifficulty === 'hard' ? 2 * correctAnswers : correctAnswers;
 
   const popupOverlay = html`<div class="${styles.popupOverlay}"></div>`;
 
@@ -24,7 +23,12 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
     }, transitionSeconds * 1000);
   };
 
-  const rankingPrompt = RankingPrompt({ score, category: selectedCategory, close: closePopup });
+  const rankingPrompt = RankingPrompt({
+    correctAnswers,
+    difficulty: selectedDifficulty,
+    category: selectedCategory,
+    close: closePopup,
+  });
 
   popupOverlay.appendChild(rankingPrompt);
 
