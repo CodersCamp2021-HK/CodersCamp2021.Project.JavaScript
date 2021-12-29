@@ -16,6 +16,7 @@
   composes: Button;
   background-color: var(--secondary-dark);
   text-transform: uppercase;
+  font-weight: bold;
   font-size: var(--button-text-small);
   padding: 1rem;
 }

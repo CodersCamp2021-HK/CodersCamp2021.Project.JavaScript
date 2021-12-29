@@ -13,7 +13,7 @@ const crossIcon = html`<svg class="${styles.crossIcon}" viewBox="0 0 45 38" xmln
  * @returns {HTMLElement}
  */
 function PopupClose({ onClick }) {
-  const button = html`<button type="button" class="${styles.blobBox}">
+  const button = html`<button type="button" class="${styles.blobBox}" aria-label="Zamknij">
     <img src="${blob}" alt="" />
     ${crossIcon}
   </button>`;

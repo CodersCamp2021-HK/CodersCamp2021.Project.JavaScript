@@ -86,7 +86,7 @@ const withMinDuration = async (promise, seconds) => {
 function Loading({ router, selectedCategory, selectedDifficulty }) {
   withMinDuration(fetchQuestions(selectedCategory, selectedDifficulty), FETCH_MIN_DURATION_SECONDS).then(
     (generator) => {
-      router.goto({ page: 'quiz', data: { generator } });
+      router.goto({ page: 'quiz', data: { generator, selectedCategory, selectedDifficulty } });
     },
   );
 

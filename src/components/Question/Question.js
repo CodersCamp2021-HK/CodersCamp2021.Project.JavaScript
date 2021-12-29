@@ -19,6 +19,24 @@ import styles from './Question.module.css';
  */
 
 /**
+ * @typedef {Object} FullAnswerCharacterCategory
+ * @property {'character'} category
+ * @property {string} whatIsQuestionAbout Character image
+ * @property {CharacterAnswers} correctAnswers Array of correct answers
+ * @property {CharacterAnswers} userAnswers Array of answers selected by user
+ * @property {boolean} correct
+ */
+
+/**
+ * @typedef {Object} FullAnswerEpisodeOrLocationCategory
+ * @property {'episode'|'location'} category
+ * @property {string} whatIsQuestionAbout Episode title or location name
+ * @property {EpisodeOrLocationAnswers} correctAnswers Array of correct answers
+ * @property {EpisodeOrLocationAnswers} userAnswers Array of answers selected by user
+ * @property {boolean} correct
+ */
+
+/**
  * @typedef {Object} QuestionInstance
  * @property {HTMLElement} question
  * @property {() => FullAnswer} getFullAnswer
