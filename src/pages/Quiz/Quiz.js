@@ -12,7 +12,10 @@ function Quiz({ generator, router, ...otherProps }) {
    */
   const allAnswers = [];
   const { element: counterElement, increment } = QuestionCounter();
+
+  let finishCounting;
   const endQuiz = () => {
+    finishCounting();
     router.goto({ page: 'answers', data: { allAnswers, ...otherProps } });
   };
   let question = Question(generator.next().value);
@@ -40,6 +43,9 @@ function Quiz({ generator, router, ...otherProps }) {
       ${Timer({
         startingMinutes: 2,
         onFinish: endQuiz,
+        stopTimer: (clearTimer) => {
+          finishCounting = clearTimer;
+        },
       })};
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>

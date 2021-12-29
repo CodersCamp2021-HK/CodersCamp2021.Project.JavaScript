@@ -2,10 +2,10 @@ import { html } from '../../shared';
 import styles from './Timer.module.css';
 
 /**
- * @param {{ startingMinutes: number, onFinish: () => void }} props
+ * @param {{ startingMinutes: number, onFinish: () => void, stopTimer: (fn: Object) => Object }} props
  * @returns {HTMLElement}
  */
-function Timer({ startingMinutes, onFinish }) {
+function Timer({ startingMinutes, onFinish, stopTimer }) {
   let count = startingMinutes * 60;
   let counting;
 
@@ -22,7 +22,7 @@ function Timer({ startingMinutes, onFinish }) {
   counter.textContent = formatDuration(count);
 
   const finishCounting = () => {
-    clearInterval(counting);
+    return clearInterval(counting);
   };
 
   const changeDuration = () => {
@@ -39,6 +39,8 @@ function Timer({ startingMinutes, onFinish }) {
   };
 
   processCounting();
+
+  stopTimer(finishCounting);
 
   const svg = html` <div class="${styles.timerOuterWrapper}">
     ${counter}
