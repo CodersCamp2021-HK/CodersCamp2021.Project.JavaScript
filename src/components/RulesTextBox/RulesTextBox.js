@@ -23,8 +23,8 @@ const categoryDescriptions = Object.freeze({
  * @type {Readonly<Record<QuizDifficulty, string>>}
  */
 const difficultyDescriptions = Object.freeze({
-  easy: 'Dwie odpowiedzi na każde pytanie.',
-  hard: 'Cztery odpowiedzi na każde pytanie.',
+  easy: 'Dwie odpowiedzi na każde pytanie. Za poprawną odpowiedź otrzymujemy 1 punkt.',
+  hard: 'Cztery odpowiedzi na każde pytanie. Za poprawną odpowiedź otrzymujemy 2 punkty.',
 });
 
 /**
