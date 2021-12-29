@@ -77,7 +77,9 @@ function Home({ router }) {
       ${btnStart}
       ${Button({
         text: 'Ranking',
-        onClick: () => {},
+        onClick: () => {
+          router.goto({ page: 'ranking' });
+        },
         variant: 'outlined',
       })}
       </div>
