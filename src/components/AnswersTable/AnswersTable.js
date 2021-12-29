@@ -13,13 +13,13 @@ import x from '../../public/img/x.svg';
 
 /**
  * Generates an image element with an icon depending on the correctness of the answer.
- * @param {'true'|'false'} correct
+ * @param {boolean} correct
  * @returns {HTMLElement}
  */
 const correctIcon = (correct) => {
   const img = document.createElement('img');
   img.className = styles.correctIcon;
-  img.src = correct === 'true' ? check : x;
+  img.src = correct ? check : x;
   img.alt = '';
   return img;
 };
@@ -49,7 +49,7 @@ const characterQuestionElements = (count, answer) => {
   const characterImage = document.createElement('img');
   const correctAnswer = document.createTextNode(`${answer.correctAnswers[0].name}`);
   const userAnswer = document.createTextNode(`${answer.userAnswers[0] ? answer.userAnswers[0].name : ''}`);
-  const correct = correctIcon(`${answer.correct}`);
+  const correct = correctIcon(answer.correct);
 
   characterImage.src = answer.whatIsQuestionAbout;
   characterImage.alt = answer.correctAnswers[0].name;
@@ -68,7 +68,7 @@ const episodeOrLocationQuestionElements = (count, answer) => {
   const episodeOrLocationName = document.createTextNode(`${answer.whatIsQuestionAbout}`);
   const correctAnswers = document.createElement('div');
   const userAnswers = document.createElement('div');
-  const correct = correctIcon(`${answer.correct}`);
+  const correct = correctIcon(answer.correct);
 
   correctAnswers.className = styles.answerImagesContainer;
   userAnswers.className = styles.answerImagesContainer;
@@ -105,7 +105,6 @@ function AnswersTable(allAnswers) {
   answersTable.appendChild(tableHeader);
 
   const tableBody = document.createElement('tbody');
-  tableBody.className = styles.tableBody;
   answersTable.appendChild(tableBody);
 
   allAnswers.forEach((answer) => {

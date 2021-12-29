@@ -16,9 +16,11 @@
   font-size: var(--question-text);
 }
 
-.answersTable th {
+.answersTable thead th {
   color: var(--common-white);
-  position: static;
+  background-color: var(--primary-dark);
+  border-radius: 0;
+  z-index: 1;
 }
 
 .tableRow {
