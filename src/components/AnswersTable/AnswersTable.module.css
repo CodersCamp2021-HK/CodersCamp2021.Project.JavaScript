@@ -1,0 +1,24 @@
+.answerWrapper {
+  
+}
+
+.tableRow {
+  background-color: var(--action-active);
+
+}
+
+.characterImage {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 10%;
+}
+
+.answerImage {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+}
+
+.answerImagesContainer {
+  display: flex;
+}
