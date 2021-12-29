@@ -15,7 +15,6 @@ function Ranking({ router }) {
     },
   });
   return html` <div class=${styles.content}>
-    {}
     <div class=${styles.flexContainer}>
       <button class=${styles.flexBtn}>Co to za postać</button>
       <button class=${styles.flexBtn}>Bohaterowie odcinka</button>

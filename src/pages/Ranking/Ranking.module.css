@@ -1,10 +1,10 @@
 .content {
-  width: 100%;
+  width: 80%;
   position: absolute;
-  left: 60%;
+  left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
 }
 
 .flexContainer {
@@ -16,7 +16,6 @@
 }
 
 .flexBtn {
-  font-size: 1.6vw;
   background-color: var(--primary-light);
   color: var(--secondary-dark);
   display: inline-flex;
@@ -54,7 +53,7 @@
 }
 
 .text {
-  margin-left: 6rem;
+  margin-left: 10%;
   margin-right: auto;
   color: var(--common-white);
   margin-top: 2rem;
