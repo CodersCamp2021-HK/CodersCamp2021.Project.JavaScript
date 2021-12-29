@@ -40,7 +40,7 @@ function Quiz({ generator, router, ...otherProps }) {
       ${Timer({
         startingMinutes: 2,
         onFinish: endQuiz,
-      })};
+      })}
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
   </div>`;
