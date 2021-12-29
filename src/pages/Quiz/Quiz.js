@@ -46,7 +46,7 @@ function Quiz({ generator, router, ...otherProps }) {
         stopTimer: (clearTimer) => {
           finishCounting = clearTimer;
         },
-      })};
+      })}
       <div class="${styles.logoWrapper}">${Logo(31)}</div>
     </div>
   </div>`;

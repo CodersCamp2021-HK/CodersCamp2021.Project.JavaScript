@@ -22,7 +22,7 @@ function Timer({ startingMinutes, onFinish, stopTimer }) {
   counter.textContent = formatDuration(count);
 
   const finishCounting = () => {
-    return clearInterval(counting);
+    clearInterval(counting);
   };
 
   const changeDuration = () => {
