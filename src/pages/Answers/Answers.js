@@ -1,4 +1,4 @@
-import { Button, Logo, RankingPrompt } from '../../components';
+import { Button, Logo, RankingPrompt, AnswersTable } from '../../components';
 import { html } from '../../shared';
 import styles from './Answers.module.css';
 
@@ -38,6 +38,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
         <h3 class="${styles.heading}">
           Poprawne odpowiedzi: <span class="${styles.score}">${correctAnswers}/${answeredQuestions}</span>
         </h3>
+        ${AnswersTable(allAnswers)}
         <div class="${styles.buttonRow}">
           ${Button({
             text: 'Spróbuj jeszcze raz',

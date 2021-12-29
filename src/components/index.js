@@ -10,3 +10,4 @@ export * from './Input';
 export * from './PopupClose';
 export * from './RankingPrompt';
 export * from './RankingTable';
+export * from './AnswersTable';
