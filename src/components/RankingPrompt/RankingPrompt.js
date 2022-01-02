@@ -41,7 +41,7 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
       ${usernameInput} ${submitButton}
     </form>`
   );
-  // const id = Date.now();
+
   form.addEventListener('submit', (event) => {
     event.preventDefault(); // make sure form doesn't post
     submitButton.disabled = true; // make sure we don't submit score twice
