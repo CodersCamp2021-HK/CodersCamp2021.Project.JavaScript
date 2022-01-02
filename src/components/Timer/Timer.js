@@ -45,7 +45,7 @@ function Timer({ startingMinutes, onFinish, stopTimer }) {
   const svg = html` <div class="${styles.timerOuterWrapper}">
     ${counter}
     <div class="${styles.timerInnerWrapper}">
-      <svg width="200" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100%" height="auto" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="98" cy="98" r="86.5" stroke="#B2FF59" stroke-width="15" />
         <g filter="url(#a)">
           <circle

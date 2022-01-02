@@ -1,49 +1,8 @@
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .quizContainer {
-  background-color: var(--primary-dark);
-  border-radius: var(--default-border-radius);
-  width: 58.15rem;
-  min-width: 320px;
-  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 3.5rem;
-  position: relative;
-}
-
-.counterElementWrapper {
-  position: absolute;
-  top: -2rem;
-  left: -2rem;
-}
-
-.popupCloseWrapper {
-  position: absolute;
-  top: -2rem;
-  right: -2rem;
-}
-
-.logoWrapper {
-  position: absolute;
-  top: 100%;
-  transform: translateY(-60px);
-}
-
-.headImgWrapper {
-  position: absolute;
-  bottom: 100%;
-  transform: translateY(50px);
-}
-
-.headImgWrapper img {
-  max-width: 100%;
-  height: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
 }

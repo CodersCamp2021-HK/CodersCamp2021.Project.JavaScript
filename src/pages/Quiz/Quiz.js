@@ -1,7 +1,6 @@
 import { html, render } from '../../shared';
-import { Button, Logo, BackgroundDecoration, Question, PopupClose, QuestionCounter, Timer } from '../../components';
+import { Button, Question, PopupClose, QuestionCounter, Timer, ContentWrapper } from '../../components';
 import styles from './Quiz.module.css';
-import head from '../../public/img/RicksHead.png';
 
 /**
  * @param { { generator: import('../../data/questions').QuestionGenerator, selectedCategory: import('../Loading').QuizCategory, selectedDifficulty: import('../Loading').QuizDifficulty } & import('..').RouterProps } props
@@ -20,14 +19,20 @@ function Quiz({ generator, router, ...otherProps }) {
   };
   let question = Question(generator.next().value);
 
-  return html`<div class="${styles.wrapper}">
-    ${BackgroundDecoration()}
-    <div class="${styles.quizContainer}">
-      <div class="${styles.counterElementWrapper}">${counterElement}</div>
-      <div class="${styles.popupCloseWrapper}">${PopupClose({ onClick: endQuiz })}</div>
-      <div class="${styles.headImgWrapper}">
-        <img src="${head}" alt="Ricks head" />
-      </div>
+  return ContentWrapper({
+    hasHead: true,
+    hasLogo: true,
+    hasBgDecoration: true,
+    topLeft: counterElement,
+    topRight: PopupClose({ onClick: endQuiz }),
+    botRight: Timer({
+      startingMinutes: 2,
+      onFinish: endQuiz,
+      stopTimer: (clearTimer) => {
+        finishCounting = clearTimer;
+      },
+    }),
+    content: html`<div class="${styles.quizContainer}">
       ${question.question}
       ${Button({
         onClick: (e) => {
@@ -40,16 +45,8 @@ function Quiz({ generator, router, ...otherProps }) {
         text: 'dalej',
         variant: 'nextQuestion',
       })}
-      ${Timer({
-        startingMinutes: 2,
-        onFinish: endQuiz,
-        stopTimer: (clearTimer) => {
-          finishCounting = clearTimer;
-        },
-      })}
-      <div class="${styles.logoWrapper}">${Logo(31)}</div>
-    </div>
-  </div>`;
+    </div>`,
+  });
 }
 
 export { Quiz };
