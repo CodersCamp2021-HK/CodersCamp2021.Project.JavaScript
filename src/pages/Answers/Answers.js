@@ -1,4 +1,4 @@
-import { Button, Logo, RankingPrompt, AnswersTable, getUserId } from '../../components';
+import { Button, Logo, RankingPrompt, AnswersTable } from '../../components';
 import { html } from '../../shared';
 import styles from './Answers.module.css';
 
@@ -12,10 +12,9 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const correctAnswers = allAnswers.filter((answer) => answer.correct).length;
 
   const popupOverlay = html`<div class="${styles.popupOverlay}"></div>`;
-
+  const timeStamp = Date.now();
   const closePopup = () => {
     const transitionSeconds = parseFloat(getComputedStyle(popupOverlay).getPropertyValue('transition-duration'));
-
     popupOverlay.style.opacity = '0';
 
     setInterval(() => {
@@ -28,6 +27,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
     difficulty: selectedDifficulty,
     category: selectedCategory,
     close: closePopup,
+    timeStamp,
   });
 
   popupOverlay.appendChild(rankingPrompt);
@@ -56,7 +56,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
             text: 'Ranking',
             disabled: false,
             onClick: () => {
-              router.goto({ page: 'ranking', data: { id: getUserId(), category: selectedCategory } });
+              router.goto({ page: 'ranking', data: { id: timeStamp, category: selectedCategory } });
             },
           })}
         </div>

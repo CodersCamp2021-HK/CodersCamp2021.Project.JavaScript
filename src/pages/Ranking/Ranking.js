@@ -3,21 +3,18 @@ import styles from './Ranking.module.css';
 import { RankingTable, Button } from '../../components';
 
 /**
- * @param {{ text: string, onClick: ((e: MouseEvent) => void) | 'submit', id?: string, selectedCategory: QuizCategory }} props
+ * @param {{ text: string, onClick: ((e: MouseEvent) => void), id?: string, selectedCategory: QuizCategory }} props
  * @returns {HTMLElement}
  */
 
 function TabBtn({ text, onClick, id, selectedCategory }) {
-  const button = html`<button class="${styles.flexBtn}" type="${onClick === 'submit' ? 'submit' : 'button'}" id="${id}">
-    ${text}
-  </button>`;
+  const button = html`<button class="${styles.flexBtn}" type="button" id="${id}">${text}</button>`;
   if (selectedCategory === id) {
     button.classList.add(styles.flexBtnFocus);
   }
 
-  if (onClick !== 'submit') {
-    button.addEventListener('click', onClick);
-  }
+  button.addEventListener('click', onClick);
+
   return button;
 }
 

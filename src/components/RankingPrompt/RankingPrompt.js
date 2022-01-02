@@ -6,20 +6,11 @@ import { addUserToRanking } from '../../shared/ranking';
 import styles from './RankingPrompt.module.css';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
-const id = Date.now();
-
 /**
- * @returns {number}
- */
-function getUserId() {
-  return id;
-}
-
-/**
- * @param {{ correctAnswers: number, close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
+ * @param {{ correctAnswers: number, timeStamp: number,close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
  * @returns {HTMLElement}
  */
-function RankingPrompt({ correctAnswers, close, category, difficulty }) {
+function RankingPrompt({ correctAnswers, close, category, difficulty, timeStamp }) {
   const multiplier = difficulty === 'hard' ? 2 : 1;
   const score = correctAnswers * multiplier;
 
@@ -48,9 +39,8 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
     usernameInput.disabled = true; // make sure user can't focus irrelevant input
     submitButton.blur();
     usernameInput.blur();
-
-    addUserToRanking(username, score, category, id);
-    close(id);
+    addUserToRanking(username, score, category, timeStamp);
+    close(timeStamp);
   });
 
   const message =
@@ -71,4 +61,4 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
   </section>`;
 }
 
-export { RankingPrompt, getUserId };
+export { RankingPrompt };
