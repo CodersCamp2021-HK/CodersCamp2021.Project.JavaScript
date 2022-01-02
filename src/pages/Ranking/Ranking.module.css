@@ -30,9 +30,25 @@
   cursor: pointer;
 }
 
+.flexBtn {
+  background-color: var(--primary-light);
+  color: var(--secondary-dark);
+  display: inline-flex;
+  width: 100%;
+  height: 3rem;
+  flex-direction: column;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .flexBtn:hover,
 .flexBtn:active,
-.flexBtn:focus {
+.flexBtn:focus,
+.flexBtnFocus {
   background-color: var(--primary-dark);
   color: var(--common-white);
 }

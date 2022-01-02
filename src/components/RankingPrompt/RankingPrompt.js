@@ -11,7 +11,7 @@ const id = Date.now();
 /**
  * @returns {number}
  */
-function getId() {
+function getUserId() {
   return id;
 }
 
@@ -71,4 +71,4 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
   </section>`;
 }
 
-export { RankingPrompt, getId };
+export { RankingPrompt, getUserId };
