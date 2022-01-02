@@ -1,4 +1,4 @@
-import { Button, Logo, RankingPrompt, AnswersTable } from '../../components';
+import { Button, Logo, RankingPrompt, AnswersTable, getId } from '../../components';
 import { html } from '../../shared';
 import styles from './Answers.module.css';
 
@@ -54,8 +54,10 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
           })}
           ${Button({
             text: 'Ranking',
-            disabled: true,
-            onClick: () => {},
+            disabled: false,
+            onClick: () => {
+              router.goto({ page: 'ranking', data: { id: getId(), category: selectedCategory } });
+            },
           })}
         </div>
         <div class="${styles.logoWrapper}">${Logo(31)}</div>

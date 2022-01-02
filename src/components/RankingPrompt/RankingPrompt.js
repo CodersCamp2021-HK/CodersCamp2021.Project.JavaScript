@@ -6,6 +6,15 @@ import { addUserToRanking } from '../../shared/ranking';
 import styles from './RankingPrompt.module.css';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
+const id = Date.now();
+
+/**
+ * @returns {number}
+ */
+function getId() {
+  return id;
+}
+
 /**
  * @param {{ correctAnswers: number, close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
  * @returns {HTMLElement}
@@ -32,7 +41,7 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
       ${usernameInput} ${submitButton}
     </form>`
   );
-
+  // const id = Date.now();
   form.addEventListener('submit', (event) => {
     event.preventDefault(); // make sure form doesn't post
     submitButton.disabled = true; // make sure we don't submit score twice
@@ -40,7 +49,6 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
     submitButton.blur();
     usernameInput.blur();
 
-    const id = Date.now();
     addUserToRanking(username, score, category, id);
     close(id);
   });
@@ -63,4 +71,4 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
   </section>`;
 }
 
-export { RankingPrompt };
+export { RankingPrompt, getId };

@@ -31,7 +31,8 @@
 }
 
 .flexBtn:hover,
-.flexBtn:active {
+.flexBtn:active,
+.flexBtn:focus {
   background-color: var(--primary-dark);
   color: var(--common-white);
 }

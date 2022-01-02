@@ -1,12 +1,44 @@
-import { html } from '../../shared';
+import { html, render } from '../../shared';
 import styles from './Ranking.module.css';
 import { RankingTable, Button } from '../../components';
 
 /**
- * @param {{} & import('..').RouterProps} props
+ * @param {{ text: string, onClick: ((e: MouseEvent) => void) | 'submit' }} props
+ * @returns {HTMLButtonElement}
+ */
+
+function TabBtn({ text, onClick }) {
+  const button = /** @type {HTMLButtonElement} */ (
+    html`<button class="${styles.flexBtn}" type="${onClick === 'submit' ? 'submit' : 'button'}">${text}</button>`
+  );
+
+  if (onClick !== 'submit') {
+    button.addEventListener('click', onClick);
+  }
+
+  return button;
+}
+
+/**
+ * @typedef {'character' | 'episode' | 'location' | 'mixed'} QuizCategory
+ */
+
+/**
+ * @param {{id?: number, category: QuizCategory} & import('..').RouterProps} props
+
  * @returns
  */
-function Ranking({ router }) {
+function Ranking({ router, id, category }) {
+  const rankingTable = html`<div class=${styles.table}>${RankingTable({ id, category })}</div>`;
+  const onGameTypeSelect = (gameType) => {
+    render({
+      element: RankingTable({
+        category: gameType,
+      }),
+      on: rankingTable.firstElementChild,
+    });
+  };
+
   const homeBtn = Button({
     text: 'Wróć do ekranu startowego',
     variant: 'normal',
@@ -16,14 +48,34 @@ function Ranking({ router }) {
   });
   return html` <div class=${styles.content}>
     <div class=${styles.flexContainer}>
-      <button class=${styles.flexBtn}>Co to za postać</button>
-      <button class=${styles.flexBtn}>Bohaterowie odcinka</button>
-      <button class=${styles.flexBtn}>Kto tu mieszka</button>
-      <button class=${styles.flexBtn}>Mieszane</button>
+      ${TabBtn({
+        text: 'Co to za postać',
+        onClick: () => {
+          onGameTypeSelect('character');
+        },
+      })}
+      ${TabBtn({
+        text: 'Bohaterowie odcinka',
+        onClick: () => {
+          onGameTypeSelect('episode');
+        },
+      })}
+      ${TabBtn({
+        text: 'Kto tu mieszka',
+        onClick: () => {
+          onGameTypeSelect('location');
+        },
+      })}
+      ${TabBtn({
+        text: 'Mieszane',
+        onClick: () => {
+          onGameTypeSelect('mixed');
+        },
+      })}
     </div>
     <div class=${styles.rectangle}>
       <h1 class=${styles.text}>Ranking</h1>
-      <div class=${styles.table}>${RankingTable({ category: 'mixed' })}</div>
+      ${rankingTable}
       <div class=${styles.homeBtn}>${homeBtn}</div>
     </div>
   </div>`;
