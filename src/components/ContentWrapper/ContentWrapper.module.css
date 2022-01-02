@@ -12,6 +12,7 @@
 
 .panel {
   background-color: var(--primary-dark);
+  color: var(--common-white);
   border-radius: var(--default-border-radius);
   max-width: 70ch;
   display: grid;
@@ -26,6 +27,7 @@
 .content {
   grid-area: content;
   padding: 0 2rem;
+  min-width: 0px;
 }
 
 .logoWrapper {

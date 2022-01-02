@@ -3,6 +3,7 @@ import { Input } from '../Input';
 import { PopupClose } from '../PopupClose';
 import { Button } from '../Button';
 import { addUserToRanking } from '../../shared/ranking';
+import { ContentWrapper } from '../ContentWrapper';
 import styles from './RankingPrompt.module.css';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
@@ -50,17 +51,19 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
       ? `Twój wynik to ${score} punktów.`
       : `Odpowiedziałeś poprawnie na ${correctAnswers} pytań, co daje Ci ${score} punktów.`;
 
-  return html` <section class="${styles.mainBox}">
-    <div class="${styles.closeWrapper}">${PopupClose({ onClick: () => close(null) })}</div>
-    <img class="${styles.image}" src="${charactersCelebrationUrl}" alt="Characters from the show dancing." />
-    <div class=${styles.column}>
-      <header>
-        <h3 class="${styles.heading}">Gratulacje!</h3>
-        <p>${message}</p>
-      </header>
-      ${form}
-    </div>
-  </section>`;
+  return ContentWrapper({
+    topRight: PopupClose({ onClick: () => close(null) }),
+    content: html`<div class="${styles.mainBox}">
+      <img class="${styles.image}" src="${charactersCelebrationUrl}" alt="Characters from the show dancing." />
+      <div class=${styles.column}>
+        <header>
+          <h3 class="${styles.heading}">Gratulacje!</h3>
+          <p>${message}</p>
+        </header>
+        ${form}
+      </div>
+    </div>`,
+  });
 }
 
 export { RankingPrompt };

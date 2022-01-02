@@ -1,11 +1,11 @@
 .input {
   font-size: var(--button-text);
-  padding: 0.625rem 1.6rem;
+  padding: 0.45rem 1rem;
   border-radius: var(--default-border-radius);
   color: var(--text-primary);
   transition-duration: var(--default-transition);
   outline: 0;
-  border: 2px solid transparent;
+  border: 0.1875rem solid transparent;
 }
 
 .input::placeholder {
@@ -18,5 +18,5 @@
 
 .input:focus {
   color: var(--secondary-dark);
-  border: 2px solid var(--secondary-light);
+  border-color: var(--secondary-light);
 }

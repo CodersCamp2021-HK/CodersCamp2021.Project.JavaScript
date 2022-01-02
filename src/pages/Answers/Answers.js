@@ -1,4 +1,4 @@
-import { Button, Logo, RankingPrompt, AnswersTable } from '../../components';
+import { Button, RankingPrompt, AnswersTable, ContentWrapper } from '../../components';
 import { html } from '../../shared';
 import styles from './Answers.module.css';
 
@@ -23,18 +23,19 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
     }, transitionSeconds * 1000);
   };
 
-  const rankingPrompt = RankingPrompt({
-    correctAnswers,
-    difficulty: selectedDifficulty,
-    category: selectedCategory,
-    close: closePopup,
-  });
-
-  popupOverlay.appendChild(rankingPrompt);
+  popupOverlay.appendChild(
+    RankingPrompt({
+      correctAnswers,
+      difficulty: selectedDifficulty,
+      category: selectedCategory,
+      close: closePopup,
+    }),
+  );
 
   return html`<div class="${styles.wrapper}">
-    <div class="${styles.content}">
-      <main class="${styles.container}">
+    ${ContentWrapper({
+      hasLogo: true,
+      content: html`<div class="${styles.container}">
         <h3 class="${styles.heading}">
           Poprawne odpowiedzi: <span class="${styles.score}">${correctAnswers}/${answeredQuestions}</span>
         </h3>
@@ -58,9 +59,8 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
             onClick: () => {},
           })}
         </div>
-        <div class="${styles.logoWrapper}">${Logo(31)}</div>
-      </main>
-    </div>
+      </div>`,
+    })}
     ${popupOverlay}
   </div>`;
 }

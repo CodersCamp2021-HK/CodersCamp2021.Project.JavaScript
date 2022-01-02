@@ -30,9 +30,12 @@ function ContentWrapper({
 
   const logo = html`<div class="${styles.logoWrapper}"><img src="${logoImg}" alt="Logo serialu." /></div>`;
 
+  const mTop = hasHead || topLeft !== '' || topRight !== '';
+  const mBot = hasLogo || botRight !== '';
+
   const margins = `
-  margin-top: ${hasHead ? 'var(--panel-padding)' : '0'};
-  margin-bottom: ${hasLogo ? 'var(--panel-padding)' : '0'};
+  margin-top: ${mTop ? 'var(--panel-padding)' : '0'};
+  margin-bottom: ${mBot ? 'var(--panel-padding)' : '0'};
   `;
 
   return /** @type {HTMLDivElement} */ (
