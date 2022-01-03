@@ -8,10 +8,10 @@ import styles from './RankingPrompt.module.css';
 import charactersCelebrationUrl from '../../public/img/CharactersCelebration.png';
 
 /**
- * @param {{ correctAnswers: number, close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
+ * @param {{ correctAnswers: number, timeStamp: number,close: (id: (number | null)) => void, category: import('../../pages/Loading').QuizCategory, difficulty: import('../../pages/Loading').QuizDifficulty }} props
  * @returns {HTMLElement}
  */
-function RankingPrompt({ correctAnswers, close, category, difficulty }) {
+function RankingPrompt({ correctAnswers, close, category, difficulty, timeStamp }) {
   const multiplier = difficulty === 'hard' ? 2 : 1;
   const score = correctAnswers * multiplier;
 
@@ -40,10 +40,8 @@ function RankingPrompt({ correctAnswers, close, category, difficulty }) {
     usernameInput.disabled = true; // make sure user can't focus irrelevant input
     submitButton.blur();
     usernameInput.blur();
-
-    const id = Date.now();
-    addUserToRanking(username, score, category, id);
-    close(id);
+    addUserToRanking(username, score, category, timeStamp);
+    close(timeStamp);
   });
 
   const message =

@@ -73,7 +73,7 @@ function Home({ router }) {
         ${Button({
           text: 'Ranking',
           onClick: () => {
-            router.goto({ page: 'ranking' });
+           router.goto({ page: 'ranking', data: { category: 'character' } });
           },
           variant: 'outlined',
         })}

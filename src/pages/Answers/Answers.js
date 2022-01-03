@@ -12,10 +12,9 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
   const correctAnswers = allAnswers.filter((answer) => answer.correct).length;
 
   const popupOverlay = html`<div class="${styles.popupOverlay}"></div>`;
-
+  const timeStamp = Date.now();
   const closePopup = () => {
     const transitionSeconds = parseFloat(getComputedStyle(popupOverlay).getPropertyValue('transition-duration'));
-
     popupOverlay.style.opacity = '0';
 
     setInterval(() => {
@@ -29,6 +28,7 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
       difficulty: selectedDifficulty,
       category: selectedCategory,
       close: closePopup,
+      timeStamp,
     }),
   );
 
@@ -55,8 +55,10 @@ function Answers({ router, allAnswers, selectedCategory, selectedDifficulty }) {
           })}
           ${Button({
             text: 'Ranking',
-            disabled: true,
-            onClick: () => {},
+            disabled: false,
+            onClick: () => {
+              router.goto({ page: 'ranking', data: { id: timeStamp, category: selectedCategory } });
+            },
           })}
         </div>
       </div>`,
