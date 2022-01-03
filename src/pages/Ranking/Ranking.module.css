@@ -37,11 +37,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .text {
-  font-weight: 800;
-  color: var(--common-white);
   font-size: var(--header-3);
+  font-weight: 800;
+  text-align: center;
+  filter: drop-shadow(var(--heading-shadow));
 }

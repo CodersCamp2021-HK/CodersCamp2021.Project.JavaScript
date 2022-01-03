@@ -9,6 +9,7 @@
   font-size: var(--header-3);
   font-weight: 800;
   text-align: center;
+  filter: drop-shadow(var(--heading-shadow));
 }
 
 .content {

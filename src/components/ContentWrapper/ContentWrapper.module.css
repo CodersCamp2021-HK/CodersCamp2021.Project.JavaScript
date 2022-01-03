@@ -14,6 +14,7 @@
   background-color: var(--primary-dark);
   color: var(--common-white);
   border-radius: var(--default-border-radius);
+  box-shadow: var(--popup-shadow);
   max-width: 70ch;
   display: grid;
   grid-template-rows: var(--panel-padding) auto var(--panel-padding);
