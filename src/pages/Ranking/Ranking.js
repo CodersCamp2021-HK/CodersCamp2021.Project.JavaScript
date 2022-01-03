@@ -1,6 +1,6 @@
 import { html, render } from '../../shared';
 import styles from './Ranking.module.css';
-import { RankingTable, Button } from '../../components';
+import { RankingTable, Button, ContentWrapper } from '../../components';
 
 /**
  * @param {{ text: string, onClick: ((e: MouseEvent) => void), id?: string, selectedCategory: QuizCategory }} props
@@ -27,18 +27,23 @@ function TabBtn({ text, onClick, id, selectedCategory }) {
  * @returns {HTMLElement}
  */
 function Ranking({ router, id, category }) {
-  const rankingTable = html`<div class=${styles.table}>${RankingTable({ id, category })}</div>`;
+  let rankingTable = RankingTable({ id, category });
+  let currentCategory = category;
 
   /**
+   * @todo there's probably a better way to implement active-tab switching
    * @param {QuizCategory} gameType
    */
   const onGameTypeSelect = (gameType) => {
-    document.getElementById(category).classList.remove(styles.flexBtnFocus);
-    render({
+    document.getElementById(currentCategory).classList.remove(styles.flexBtnFocus);
+    currentCategory = gameType;
+    document.getElementById(currentCategory).classList.add(styles.flexBtnFocus);
+
+    rankingTable = render({
       element: RankingTable({
         category: gameType,
       }),
-      on: rankingTable.firstElementChild,
+      on: rankingTable,
     });
   };
 
@@ -49,8 +54,10 @@ function Ranking({ router, id, category }) {
       router.goto({ page: 'home' });
     },
   });
-  return html` <div class=${styles.content}>
-    <div class=${styles.flexContainer}>
+
+  return ContentWrapper({
+    hasLogo: true,
+    topAttachment: html`<div class=${styles.flexContainer}>
       ${TabBtn({
         text: 'Co to za postać',
         onClick: () => {
@@ -83,13 +90,12 @@ function Ranking({ router, id, category }) {
         id: 'mixed',
         selectedCategory: category,
       })}
-    </div>
-    <div class=${styles.rectangle}>
+    </div>`,
+    content: html`<div class=${styles.rectangle}>
       <h1 class=${styles.text}>Ranking</h1>
-      ${rankingTable}
-      <div class=${styles.homeBtn}>${homeBtn}</div>
-    </div>
-  </div>`;
+      ${rankingTable} ${homeBtn}
+    </div>`,
+  });
 }
 
 export { Ranking };

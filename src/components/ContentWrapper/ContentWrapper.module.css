@@ -24,6 +24,12 @@
     '. logo bot-right';
 }
 
+.panelWithAttachment {
+  composes: panel;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .content {
   grid-area: content;
   padding: 0 2rem;
@@ -88,4 +94,13 @@
 .botRight {
   grid-area: bot-right;
   margin-bottom: var(--float-offset);
+}
+
+.topAttachment {
+  grid-area: 1 / 1 / 1 / -1;
+  margin-top: calc((-1) * var(--panel-padding));
+  padding-bottom: var(--panel-padding);
+  height: calc(2 * var(--panel-padding));
+  width: 100%;
+  z-index: 1;
 }

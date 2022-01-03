@@ -2,7 +2,7 @@
   --answer-image-size: 2rem;
   --answer-image-margin: 0.5rem;
 
-  height: 15rem;
+  height: 12rem;
   margin-bottom: 1rem;
   overflow: auto;
   max-width: 100%;
@@ -19,7 +19,6 @@
   background-color: var(--primary-dark);
   border-radius: 0;
   padding: 0.25rem 0.5rem;
-  white-space: nowrap;
   position: sticky;
   top: 0;
   z-index: 1;

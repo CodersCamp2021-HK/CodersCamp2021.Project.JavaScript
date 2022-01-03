@@ -1,29 +1,24 @@
-/* table {
+.rankingContainer table {
   font-weight: 600;
-  color: white;
-  list-style: number;
-  width: 100%;
   text-align: center;
+  table-layout: fixed;
+  width: 100%;
 }
 
-thead th {
+.rankingContainer thead th {
   background-color: var(--primary-dark);
   color: var(--secondary-dark);
   position: sticky;
   top: 0;
+  padding: 0 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-thead th:first-child {
-  border-radius: 100px 0 0 100px;
-}
-
-thead th:last-child {
-  border-radius: 0 100px 100px 0;
-} */
 
 .rankingContainer {
-  overflow-y: auto;
-  height: 9.25rem;
+  overflow: auto;
+  height: 12rem;
 }
 
 .userScore {
@@ -32,15 +27,15 @@ thead th:last-child {
 }
 
 .blobBox {
-  width: 4.125rem;
-  height: 4.125rem;
+  width: 4rem;
+  height: 4rem;
   display: grid;
   place-items: center;
   margin: 0 auto;
 }
 
 .blobBox > * {
-  grid-area: 1 / -1 / 1 / -1;
+  grid-area: 1 / 1 / -1 / -1;
 }
 
 .userPosition {
