@@ -16,6 +16,8 @@
 }
 
 .flexBtn {
+  box-shadow: 5px 0px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
   background-color: var(--primary-light);
   color: var(--secondary-dark);
   display: inline-flex;
@@ -31,7 +33,10 @@
 }
 
 .flexBtn:hover,
-.flexBtn:active {
+.flexBtn:active,
+.flexBtn:focus,
+.flexBtnFocus {
+  box-shadow: none;
   background-color: var(--primary-dark);
   color: var(--common-white);
 }
@@ -53,6 +58,7 @@
 }
 
 .text {
+  font-weight: 800;
   margin-left: 10%;
   margin-right: auto;
   color: var(--common-white);
