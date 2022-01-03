@@ -11,19 +11,18 @@
 ## 👨‍💻 Zespół projektowy
 
 Zespół pracował w ramach kursu [CodersCamp](https://www.coderscamp.edu.pl/). Aplikację wykonali uczestnicy kursu przy pomocy mentora.
-<br><br>
 
 **Mentor**
 
 | [<img src="https://github.com/htk4.png?size=80" style="width: 80px; border-radius: 50%"><br><sub>@htk4</sub>](https://github.com/htk4) |
 | :------------------------------------------------------------------------------------------------------------------------------------: |
 
-<br>
-
 **Uczestnicy**
 
 | [<img src="https://github.com/tchojnacki.png?size=80" style="width: 80px; border-radius: 50%"><br><sub>@tchojnacki</sub>](https://github.com/tchojnacki) | [<img src="https://github.com/KamilDudek.png?size=80" style="width: 80px; border-radius: 50%"><br><sub>@KamilDudek</sub>](https://github.com/KamilDudek) | [<img src="https://github.com/mmejer.png?size=80" style="width: 80px; border-radius: 50%"><br><sub>@mmejer</sub>](https://github.com/mmejer) | [<img src="https://github.com/jskrajna.png?size=80" style="width: 80px; border-radius: 50%"><br><sub>@jskrajna</sub>](https://github.com/jskrajna) |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+<br>
 
 ## 🥒 Rick And Morty Quiz
 
