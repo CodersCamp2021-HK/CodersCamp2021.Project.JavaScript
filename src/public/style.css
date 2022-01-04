@@ -28,28 +28,34 @@
   --action-focus: rgba(0, 0, 0, 0.12);
 
   /* Text-size styles */
-  /* base size: button-text-small (20px) */
-  --button-text: 1.6rem;
-  --header-3: 1.8rem;
-  --text-1: 1.6rem;
-  --question-text: 1.4rem;
-  --question-button: 1.6rem;
-  --button-text-small: 1rem;
-  --extra-big-text: 2.5rem;
+  --button-text: 1rem;
+  --header-3: 1.125rem;
+  --text-1: 1rem;
+  --question-text: 0.875rem;
+  --question-button: 1rem;
+  --button-text-small: 0.625rem;
+  --extra-big-text: 1.3rem;
 
-  --default-border-radius: 50px;
+  --default-border-radius: 2.5rem;
   --popup-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  --heading-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  --heading-shadow: 0px 0.125rem 0.125rem rgba(0, 0, 0, 0.5);
   --default-transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
   --circle-animation-time: 0;
-  font-size: 20px;
-  font-family: "Montserrat", sans-serif;
 
-  background: var(--common-dark) url("/src/public/img/background.jpg") center center / cover;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+
+  background: var(--common-dark) url('/src/public/img/background.jpg') center center / cover;
 }
 
 body,
 #app {
   min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    font-size: 24px;
+  }
 }
