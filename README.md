@@ -71,13 +71,10 @@ Użytkownik musi zatwierdzić swoją odpowiedź naciskając przycisk Dalej.
 #### 🏆 Ranking
 
 Po zakończeniu rozgrywki pokazuje się okno z zapisem do rankingu. Użytkownik może pominąć zapis do rankingu zamykając okno. Jeżeli zdecyduje się zapisać wynik, musi podać nick składający się z minimum trzech znaków. Nick nie musi być unikatowy. Po przejściu do rankingu pokazuje się lista z wynikami graczy grających na danym komputerze z podświetlonym wynikiem aktualnej gry. Wyniki są pokazywane osobno dla każdej kategorii.
+
 ![Popup Zapis](/docs/popup-ranking.PNG?raw=true)
 
 ![Ranking](/docs/ranking.PNG?raw=true)
-
-#### 🏆 Ranking
-
-Po zakończeniu rozgrywki pokazuje się okno z zapisem do rankingu. Użytkownik może pominąć zapis do rankingu zamykając okno. Jeżeli zdecyduje się zapisać wynik, musi podać nick składający się z minimum trzech znaków. Nick nie musi być unikatowy. Po przejściu do rankingu pokazuje się lista z wynikami graczy grających na danym komputerze z podświetlonym wynikiem aktualnej gry. Wyniki są pokazywane osobno dla każdej kategorii.
 
 #### ✅ Odpowiedzi
 
