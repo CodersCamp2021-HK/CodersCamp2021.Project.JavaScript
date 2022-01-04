@@ -1,13 +1,13 @@
 .blobBox {
-  width: 6.125rem;
-  height: 6.125rem;
+  width: 5rem;
+  height: 5rem;
 
   display: grid;
   place-items: center;
 }
 
 .blobBox > * {
-  grid-area: 1 / -1 / 1 / -1;
+  grid-area: 1 / 1 / -1 / -1;
 }
 
 .crossIcon {

@@ -1,40 +1,33 @@
-:root {
-  --answer-image-size: 3.1rem;
-  --answer-image-margin: 0.5rem;
-}
-
 .answersWrapper {
-  height: 22.85rem;
-  margin-bottom: 1.5rem;
-  overflow-y: auto;
+  --answer-image-size: 2rem;
+  --answer-image-margin: 0.5rem;
+
+  height: 12rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+  max-width: 100%;
 }
 
 .answersTable {
-  width: 62.8rem;
   border-collapse: separate;
-  border-spacing: 0 0.15rem;
+  border-spacing: 0 0.2rem;
   font-size: var(--question-text);
+  text-align: center;
 }
 
 .answersTable thead th {
-  color: var(--common-white);
   background-color: var(--primary-dark);
   border-radius: 0;
+  padding: 0.25rem 0.5rem;
+  position: sticky;
+  top: 0;
   z-index: 1;
 }
 
-.tableRow {
-  height: 5.6rem;
-  vertical-align: middle;
-  background-color: var(--action-active);
-  border-radius: 10px;
-}
-
 .tableCell {
-  width: 17.2rem;
   position: relative;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
+  background-color: var(--action-active);
+  padding: 0.25rem 0.5rem;
 }
 
 .tableCell:not(:last-child)::after {
@@ -47,28 +40,24 @@
   background-color: var(--common-white);
 }
 
-.tableCell:first-child, .tableCell:last-child {
-  width: 5.6rem;
-}
-
-.tableCell:first-child {
-  border-radius: 10px 0 0 10px;
-  color: var(--primary-light);
-}
-
+.tableCell:first-child,
 .tableCell:nth-child(2) {
   color: var(--primary-light);
 }
 
+.tableCell:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
 .tableCell:last-child {
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .characterImage {
   display: block;
-  margin: auto;
-  height: 5.3rem;
-  width: 5.3rem;
+  margin: 0 auto;
+  width: var(--answer-image-size);
+  height: var(--answer-image-size);
   border-radius: 20%;
 }
 
@@ -90,4 +79,6 @@
 
 .correctIcon {
   margin: auto;
+  height: var(--answer-image-size);
+  min-width: var(--answer-image-size);
 }
