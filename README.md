@@ -75,7 +75,7 @@ Po zakończeniu rozgrywki użytkownik przechodzi do strony z odpowiedziami. Poka
 - JavaScript
 - HTML
 - CSS
-- Jest.js
+- Jest
 - Git
 - GitHub
 - Visual Studio Code
@@ -93,6 +93,18 @@ Po zakończeniu rozgrywki użytkownik przechodzi do strony z odpowiedziami. Poka
 
 ### Organizacja pracy
 
-Praca zespołu była organizowana przy pomocy narzędzi dostarczanych przez GitHub, takich jak GitHub Issues i GitHub Projects. Prace nad projektem zostały podzielone na pięć tygodniowych etapów, podczas których wykonywane były zadania opisywane z wykorzystaniem GitHub Issues. Do zadań członkowie zespołu przypisywali się samodzielnie.
+W zespole zostały wyznaczone osoby pełniące następujące role:
+
+- Scrum Master: [@jskrajna](https://github.com/jskrajna)
+  - rozpisywanie zadań poprzez GitHub Issues
+  - prowadzenie daily w trakcie spotkań na kanale głosowym
+- Project Manager: [@mmejer](https://github.com/mmejer)
+  - daily poprzez kanał tekstowy
+  - tworzenie dokumentacji
+- Tech Lead: [@tchojnacki](https://github.com/tchojnacki)
+  - przeprowadzanie Code Review
+  - pomoc innym członkom zespołu
+
+Praca zespołu była organizowana przy pomocy narzędzi dostarczanych przez GitHub, takich jak GitHub Issues i GitHub Projects. Prace nad projektem zostały podzielone na pięć tygodniowych etapów, podczas których wykonywane były zadania opisywane z wykorzystaniem GitHub Issues. Do zadań członkowie zespołu przypisywali się samodzielnie. Każda osoba w zespole starała się przeprowadzać Code Review pozostałym członkom.
 
 Dwa razy w tygodniu odbywały się zdalne spotkania zespołu. Dodatkowo dwa razy w tygodniu każdy uczestnik relacjonował, postęp swoich prac oraz ewentualne problemy.
