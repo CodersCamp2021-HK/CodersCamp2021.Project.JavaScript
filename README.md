@@ -107,4 +107,4 @@ W zespole zostały wyznaczone osoby pełniące następujące role:
 
 Praca zespołu była organizowana przy pomocy narzędzi dostarczanych przez GitHub, takich jak GitHub Issues i GitHub Projects. Prace nad projektem zostały podzielone na pięć tygodniowych etapów, podczas których wykonywane były zadania opisywane z wykorzystaniem GitHub Issues. Do zadań członkowie zespołu przypisywali się samodzielnie. Każda osoba w zespole starała się przeprowadzać Code Review pozostałym członkom.
 
-Dwa razy w tygodniu odbywały się zdalne spotkania zespołu. Dodatkowo dwa razy w tygodniu każdy uczestnik relacjonował, postęp swoich prac oraz ewentualne problemy.
+Dwa razy w tygodniu odbywały się zdalne spotkania zespołu. Dodatkowo dwa razy w tygodniu każdy uczestnik relacjonował postęp swoich prac oraz ewentualne problemy.
