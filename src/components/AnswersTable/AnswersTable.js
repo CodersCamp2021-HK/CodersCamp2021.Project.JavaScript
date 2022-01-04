@@ -34,6 +34,7 @@ const answerImagesDiv = (answers, answersDiv) => {
     const characterImage = document.createElement('img');
     characterImage.src = character.image;
     characterImage.alt = character.name;
+    characterImage.title = character.name;
     characterImage.className = styles.answerImage;
     answersDiv.appendChild(characterImage);
   });
@@ -53,6 +54,7 @@ const characterQuestionElements = (count, answer) => {
 
   characterImage.src = answer.whatIsQuestionAbout;
   characterImage.alt = answer.correctAnswers[0].name;
+  characterImage.title = answer.correctAnswers[0].name;
   characterImage.className = styles.characterImage;
 
   return [questionNumber, characterImage, correctAnswer, userAnswer, correct];

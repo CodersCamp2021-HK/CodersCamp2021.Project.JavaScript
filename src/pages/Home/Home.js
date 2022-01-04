@@ -36,55 +36,50 @@ function Home({ router }) {
     });
   };
 
-  return html`<div class="${styles.wrapper}">
-    <section class="${styles.homeSection}">
-      <div class="${styles.image}">
-        <img src="${rickAndMorty}" alt="Rick and Morty" />
-        ${rulesWrapper}
-      </div>
-      <div>
-      <div>
-        ${GameTypes({
-          onSelect: (selected) => {
-            selectedCategory = selected.id;
-            onGameOptionSelect();
-          },
-          heading: 'Wybierz kategorię',
-          categories: [
-            { id: 'character', text: 'Co to za postać' },
-            { id: 'episode', text: 'Bohaterowie odcinka' },
-            { id: 'location', text: 'Kto tu mieszka' },
-            { id: 'mixed', text: 'Mieszane' },
-          ],
-        })}
-      </div>
-
-      <div class = "${styles.difficult}">
-        ${GameTypes({
-          onSelect: (selected) => {
-            selectedDifficulty = selected.id;
-            onGameOptionSelect();
-          },
-          heading: 'Wybierz poziom',
-          categories: [
-            { id: 'easy', text: 'Łatwy' },
-            { id: 'hard', text: 'Trudny' },
-          ],
-          layout: 'halfWidth',
-        })}
-      </div>
-      <div class = "${styles.startBtn}">
-      ${btnStart}
-      ${Button({
-        text: 'Ranking',
-        onClick: () => {
-          router.goto({ page: 'ranking', data: { category: 'character' } });
+  return html` <section class="${styles.homeSection}">
+    <div class="${styles.image}">
+      <img src="${rickAndMorty}" alt="Rick and Morty" />
+      ${rulesWrapper}
+    </div>
+    <div class="${styles.optionsPanel}">
+      ${GameTypes({
+        onSelect: (selected) => {
+          selectedCategory = selected.id;
+          onGameOptionSelect();
         },
-        variant: 'outlined',
+        heading: 'Wybierz kategorię',
+        categories: [
+          { id: 'character', text: 'Co to za postać' },
+          { id: 'episode', text: 'Bohaterowie odcinka' },
+          { id: 'location', text: 'Kto tu mieszka' },
+          { id: 'mixed', text: 'Mieszane' },
+        ],
       })}
+      ${GameTypes({
+        onSelect: (selected) => {
+          selectedDifficulty = selected.id;
+          onGameOptionSelect();
+        },
+        heading: 'Wybierz poziom',
+        categories: [
+          { id: 'easy', text: 'Łatwy' },
+          { id: 'hard', text: 'Trudny' },
+        ],
+        layout: 'halfWidth',
+      })}
+
+      <div class="${styles.featuredButtons}">
+        ${btnStart}
+        ${Button({
+          text: 'Ranking',
+          onClick: () => {
+            router.goto({ page: 'ranking', data: { category: 'character' } });
+          },
+          variant: 'outlined',
+        })}
       </div>
-    </section>
-  </div></div>`;
+    </div>
+  </section>`;
 }
 
 export { Home };

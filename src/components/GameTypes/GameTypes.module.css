@@ -3,23 +3,25 @@
   font-size: var(--header-3);
   color: var(--common-white);
   text-align: center;
-  width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .container {
-  width: 39rem;
-  gap: 20px;
+  display: flex;
+  gap: 1rem;
 }
 
 .containerFullWidth {
-  display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .containerHalfWidth {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.containerHalfWidth > * {
+  flex: 1;
 }
 
 .selectedType {

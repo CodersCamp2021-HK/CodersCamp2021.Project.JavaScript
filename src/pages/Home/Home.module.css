@@ -1,24 +1,31 @@
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .homeSection {
-  width: 100%;
-  display: inline-flex;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10rem;
+  align-items: center;
+  gap: 4rem;
 }
 
-.startBtn {
+.optionsPanel {
   display: flex;
-  gap: 1.25rem;
-  padding-top: 1.25rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-basis: 30rem;
 }
+
+.featuredButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.featuredButtons > * {
+  flex: 1;
+}
+
 .centered {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -27,7 +34,7 @@
 .image {
   width: 100%;
   height: auto;
-  max-width: 600px;
+  max-width: 30rem;
   position: relative;
   text-align: center;
 }
@@ -35,14 +42,11 @@
 .hide {
   display: none;
 }
+
 .show {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.difficult {
-  margin-top: 3rem;
 }

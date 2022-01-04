@@ -11,3 +11,4 @@ export * from './PopupClose';
 export * from './RankingPrompt';
 export * from './RankingTable';
 export * from './AnswersTable';
+export * from './ContentWrapper';

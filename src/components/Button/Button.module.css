@@ -1,11 +1,12 @@
 .Button {
   font-size: var(--button-text);
-  padding: 0.75rem 1.6rem;
-  border: 6px solid transparent;
+  padding: 0.45rem 1rem;
+  border: 0.1875rem solid transparent;
   border-radius: var(--default-border-radius);
   color: var(--common-white);
   transition: var(--default-transition);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .Button:hover {
@@ -28,7 +29,6 @@
 .ButtonMain {
   composes: Button;
   background-color: var(--secondary-main);
-  width: 100%;
 }
 
 .ButtonMain:hover {
@@ -38,7 +38,6 @@
 .ButtonOutlined {
   composes: Button;
   border-color: var(--secondary-main);
-  width: 100%;
 }
 
 .ButtonOutlined:hover {
@@ -63,7 +62,6 @@
 .ButtonGameMode {
   composes: Button;
   border-color: var(--primary-main);
-  width: 100%;
 }
 
 .ButtonGameMode:hover {

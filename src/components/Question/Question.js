@@ -64,13 +64,13 @@ function Question(questionData) {
   const answers =
     category === 'character'
       ? questionData.answers.map(
-          (answer, index) => html`<div id="${index}" class="${styles.answer}">
+          (answer, index) => html`<div id="${index}" class="${styles.answer}" title="${answer.name}">
             <div class="${styles.answerItem}">${answerLetter[index]}</div>
             <p class="${styles.answerText}">${answer.name}</p>
           </div>`,
         )
       : questionData.answers.map(
-          (answer, index) => html`<div id="${index}" class="${styles.answer}">
+          (answer, index) => html`<div id="${index}" class="${styles.answer}" title="${answer.name}">
             <div class="${styles.answerItem}"><img src="${answer.image}" alt="${answer.name}" /></div>
             <p class="${styles.answerText}">${answer.name}</p>
           </div>`,

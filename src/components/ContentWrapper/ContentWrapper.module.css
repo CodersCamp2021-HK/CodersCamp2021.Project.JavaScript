@@ -1,0 +1,108 @@
+.wrapper {
+  --wrapper-padding: 1rem;
+  --panel-padding: 3rem;
+  --float-offset: -2rem;
+
+  min-height: 100vh;
+  padding: var(--wrapper-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.panel {
+  background-color: var(--primary-dark);
+  color: var(--common-white);
+  border-radius: var(--default-border-radius);
+  box-shadow: var(--popup-shadow);
+  max-width: 70ch;
+  display: grid;
+  grid-template-rows: var(--panel-padding) auto var(--panel-padding);
+  grid-template-columns: 1fr 50% 1fr;
+  grid-template-areas:
+    'top-left head top-right'
+    'content content content'
+    '. logo bot-right';
+}
+
+.panelWithAttachment {
+  composes: panel;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.content {
+  grid-area: content;
+  padding: 0 2rem;
+  min-width: 0px;
+}
+
+.logoWrapper {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoWrapper img {
+  margin-bottom: calc((-1) * var(--panel-padding));
+  max-height: calc(2 * var(--panel-padding));
+}
+
+.headWrapper {
+  grid-area: head;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.headWrapper img {
+  position: absolute;
+  bottom: var(--panel-padding);
+  transform: translateY(15%);
+  max-height: 7.5rem;
+}
+
+.topLeft,
+.topRight,
+.botRight {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  z-index: 1; /* Show above Rick's head if necessary */
+}
+
+.topLeft {
+  grid-area: top-left;
+  margin-top: var(--float-offset);
+  margin-left: var(--float-offset);
+  justify-content: start;
+  left: var(--wrapper-padding);
+}
+
+.topRight,
+.botRight {
+  margin-right: var(--float-offset);
+  justify-content: end;
+  right: var(--wrapper-padding);
+}
+
+.topRight {
+  grid-area: top-right;
+  margin-top: var(--float-offset);
+}
+
+.botRight {
+  grid-area: bot-right;
+  margin-bottom: var(--float-offset);
+}
+
+.topAttachment {
+  grid-area: 1 / 1 / 1 / -1;
+  margin-top: calc((-1) * var(--panel-padding));
+  padding-bottom: var(--panel-padding);
+  height: calc(2 * var(--panel-padding));
+  width: 100%;
+  z-index: 1;
+}
