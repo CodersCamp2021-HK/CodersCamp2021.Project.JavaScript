@@ -50,13 +50,13 @@ Należy także wybrać poziom rozgrywki:
 - **Łatwy** - dwie odpowiedzi dla każdego pytania. Prawidłowa odpowiedź na pytanie daje użytkownikowi jeden punkt.
 - **Trudny** - cztery odpowiedzi do każdego pytania. Prawidłowa odpowiedź na pytanie daje użytkownikowi dwa punkty.
 
-![Menu Główne](/docs/menu.png?raw=true)
+![Menu Główne](/docs/menu.PNG?raw=true)
 
 #### 📜 Zasady
 
 Zasady gry wyświetlane są po wybraniu kategorii i poziomu.
 
-![Zasady](/docs/rules.png?raw=true)
+![Zasady](/docs/rules.PNG?raw=true)
 
 #### 🎲 Rozgrywka
 
@@ -66,20 +66,20 @@ Aby odpowiedź była zaliczona, użytkownik musi poprawnie zaznaczyć wszystkie 
 
 Użytkownik musi zatwierdzić swoją odpowiedź naciskając przycisk Dalej.
 
-![Pytanie](/docs/question.png?raw=true)
+![Pytanie](/docs/question.PNG?raw=true)
 
 #### 🏆 Ranking
 
 Po zakończeniu rozgrywki pokazuje się okno z zapisem do rankingu. Użytkownik może pominąć zapis do rankingu zamykając okno. Jeżeli zdecyduje się zapisać wynik, musi podać nick składający się z minimum trzech znaków. Nick nie musi być unikatowy. Po przejściu do rankingu pokazuje się lista z wynikami graczy grających na danym komputerze z podświetlonym wynikiem aktualnej gry. Wyniki są pokazywane osobno dla każdej kategorii.
-![Popup Zapis](/docs/popup-ranking.png?raw=true)
+![Popup Zapis](/docs/popup-ranking.PNG?raw=true)
 
-![Ranking](/docs/ranking.png?raw=true)
+![Ranking](/docs/ranking.PNG?raw=true)
 
 #### ✅ Odpowiedzi
 
 Po zakończeniu rozgrywki użytkownik przechodzi do strony z odpowiedziami. Pokazuje się lista pytań, poprawnych odpowiedzi i odpowiedzi użytkownika. Z tej strony użytkownik może przejść do rankingu, strony głównej lub rozpocząć rozgrywkę ponownie z takimi samymi ustawieniami.
 
-![Odpowiedzi](/docs/answers.png?raw=true)
+![Odpowiedzi](/docs/answers.PNG?raw=true)
 
 ## ⚙ Development aplikacji
 
