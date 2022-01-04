@@ -75,6 +75,10 @@ Po zakończeniu rozgrywki pokazuje się okno z zapisem do rankingu. Użytkownik 
 
 ![Ranking](/docs/ranking.PNG?raw=true)
 
+#### 🏆 Ranking
+
+Po zakończeniu rozgrywki pokazuje się okno z zapisem do rankingu. Użytkownik może pominąć zapis do rankingu zamykając okno. Jeżeli zdecyduje się zapisać wynik, musi podać nick składający się z minimum trzech znaków. Nick nie musi być unikatowy. Po przejściu do rankingu pokazuje się lista z wynikami graczy grających na danym komputerze z podświetlonym wynikiem aktualnej gry. Wyniki są pokazywane osobno dla każdej kategorii.
+
 #### ✅ Odpowiedzi
 
 Po zakończeniu rozgrywki użytkownik przechodzi do strony z odpowiedziami. Pokazuje się lista pytań, poprawnych odpowiedzi i odpowiedzi użytkownika. Z tej strony użytkownik może przejść do rankingu, strony głównej lub rozpocząć rozgrywkę ponownie z takimi samymi ustawieniami.
